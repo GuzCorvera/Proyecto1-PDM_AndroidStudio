@@ -18,7 +18,7 @@ public class BD_Controlador {
     private static final String[] camposMunicipio = new String[]{"idMunicipio","idDepartamento","nomMunicipio"};
     private static final String[] camposRangoEdad = new String[]{"idRangoEdad","nomRangoEdad","edadMenor","edadMayor"};
     private static final String[] camposSector = new String[]{"idSector","tipoSector"};
-
+    private static final String[] camposSexo = new String[]{"idSexo","nomSexo","abreviaturaSexo"};
     private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
 
     private final Context context;
