@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <TableRow
         android:layout_width="match_parent"
@@ -14,6 +15,7 @@
             android:text="Id Cliente" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdCliente"
             android:inputType="textPersonName"
             android:maxLength="5" />
@@ -29,6 +31,7 @@
             android:text="Id Rango" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdRangoEdad"
             android:inputType="textPersonName"
             android:maxLength="5" />
@@ -44,6 +47,7 @@
             android:text="Id Usuario" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdUsuario"
             android:inputType="textPersonName"
             android:maxLength="5" />
@@ -59,6 +63,7 @@
             android:text="Id Sexo" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdSexo"
             android:inputType="textPersonName"
             android:maxLength="3" />
@@ -74,6 +79,7 @@
             android:text="Nombre del Cliente" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomCliente"
             android:inputType="textPersonName"
             android:maxLength="300" />
@@ -89,6 +95,7 @@
             android:text="Telefono del Cliente" />
 
         <EditText
+            android:layout_marginHorizontal="5dp"
             android:id="@+id/editTelefonoCliente"
             android:inputType="textPersonName"
             android:maxLength="20" />
@@ -109,4 +116,5 @@
             android:onClick="limpiarTexto"
             android:text="limpiar" />
     </TableRow>
+
 </LinearLayout>

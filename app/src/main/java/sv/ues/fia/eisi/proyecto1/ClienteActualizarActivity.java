@@ -18,7 +18,7 @@ public class ClienteActualizarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cliente_actualizar);
+        setContentView(R.layout.activity_cliente_actualizar);
         helper = new BD_Controlador(this);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
         editIdRangoEdad = (EditText) findViewById(R.id.editIdRangoEdad);
