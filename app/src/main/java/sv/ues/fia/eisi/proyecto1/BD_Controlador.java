@@ -20,6 +20,8 @@ public class BD_Controlador {
     private static final String[] camposSector = new String[]{"idSector","tipoSector"};
     private static final String[] camposSexo = new String[]{"idSexo","nomSexo","abreviaturaSexo"};
     private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
+    private static final String[] camposSugerencias_App = new String[]{"idSugerenciasApp","idUsuario","txtSugerenciasApp"};
+
 
     private final Context context;
     private DatabaseHelper DBHelper;
