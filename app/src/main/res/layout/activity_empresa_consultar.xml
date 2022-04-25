@@ -1,9 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmpresaConsultarActivity">
+    android:padding="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="consultarEmpresa"
+            android:text="actualizar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="limpiar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id tipo de Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdTipoEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Nombre Legal de la Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editNomLegalEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="50" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIT de Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editNitEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="20" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giro de la Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editGiroEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="100" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NRC de la Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editNrcEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="30" />
+    </TableRow>
+
+</LinearLayout>
