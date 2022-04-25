@@ -34,7 +34,7 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdLocal"
             android:inputType="textPersonName"
-            android:maxLength="6" />
+            android:maxLength="5" />
     </TableRow>
 
     <TableRow
