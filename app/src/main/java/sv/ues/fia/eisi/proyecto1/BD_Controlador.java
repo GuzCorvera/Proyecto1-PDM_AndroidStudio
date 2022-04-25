@@ -24,6 +24,7 @@ public class BD_Controlador {
     private static final String[] camposSTipoEmpresa= new String[]{"idTipoEmpresa","nomTipoEmpresa"};
     private static final String[] camposTipoSatisfaccion = new String[]{"idTipoSatisfaccion","nomTipoSatisfaccion","notaMenor","notaMayor"};
     private static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
+    private static final String[] camposUsuario = new String[]{"idUsuario","idTipoUsuario","idEmpresa","nomUsuario","contraUsuario","correoUsuario"};
 
 
 
