@@ -15,6 +15,8 @@ public class BD_Controlador {
     private static final String[] camposEmpresa = new String[]{"idEmpresa","idTipoEmpresa","nomLegalEmpresa","nitEmpresa","giroEmpresa","nrcEmpresa"};
     private static final String[] camposEvaluacion = new String[]{"idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente"};
     private static final String[] camposLocal = new String[]{"idLocal","idEmpresa","idSector","idMunicipio","nombreLocal","descripLocal"};
+    private static final String[] camposMunicipio = new String[]{"idMunicipio","idDepartamento","nomMunicipio"};
+
 
     private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
 
