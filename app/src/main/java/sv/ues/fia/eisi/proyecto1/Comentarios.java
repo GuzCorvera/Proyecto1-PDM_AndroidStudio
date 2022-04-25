@@ -1,14 +1,10 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import java.util.Date;
 
 public class Comentarios  {
 
-    private String idComentarios;
+    private String idComentario;
     private String idUsuario;
     private String idLocal;
     private String textComentario;
@@ -17,20 +13,20 @@ public class Comentarios  {
     public Comentarios() {
     }
 
-    public Comentarios(String idComentarios, String idUsuario, String idLocal, String textComentario, Date fechaComentario) {
-        this.idComentarios = idComentarios;
+    public Comentarios(String idComentario, String idUsuario, String idLocal, String textComentario, Date fechaComentario) {
+        this.idComentario = idComentario;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
         this.textComentario = textComentario;
         this.fechaComentario = fechaComentario;
     }
 
-    public String getIdComentarios() {
-        return idComentarios;
+    public String getIdComentario() {
+        return idComentario;
     }
 
-    public void setIdComentarios(String idComentarios) {
-        this.idComentarios = idComentarios;
+    public void setIdComentario(String idComentario) {
+        this.idComentario = idComentario;
     }
 
     public String getIdUsuario() {
