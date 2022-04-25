@@ -7,16 +7,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class ClienteEliminarActivity extends Activity {
-
+    BD_Controlador helper;
     EditText editIdCliente;
-    BD_Controlador controlhelper;
+    EditText editIdRangoEdad;
+    EditText editIdUsuario;
+    EditText editIdSexo;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cliente_eliminar);
-        controlhelper = new BD_Controlador(this);
+        setContentView(R.layout.activity_cliente_consultar);
+        helper = new BD_Controlador(this);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
+        editIdRangoEdad = (EditText) findViewById(R.id.editIdRangoEdad);
+        editIdUsuario = (EditText) findViewById(R.id.editIdUsuario);
+        editIdSexo = (EditText) findViewById(R.id.editIdSexo);
     }
 
     public void eliminarCliente(View v){

@@ -23,24 +23,6 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:onClick="consultarDenuncias"
-            android:text="Consultar" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:onClick="limpiarTexto"
-            android:text="limpiar" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
@@ -69,6 +51,24 @@
             android:id="@+id/editIdLocalDenuncia"
             android:inputType="textPersonName"
             android:maxLength="5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="consultarDenuncias"
+            android:text="Consultar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="limpiar" />
     </TableRow>
 
     <TableRow

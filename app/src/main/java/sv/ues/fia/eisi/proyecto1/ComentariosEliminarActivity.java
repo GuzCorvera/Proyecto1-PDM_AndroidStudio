@@ -12,7 +12,7 @@ public class ComentariosEliminarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comentarios_consultar);
+        setContentView(R.layout.activity_comentarios_eliminar);
         helper = new BD_Controlador(this);
         editIdComentario = (EditText) findViewById(R.id.editIdComentario);
     }

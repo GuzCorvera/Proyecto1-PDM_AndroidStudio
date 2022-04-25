@@ -88,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <Button
-            android:onClick="actualizarCliente"
+            android:onClick="actualizarComentarios"
             android:text="actualizar" />
     </TableRow>
 
