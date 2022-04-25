@@ -9,7 +9,7 @@ public class ComentariosInsertarActivity extends Activity {
     BD_Controlador helper;
     EditText editIdComentario;
     EditText editIdUsuarioComentario;
-    EditText editIdLocal;
+    EditText editIdLocalComentario;
     EditText editTextComentario;
     EditText editFechaComentario;
 
@@ -20,7 +20,7 @@ public class ComentariosInsertarActivity extends Activity {
         helper = new BD_Controlador(this);
         editIdComentario = (EditText) findViewById(R.id.editIdComentario);
         editIdUsuarioComentario = (EditText) findViewById(R.id.editIdUsuarioComentario);
-        editIdLocal = (EditText) findViewById(R.id.editIdLocalComentario);
+        editIdLocalComentario = (EditText) findViewById(R.id.editIdLocalComentario);
         editTextComentario = (EditText) findViewById(R.id.editTextComentario);
         editFechaComentario = (EditText) findViewById(R.id.editFechaComentario);
     }
