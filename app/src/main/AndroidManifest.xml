@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sv.ues.fia.eisi.proyecto1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Proyecto1">
+        <activity
+            android:name=".BaseDatosProyecto"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionCrudInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionCrudEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionCrudConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionCrudActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UsuarioInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UsuarioConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UsuarioEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UsuarioActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_UsuarioInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_UsuarioEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_UsuarioConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_UsuarioActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_SatisfaccionInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_SatisfaccionConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_SatisfaccionEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_SatisfaccionActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_EmpresaInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_EmpresaConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_EmpresaEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_EmpresaActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias_AppInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias_AppConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias_AppEliminarActitvity"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias_AppActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerenciasInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerenciasConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerenciasEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerenciasActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SexoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SexoConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SexoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SexoActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SectorInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SectorEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SectorConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SectorActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_EdadInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_EdadActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_EdadEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_EdadConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MunicipioInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MunicipioConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MunicipioEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MunicipioActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluacionInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluacionEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluacionConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluacionActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartamentoInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartamentoEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartamentoConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartamentoActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DenunciasInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DenunciasEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DenunciasConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DenunciasActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComentariosInsertarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComentariosEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComentariosConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComentariosActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClienteConsultarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClienteActualizarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClienteEliminarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClienteInsertarActivty"
+            android:exported="false" />
+        <activity
+            android:name=".Denuncias"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias"
+            android:exported="false" />
+        <activity
+            android:name=".Comentarios"
+            android:exported="false" />
+        <activity
+            android:name=".Evaluacion"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente"
+            android:exported="false" />
+        <activity
+            android:name=".Acceso_Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".Sugerencias_App"
+            android:exported="false" />
+        <activity
+            android:name=".Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_Usuario"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionCrud"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_Satisfaccion"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_Edad"
+            android:exported="false" />
+        <activity
+            android:name=".Sexo"
+            android:exported="false" />
+        <activity
+            android:name=".Local"
+            android:exported="false" />
+        <activity
+            android:name=".Empresa"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_Empresa"
+            android:exported="false" />
+        <activity
+            android:name=".Municipio"
+            android:exported="false" />
+        <activity
+            android:name=".Departamento"
+            android:exported="false" />
+        <activity
+            android:name=".Sector"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
