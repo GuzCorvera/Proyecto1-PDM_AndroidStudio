@@ -23,6 +23,7 @@ public class BD_Controlador {
     private static final String[] camposSugerencias_App = new String[]{"idSugerenciasApp","idUsuario","txtSugerenciasApp"};
     private static final String[] camposSTipoEmpresa= new String[]{"idTipoEmpresa","nomTipoEmpresa"};
     private static final String[] camposTipoSatisfaccion = new String[]{"idTipoSatisfaccion","nomTipoSatisfaccion","notaMenor","notaMayor"};
+    private static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
 
 
 
