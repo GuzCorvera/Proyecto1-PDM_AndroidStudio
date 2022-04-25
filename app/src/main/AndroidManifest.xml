@@ -10,18 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto1">
         <activity
-            android:name=".OpcionCrudInsertarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OpcionCrudEliminarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OpcionCrudConsultarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OpcionCrudActualizarActivity"
-            android:exported="false" />
-        <activity
             android:name=".UsuarioInsertarActivity"
             android:exported="false" />
         <activity
