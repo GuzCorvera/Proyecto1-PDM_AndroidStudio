@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto1">
         <activity
-            android:name=".BaseDatosProyecto"
-            android:exported="false" />
-        <activity
             android:name=".OpcionCrudInsertarActivity"
             android:exported="false" />
         <activity
