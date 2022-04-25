@@ -7,7 +7,6 @@ import android.widget.EditText;
 
 public class EvaluacionConsultarActivity extends Activity {
     BD_Controlador helper;
-    EditText editIdEvaluacion;
     EditText editIdLocal;
     EditText editIdCliente;
     EditText editIdTipoSatisfaccion;
@@ -18,7 +17,6 @@ public class EvaluacionConsultarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluacion_consultar);
         helper = new BD_Controlador(this);
-        editIdEvaluacion = (EditText) findViewById(R.id.editIdEvaluacion);
         editIdLocal = (EditText) findViewById(R.id.editIdLocal);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
         editIdTipoSatisfaccion = (EditText) findViewById(R.id.editIdTipoSatisfaccion);

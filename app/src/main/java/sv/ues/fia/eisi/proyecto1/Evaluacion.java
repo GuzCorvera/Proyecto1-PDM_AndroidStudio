@@ -2,7 +2,6 @@ package sv.ues.fia.eisi.proyecto1;
 
 public class Evaluacion {
 
-    private String idEvaluacion;
     private String idLocal;
     private String idCliente;
     private String idTipoSatisfaccion;
@@ -11,20 +10,11 @@ public class Evaluacion {
     public Evaluacion() {
     }
 
-    public Evaluacion(String idEvaluacion, String idLocal, String idCliente, String idTipoSatisfaccion, float notaEvaCliente) {
-        this.idEvaluacion = idEvaluacion;
+    public Evaluacion(String idLocal, String idCliente, String idTipoSatisfaccion, float notaEvaCliente) {
         this.idLocal = idLocal;
         this.idCliente = idCliente;
         this.idTipoSatisfaccion = idTipoSatisfaccion;
         this.notaEvaCliente = notaEvaCliente;
-    }
-
-    public String getIdEvaluacion() {
-        return idEvaluacion;
-    }
-
-    public void setIdEvaluacion(String idEvaluacion) {
-        this.idEvaluacion = idEvaluacion;
     }
 
     public String getIdLocal() {

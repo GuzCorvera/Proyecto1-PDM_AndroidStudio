@@ -13,7 +13,7 @@ public class BD_Controlador {
     private static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
     private static final String[] camposDepartamento = new String[]{"idDepartamento","nomDepartamento"};
     private static final String[] camposEmpresa = new String[]{"idEmpresa","idTipoEmpresa","nomLegalEmpresa","nitEmpresa","giroEmpresa","nrcEmpresa"};
-    private static final String[] camposEvaluacion = new String[]{"idEvaluacion","idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente"};
+    private static final String[] camposEvaluacion = new String[]{"idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente"};
 
     private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
 
