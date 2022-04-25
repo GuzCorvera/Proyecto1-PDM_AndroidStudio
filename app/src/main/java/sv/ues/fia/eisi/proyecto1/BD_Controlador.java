@@ -26,8 +26,6 @@ public class BD_Controlador {
     private static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
     private static final String[] camposUsuario = new String[]{"idUsuario","idTipoUsuario","idEmpresa","nomUsuario","contraUsuario","correoUsuario"};
 
-
-
     private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;

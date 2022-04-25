@@ -1,19 +1,17 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import java.util.Date;
-
 public class Denuncias  {
 
     private String idDenuncia;
     private String idUsuario;
     private String idLocal;
     private String textDenuncia;
-    private Date fechaDenuncia;
+    private String fechaDenuncia;
 
     public Denuncias() {
     }
 
-    public Denuncias(String idDenuncia, String idUsuario, String idLocal, String textDenuncia, Date fechaDenuncia) {
+    public Denuncias(String idDenuncia, String idUsuario, String idLocal, String textDenuncia, String fechaDenuncia) {
         this.idDenuncia = idDenuncia;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
@@ -53,11 +51,11 @@ public class Denuncias  {
         this.textDenuncia = textDenuncia;
     }
 
-    public Date getFechaDenuncia() {
+    public String getFechaDenuncia() {
         return fechaDenuncia;
     }
 
-    public void setFechaDenuncia(Date fechaDenuncia) {
+    public void setFechaDenuncia(String fechaDenuncia) {
         this.fechaDenuncia = fechaDenuncia;
     }
 }

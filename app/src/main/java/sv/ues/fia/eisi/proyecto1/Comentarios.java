@@ -1,19 +1,17 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import java.util.Date;
-
 public class Comentarios  {
 
     private String idComentario;
     private String idUsuario;
     private String idLocal;
     private String textComentario;
-    private Date fechaComentario;
+    private String fechaComentario;
 
     public Comentarios() {
     }
 
-    public Comentarios(String idComentario, String idUsuario, String idLocal, String textComentario, Date fechaComentario) {
+    public Comentarios(String idComentario, String idUsuario, String idLocal, String textComentario, String fechaComentario) {
         this.idComentario = idComentario;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
@@ -53,11 +51,11 @@ public class Comentarios  {
         this.textComentario = textComentario;
     }
 
-    public Date getFechaComentario() {
+    public String getFechaComentario() {
         return fechaComentario;
     }
 
-    public void setFechaComentario(Date fechaComentario) {
+    public void setFechaComentario(String fechaComentario) {
         this.fechaComentario = fechaComentario;
     }
 }

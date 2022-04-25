@@ -1,23 +1,17 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import java.util.Date;
-
 public class Sugerencias  {
 
     private String idSugerencia;
     private String idUsuario;
     private String idLocal;
     private String textSugerencia;
-    private Date fechaSugerencia;
+    private String fechaSugerencia;
 
     public Sugerencias() {
     }
 
-    public Sugerencias(String idSugerencia, String idUsuario, String idLocal, String textSugerencia, Date fechaSugerencia) {
+    public Sugerencias(String idSugerencia, String idUsuario, String idLocal, String textSugerencia, String fechaSugerencia) {
         this.idSugerencia = idSugerencia;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
@@ -57,11 +51,11 @@ public class Sugerencias  {
         this.textSugerencia = textSugerencia;
     }
 
-    public Date getFechaSugerencia() {
+    public String getFechaSugerencia() {
         return fechaSugerencia;
     }
 
-    public void setFechaSugerencia(Date fechaSugerencia) {
+    public void setFechaSugerencia(String fechaSugerencia) {
         this.fechaSugerencia = fechaSugerencia;
     }
 }
