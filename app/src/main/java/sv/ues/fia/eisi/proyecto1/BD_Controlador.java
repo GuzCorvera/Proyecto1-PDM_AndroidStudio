@@ -14,6 +14,8 @@ public class BD_Controlador {
     private static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
     private static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
 
+    private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
+
     private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;

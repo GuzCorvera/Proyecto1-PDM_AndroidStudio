@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Sugerencias  {
 
-    private String idSugerencias;
+    private String idSugerencia;
     private String idUsuario;
     private String idLocal;
     private String textSugerencia;
@@ -17,20 +17,20 @@ public class Sugerencias  {
     public Sugerencias() {
     }
 
-    public Sugerencias(String idSugerencias, String idUsuario, String idLocal, String textSugerencia, Date fechaSugerencia) {
-        this.idSugerencias = idSugerencias;
+    public Sugerencias(String idSugerencia, String idUsuario, String idLocal, String textSugerencia, Date fechaSugerencia) {
+        this.idSugerencia = idSugerencia;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
         this.textSugerencia = textSugerencia;
         this.fechaSugerencia = fechaSugerencia;
     }
 
-    public String getIdSugerencias() {
-        return idSugerencias;
+    public String getIdSugerencia() {
+        return idSugerencia;
     }
 
-    public void setIdSugerencias(String idSugerencias) {
-        this.idSugerencias = idSugerencias;
+    public void setIdSugerencia(String idSugerencia) {
+        this.idSugerencia = idSugerencia;
     }
 
     public String getIdUsuario() {
