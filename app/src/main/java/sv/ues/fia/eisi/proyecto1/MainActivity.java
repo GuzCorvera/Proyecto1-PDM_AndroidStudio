@@ -20,14 +20,13 @@ public class MainActivity extends ListActivity {
         BDhelper=new BD_Controlador(this);
     }
 
-    /*
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         if (position != 3) {
             String nombreValue = activities[position];
             try {
-                Class<?> clase = Class.forName("sv.ues.fia.eisi.guia4." + nombreValue);
+                Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1." + nombreValue);
                 Intent inte = new Intent(this, clase);
                 this.startActivity(inte);
             } catch (ClassNotFoundException e) {
@@ -35,11 +34,11 @@ public class MainActivity extends ListActivity {
             }
         } else {
             //CODIGO PARA LLENAR BASE DE DATOS
+            /*
             BDhelper.abrir();
             String tost=BDhelper.llenarBDCarnet();
             BDhelper.cerrar();
-            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();*/
         }
     }
-    */
 }

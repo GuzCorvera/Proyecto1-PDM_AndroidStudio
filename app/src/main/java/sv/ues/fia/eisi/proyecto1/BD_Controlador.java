@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class BD_Controlador {
+    //private static final String[] camposAccesoUsuario = new String[]{"idUsuario","idOpcionCrud"};
     private static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
     private static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
     private static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
@@ -46,7 +47,25 @@ public class BD_Controlador {
         @Override
         public void onCreate(SQLiteDatabase db) {
             try {
+                //db.execSQL("create table ACCESOUSUARIO(IDUSUARIO VARCHAR2(8), IDOPCION VARCHAR2(8));");
                 db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+                db.execSQL("");
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
