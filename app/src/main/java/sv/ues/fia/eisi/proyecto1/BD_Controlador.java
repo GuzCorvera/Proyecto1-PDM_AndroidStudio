@@ -11,7 +11,8 @@ import java.util.Date;
 
 public class BD_Controlador {
     private static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
-    private static final String[] camposComentario = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
+    private static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
+    private static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
 
     private final Context context;
     private DatabaseHelper DBHelper;

@@ -1,14 +1,10 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import java.util.Date;
 
 public class Denuncias  {
 
-    private String idDenuncias;
+    private String idDenuncia;
     private String idUsuario;
     private String idLocal;
     private String textDenuncia;
@@ -17,20 +13,20 @@ public class Denuncias  {
     public Denuncias() {
     }
 
-    public Denuncias(String idDenuncias, String idUsuario, String idLocal, String textDenuncia, Date fechaDenuncia) {
-        this.idDenuncias = idDenuncias;
+    public Denuncias(String idDenuncia, String idUsuario, String idLocal, String textDenuncia, Date fechaDenuncia) {
+        this.idDenuncia = idDenuncia;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;
         this.textDenuncia = textDenuncia;
         this.fechaDenuncia = fechaDenuncia;
     }
 
-    public String getIdDenuncias() {
-        return idDenuncias;
+    public String getIdDenuncia() {
+        return idDenuncia;
     }
 
-    public void setIdDenuncias(String idDenuncias) {
-        this.idDenuncias = idDenuncias;
+    public void setIdDenuncia(String idDenuncia) {
+        this.idDenuncia = idDenuncia;
     }
 
     public String getIdUsuario() {
