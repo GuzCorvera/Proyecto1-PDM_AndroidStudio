@@ -1,9 +1,5 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 public class Cliente  {
 
     private String idCliente;
