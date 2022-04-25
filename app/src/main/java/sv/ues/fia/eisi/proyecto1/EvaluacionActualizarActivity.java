@@ -7,24 +7,22 @@ import android.widget.EditText;
 
 public class EvaluacionActualizarActivity extends Activity {
     BD_Controlador helper;
-    EditText editIdEmpresa;
-    EditText editIdTipoEmpresa;
-    EditText editNomLegalEmpresa;
-    EditText editNitEmpresa;
-    EditText editGiroEmpresa;
-    EditText editNrcEmpresa;
+    EditText editIdEvaluacion;
+    EditText editIdLocal;
+    EditText editIdCliente;
+    EditText editIdTipoSatisfaccion;
+    EditText editNotaEvaCliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_empresa_actualizar);
+        setContentView(R.layout.activity_evaluacion_actualizar);
         helper = new BD_Controlador(this);
-        editIdEmpresa = (EditText) findViewById(R.id.editIdEmpresa);
-        editIdTipoEmpresa = (EditText) findViewById(R.id.editIdTipoEmpresa);
-        editNomLegalEmpresa = (EditText) findViewById(R.id.editNomLegalEmpresa);
-        editNitEmpresa = (EditText) findViewById(R.id.editNitEmpresa);
-        editGiroEmpresa = (EditText) findViewById(R.id.editGiroEmpresa);
-        editNrcEmpresa = (EditText) findViewById(R.id.editNrcEmpresa);
+        editIdEvaluacion = (EditText) findViewById(R.id.editIdEvaluacion);
+        editIdLocal = (EditText) findViewById(R.id.editIdLocal);
+        editIdCliente = (EditText) findViewById(R.id.editIdCliente);
+        editIdTipoSatisfaccion = (EditText) findViewById(R.id.editIdTipoSatisfaccion);
+        editNotaEvaCliente = (EditText) findViewById(R.id.editNotaEvaCliente);
     }
 
     public void actualizarEvaluacion(View v){
