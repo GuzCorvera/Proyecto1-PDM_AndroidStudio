@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocalInsertarActivity">
+    android:padding="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Local" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdLocal"
+            android:inputType="textPersonName"
+            android:maxLength="5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Sector" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdSector"
+            android:inputType="textPersonName"
+            android:maxLength="4" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Munincipio" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdMunicipio"
+            android:inputType="textPersonName"
+            android:maxLength="3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Local" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editNombreLocal"
+            android:inputType="textPersonName"
+            android:maxLength="30" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción del Local" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editDescripLocal"
+            android:inputType="textPersonName"
+            android:maxLength="70" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <Button
+            android:onClick="insertarLocal"
+            android:text="Insertar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="limpiar" />
+    </TableRow>
+
+</LinearLayout>
