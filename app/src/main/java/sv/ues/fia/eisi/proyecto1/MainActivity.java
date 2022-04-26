@@ -9,9 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-    //String[] menu = {"Tabla Cliente","Tabla Comentario","Denuncia","LLenar Base de Datos"};
-    String[] menu = {"" +
-            "Tabla Prueba","Tabla Cliente",
+    String[] menu = {"Tabla Prueba",
+            "Tabla Cliente",
             "Tabla Comentarios",
             "Tabla Denuncias",
             "Tabla Departamento",
@@ -28,27 +27,24 @@ public class MainActivity extends ListActivity {
             "Tabla Tipo de Usuario",
             "Tabla Usuario"};
     String[] activities = {
-            "prueba","ClienteMenuActivity",
-            "ComentarioMenuActivity",
-            "DenunciasMenuActivity",
-            "DepartamentoMenuActivity",
-            "EmpresaMenuActivity",
-            "EvaluacionMenuActivity",
-            "LocalMenuActivity",
-            "MunicipioMenuActivity",
-            "Rango_EdadMenuActivity",
-            "SectorMenuActivity",
-            "SexoMenuActivity",
-            "SugerenciasMenuActivity",
-            "Tipo_EmpresaMenuActivity",
-            "Tipo_SatisfaccionMenuActivity",
-            "Tipo_UsuarioMenuActivity",
-            "UsuarioMenuActivity"
-            // LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
-            // LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
-            // LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
-            // LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
+            "prueba","CRUDCliente.ClienteMenuActivity",
+            "CRUDComentarios.ComentarioMenuActivity",
+            "CRUDDenuncias.DenunciasMenuActivity",
+            "CRUDDepartamento.DepartamentoMenuActivity",
+            "CRUDEmpresa.EmpresaMenuActivity",
+            "CRUDEvaluacion.EvaluacionMenuActivity",
+            "CRUDLocal.LocalMenuActivity",
+            "CRUDMunicipio.MunicipioMenuActivity",
+            "CRUDRangoEdad.Rango_EdadMenuActivity",
+            "CRUDSector.SectorMenuActivity",
+            "CRUDSexo.SexoMenuActivity",
+            "CRUDSugerencias.SugerenciasMenuActivity",
+            "CRUDTipoEmpresa.Tipo_EmpresaMenuActivity",
+            "CRUDTipoSatisfaccion.Tipo_SatisfaccionMenuActivity",
+            "CRUDTipoUsuario.Tipo_UsuarioMenuActivity",
+            "CRUDUsuario.UsuarioMenuActivity"
     };
+
     BD_Controlador BDhelper;
 
     @Override
@@ -61,7 +57,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if (position != 16) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
+        if (position != 17) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
             String nombreValue = activities[position];
             try {
                 Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1." + nombreValue);
