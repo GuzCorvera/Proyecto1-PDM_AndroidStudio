@@ -1,10 +1,24 @@
 package sv.ues.fia.eisi.proyecto1;
 
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_DEPARTAMENTO;
-import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_RANGO_EDAD;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SEXO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACION;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposDepartamento;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_CLIENTE;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_COMENTARIOS;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_DENUNCIAS;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_EMPRESA;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_EVALUACION;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_LOCAL;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_MUNICIPIO;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_RANGO_EDAD;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposCliente;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposComentarios;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposDenuncias;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposEmpresa;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposEvaluacion;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposLocal;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposMunicipio;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposRangoEdad;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSexo;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoSatisfaccion;
@@ -44,14 +58,14 @@ public class BD_Controlador {
         public void onCreate(SQLiteDatabase db) {
             try {
                 db.execSQL("CREATE TABLE ACCESOUSUARIO (IDUSUARIO VARCHAR2(8), IDOPCION VARCHAR2(8));");
-                db.execSQL("CREATE TABLE CLIENTE (IDCLIENTE VARCHAR2(8) not null, IDRANGOEDAD VARCHAR2(8), IDUSUARIO VARCHAR2(8),IDSEXO VARCHAR2(8), NOMCLIENTE VARCHAR2(300) not null, TELEFONOCLIENTE VARCHAR2(20) not null, constraint PK_CLIENTE primary key (IDCLIENTE));");
-                db.execSQL("CREATE TABLE COMENTARIOS (IDCOMENTARIO VARCHAR2(8) not null, IDUSUARIO VARCHAR2(8), IDLOCAL VARCHAR2(8),TEXTCOMENTARIO VARCHAR2(300) not null, FECHACOMENTARIO VARCHAR2(10) not null, constraint PK_COMENTARIOS primary key (IDCOMENTARIO));");
-                db.execSQL("CREATE TABLE DENUNCIAS (IDDENUNCIAS VARCHAR2(8) not null, IDLOCAL VARCHAR2(8), IDUSUARIO VARCHAR2(8), TEXTDENUNCIAS VARCHAR2(300) not null, FECHADENUNCIAS VARCHAR2(10) not null, constraint PK_DENUNCIAS primary key (IDDENUNCIAS));");
+                db.execSQL("CREATE TABLE "+TABLE_CLIENTE+" ("+camposCliente[0]+" VARCHAR2(8) not null, "+camposCliente[1]+" VARCHAR2(8), "+camposCliente[2]+" VARCHAR2(8), "+camposCliente[3]+" VARCHAR2(8), "+camposCliente[4]+" VARCHAR2(300) not null, "+camposCliente[5]+" VARCHAR2(20) not null, constraint PK_CLIENTE primary key ("+camposCliente[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_COMENTARIOS+" ("+camposComentarios[0]+" VARCHAR2(8) not null, "+camposComentarios[1]+" VARCHAR2(8), "+camposComentarios[2]+" VARCHAR2(8),"+camposComentarios[3]+" VARCHAR2(300) not null, "+camposComentarios[4]+" VARCHAR2(10) not null, constraint PK_COMENTARIOS primary key ("+camposComentarios[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_DENUNCIAS+" ("+camposDenuncias[0]+" VARCHAR2(8) not null, "+camposDenuncias[1]+" VARCHAR2(8), "+camposDenuncias[2]+" VARCHAR2(8), "+camposDenuncias[3]+" VARCHAR2(300) not null, "+camposDenuncias[4]+" VARCHAR2(10) not null, constraint PK_DENUNCIAS primary key ("+camposDenuncias[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_DEPARTAMENTO+" ("+camposDepartamento[0]+" VARCHAR2(8) not null, "+camposDepartamento[1]+" VARCHAR2(30) not null, constraint PK_DEPARTAMENTO primary key ("+camposDepartamento[0]+"));");
-                db.execSQL("CREATE TABLE EMPRESA (IDEMPRESA VARCHAR2(8) not null, IDTIPOEMPRESA VARCHAR2(8), NOMLEGALEMPRESA VARCHAR2(100) not null, NITEMPRESA VARCHAR2(20) not null, GIROEMPRESA VARCHAR2(100) not null, NRCEMPRESA VARCHAR2(30) not null, constraint PK_EMPRESA primary key (IDEMPRESA));");
-                db.execSQL("CREATE TABLE EVALUACION (IDEVALUACION VARCHAR2(8) not null, IDLOCAL VARCHAR2(8), IDCLIENTE VARCHAR2(8), IDTIPOSASTIFACCION VARCHAR2(8), NOTAEVACLIENTE FLOAT not null, constraint PK_EVALUACION primary key (IDEVALUACION));");
-                db.execSQL("CREATE TABLE LOCAL (IDLOCAL VARCHAR2(8) not null, IDEMPRESA VARCHAR2(8), IDSECTOR VARCHAR2(8), IDMUNICIPIO VARCHAR2(8), NOMBRELOCAL VARCHAR2(100) not null, DESCRIPLOCAL VARCHAR2(100) not null, constraint PK_LOCAL primary key (IDLOCAL));");
-                db.execSQL("CREATE TABLE MUNICIPIO (IDMUNICIPIO VARCHAR2(8) not null, IDDEPARTAMENTO VARCHAR2(8), NOMMUNICIPIO VARCHAR2(30) not null, constraint PK_MUNICIPIO primary key (IDMUNICIPIO));");
+                db.execSQL("CREATE TABLE "+TABLE_EMPRESA+" ("+camposEmpresa[0]+" VARCHAR2(8) not null, "+camposEmpresa[1]+" VARCHAR2(8), "+camposEmpresa[2]+" VARCHAR2(100) not null, "+camposEmpresa[3]+" VARCHAR2(20) not null, "+camposEmpresa[4]+" VARCHAR2(100) not null, "+camposEmpresa[5]+" VARCHAR2(30) not null, constraint PK_EMPRESA primary key ("+camposEmpresa[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_EVALUACION+" ("+camposEvaluacion[0]+" VARCHAR2(8) not null, "+camposEvaluacion[1]+" VARCHAR2(8), "+camposEvaluacion[2]+" VARCHAR2(8), "+camposEvaluacion[3]+" VARCHAR2(8), "+camposEvaluacion[4]+" FLOAT not null, constraint PK_EVALUACION primary key ("+camposEvaluacion[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_LOCAL+" ("+camposLocal[0]+" VARCHAR2(8) not null, "+camposLocal[1]+" VARCHAR2(8), "+camposLocal[2]+" VARCHAR2(8), "+camposLocal[3]+" VARCHAR2(8), "+camposLocal[4]+" VARCHAR2(100) not null, "+camposLocal[5]+" VARCHAR2(100) not null, constraint PK_LOCAL primary key ("+camposLocal[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_MUNICIPIO+" ("+camposMunicipio[0]+" VARCHAR2(8) not null, "+camposMunicipio[1]+" VARCHAR2(8), "+camposMunicipio[2]+" VARCHAR2(30) not null, constraint PK_MUNICIPIO primary key ("+camposMunicipio[0]+"));");
                 db.execSQL("CREATE TABLE OPCIONCRUD (IDOPCION VARCHAR2(8) not null, DESCOPCION VARCHAR2(30) not null, NUMCRUD INTEGER not null, constraint PK_OPCIONCRUD primary key (IDOPCION));");
                 db.execSQL("CREATE TABLE "+TABLE_RANGO_EDAD+" ("+camposRangoEdad[0]+" VARCHAR2(8) not null, "+camposRangoEdad[1]+" VARCHAR2(100) not null, "+camposRangoEdad[2]+" FLOAT not null, "+camposRangoEdad[3]+" FLOAT not null, constraint PK_RANGO_EDAD primary key ("+camposRangoEdad[0]+"));");
                 db.execSQL("CREATE TABLE SECTOR (IDSECTOR VARCHAR2(8) not null, TIPOSECTOR VARCHAR2(30) not null, constraint PK_SECTOR primary key (IDSECTOR));");

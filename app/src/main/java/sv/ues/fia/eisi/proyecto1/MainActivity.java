@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-    String[] menu = {"Tabla Prueba",
+    String[] menu = {
             "Tabla Cliente",
             "Tabla Comentarios",
             "Tabla Denuncias",
@@ -27,7 +27,7 @@ public class MainActivity extends ListActivity {
             "Tabla Tipo de Usuario",
             "Tabla Usuario"};
     String[] activities = {
-            "prueba","CRUDCliente.ClienteMenuActivity",
+            "CRUDCliente.ClienteMenuActivity",
             "CRUDComentarios.ComentarioMenuActivity",
             "CRUDDenuncias.DenunciasMenuActivity",
             "CRUDDepartamento.DepartamentoMenuActivity",
