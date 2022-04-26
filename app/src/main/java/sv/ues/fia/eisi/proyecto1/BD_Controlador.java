@@ -1,32 +1,19 @@
 package sv.ues.fia.eisi.proyecto1;
 
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_RANGO_EDAD;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposRangoEdad;
+
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import sv.ues.fia.eisi.proyecto1.CRUDCliente.Cliente;
+import sv.ues.fia.eisi.proyecto1.CRUDRangoEdad.Rango_Edad;
 
 public class BD_Controlador {
-    //private static final String[] camposAccesoUsuario = new String[]{""};
-    private static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
-    private static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
-    private static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
-    private static final String[] camposDepartamento = new String[]{"idDepartamento","nomDepartamento"};
-    private static final String[] camposEmpresa = new String[]{"idEmpresa","idTipoEmpresa","nomLegalEmpresa","nitEmpresa","giroEmpresa","nrcEmpresa"};
-    private static final String[] camposEvaluacion = new String[]{"idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente"};
-    private static final String[] camposLocal = new String[]{"idLocal","idEmpresa","idSector","idMunicipio","nombreLocal","descripLocal"};
-    private static final String[] camposMunicipio = new String[]{"idMunicipio","idDepartamento","nomMunicipio"};
-    //private static final String[] camposOpcionCrud = new String[]{""};
-    private static final String[] camposRangoEdad = new String[]{"idRangoEdad","nomRangoEdad","edadMenor","edadMayor"};
-    private static final String[] camposSector = new String[]{"idSector","tipoSector"};
-    private static final String[] camposSexo = new String[]{"idSexo","nomSexo","abreviaturaSexo"};
-    private static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
-    private static final String[] camposSugerencias_App = new String[]{"idSugerenciasApp","idUsuario","txtSugerenciasApp"};
-    private static final String[] camposSTipoEmpresa= new String[]{"idTipoEmpresa","nomTipoEmpresa"};
-    private static final String[] camposTipoSatisfaccion = new String[]{"idTipoSatisfaccion","nomTipoSatisfaccion","notaMenor","notaMayor"};
-    private static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
-    private static final String[] camposUsuario = new String[]{"idUsuario","idTipoUsuario","idEmpresa","nomUsuario","contraUsuario","correoUsuario"};
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -58,7 +45,7 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE LOCAL (IDLOCAL VARCHAR2(8) not null, IDEMPRESA VARCHAR2(8), IDSECTOR VARCHAR2(8), IDMUNICIPIO VARCHAR2(8), NOMBRELOCAL VARCHAR2(100) not null, DESCRIPLOCAL VARCHAR2(100) not null, constraint PK_LOCAL primary key (IDLOCAL));");
                 db.execSQL("CREATE TABLE MUNICIPIO (IDMUNICIPIO VARCHAR2(8) not null, IDDEPARTAMENTO VARCHAR2(8), NOMMUNICIPIO VARCHAR2(30) not null, constraint PK_MUNICIPIO primary key (IDMUNICIPIO));");
                 db.execSQL("CREATE TABLE OPCIONCRUD (IDOPCION VARCHAR2(8) not null, DESCOPCION VARCHAR2(30) not null, NUMCRUD INTEGER not null, constraint PK_OPCIONCRUD primary key (IDOPCION));");
-                db.execSQL("CREATE TABLE RANGO_EDAD (IDRANGOEDAD VARCHAR2(8) not null, NOMBRERANGOEDAD VARCHAR2(100) not null, EDADMENOR FLOAT not null, EDADMAYOR FLOAT not null, constraint PK_RANGO_EDAD primary key (IDRANGOEDAD));");
+                db.execSQL("CREATE TABLE "+TABLE_RANGO_EDAD+" ("+camposRangoEdad[0]+" VARCHAR2(8) not null, "+camposRangoEdad[1]+" VARCHAR2(100) not null, "+camposRangoEdad[2]+" FLOAT not null, "+camposRangoEdad[3]+" FLOAT not null, constraint PK_RANGO_EDAD primary key ("+camposRangoEdad[0]+"));");
                 db.execSQL("CREATE TABLE SECTOR (IDSECTOR VARCHAR2(8) not null, TIPOSECTOR VARCHAR2(30) not null, constraint PK_SECTOR primary key (IDSECTOR));");
                 db.execSQL("CREATE TABLE SEXO (IDSEXO VARCHAR2(8) not null, NOMSEXO VARCHAR2(30) not null, ABREVIATURASEXO CHAR(2) not null, constraint PK_SEXO primary key (IDSEXO));");
                 db.execSQL("CREATE TABLE SUGERECIAS (IDSUGERENCIAS VARCHAR2(8) not null, IDLOCAL VARCHAR2(8), IDUSUARIO VARCHAR2(8), TEXTSUGERENCIA VARCHAR2(300) not null, FECHASUGERENCIA VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key (IDSUGERENCIAS));");
@@ -85,23 +72,73 @@ public class BD_Controlador {
         DBHelper.close();
     }
 
-    //Aquí comienza lo chidori xD
 
-    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    public String insertar(Cliente cliente) {
-        return null;
+    private boolean verificarIntegridad(Object dato, int relacion) throws SQLException{
+        switch (relacion){
+            case 1: //Verificar si existe RangoEdad
+                Rango_Edad rango_edad = (Rango_Edad) dato;
+                String[] id = {rango_edad.getIdRangoEdad()};
+                abrir();
+                Cursor c2 = db.query(TABLE_RANGO_EDAD, null,
+                        camposRangoEdad[0]+"=?", id, null, null, null);
+                if(c2.moveToFirst())
+                    return true;
+                return true;
+            default: return false;
+        }
     }
-    public String actualizar(Cliente cliente) {
-        return null;
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - RANGO EDAD*/
+    public String insertar(Rango_Edad rango_edad) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposRangoEdad[0],rango_edad.getIdRangoEdad());
+        cv.put(camposRangoEdad[1],rango_edad.getNomRangoEdad());
+        cv.put(camposRangoEdad[2], rango_edad.getEdadMenor());
+        cv.put(camposRangoEdad[3], rango_edad.getEdadMayor());
+        cont = db.insert(TABLE_RANGO_EDAD, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Rango_Edad rango_edad) {
+        if(verificarIntegridad(rango_edad, 1)){
+            String[] id = {rango_edad.getIdRangoEdad()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposRangoEdad[0], rango_edad.getIdRangoEdad());
+            cv.put(camposRangoEdad[1], rango_edad.getNomRangoEdad());
+            cv.put(camposRangoEdad[2], rango_edad.getEdadMenor());
+            cv.put(camposRangoEdad[3], rango_edad.getEdadMayor());
+            db.update(TABLE_RANGO_EDAD, cv, camposRangoEdad[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con idRangoEdad = "+rango_edad.getIdRangoEdad()+" no existe";
     }
 
-    public String eliminar(Cliente cliente) {
-        return null;
+    public String eliminar(Rango_Edad rango_edad) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_RANGO_EDAD,
+                camposRangoEdad[0]+"'"+rango_edad.getIdRangoEdad()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
     }
 
-    public Cliente consultarCliente(String idCliente) {
-        return null;
+    public Rango_Edad consultarRangoEdad(String idRangoEdad) {
+        String[] id = {idRangoEdad};
+        Cursor cursor = db.query(TABLE_RANGO_EDAD, camposRangoEdad,
+                camposRangoEdad[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Rango_Edad rango_edad = new Rango_Edad();
+            rango_edad.setIdRangoEdad(cursor.getString(0));
+            rango_edad.setNomRangoEdad(cursor.getString(1));
+            rango_edad.setEdadMenor(cursor.getFloat(2));
+            rango_edad.setEdadMayor(cursor.getFloat(3));
+            return rango_edad;
+        }else return null;
     }
+
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
