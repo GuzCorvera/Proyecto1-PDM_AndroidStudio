@@ -1,6 +1,7 @@
 package sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import sv.ues.fia.eisi.proyecto1.R;
 
 public class Tipo_SatisfaccionInsertarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdTipoSatisfaccion;
     EditText editNomTipoSatisfaccion;
     EditText editNotaMenor;
@@ -27,10 +29,16 @@ public class Tipo_SatisfaccionInsertarActivity extends Activity {
     }
 
     public void insertarTipoSatisfaccion(View v){
+        if(!editIdTipoSatisfaccion.getText().equals("") & !editNomTipoSatisfaccion.getText().equals("") &
+        !editNotaMenor.getText().equals("") & !editNotaMayor.getText().equals("")){
 
+        }
     }
 
     public void limpiarTexto(View v){
-
+        editIdTipoSatisfaccion.setText("");
+        editNomTipoSatisfaccion.setText("");
+        editNotaMenor.setText("");
+        editNotaMayor.setText("");
     }
 }

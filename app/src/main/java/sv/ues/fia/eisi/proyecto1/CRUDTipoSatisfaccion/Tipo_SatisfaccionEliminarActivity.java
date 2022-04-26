@@ -1,6 +1,7 @@
 package sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import sv.ues.fia.eisi.proyecto1.R;
 
 public class Tipo_SatisfaccionEliminarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdTipoSatisfaccion;
 
     @Override
@@ -25,6 +27,6 @@ public class Tipo_SatisfaccionEliminarActivity extends Activity {
     }
 
     public void limpiarTexto(View v){
-
+        editIdTipoSatisfaccion.setText("");
     }
 }
