@@ -16,7 +16,7 @@ public class ClienteEliminarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cliente_consultar);
+        setContentView(R.layout.activity_cliente_eliminar);
         helper = new BD_Controlador(this);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
         editIdRangoEdad = (EditText) findViewById(R.id.editIdRangoEdad);

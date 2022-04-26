@@ -9,7 +9,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
-    String[] menu = {"Tabla Cliente"};
+    //String[] menu = {"Tabla Cliente","Tabla Comentario","Denuncia","LLenar Base de Datos"};
+    String[] menu = {"Tabla Cliente", "Tabla Comentario"};
     String[] activities = {"ClienteMenuActivity"};
     BD_Controlador BDhelper;
 
@@ -38,7 +39,8 @@ public class MainActivity extends ListActivity {
             BDhelper.abrir();
             String tost=BDhelper.llenarBDCarnet();
             BDhelper.cerrar();
-            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();*/
+            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
+             */
         }
     }
 }

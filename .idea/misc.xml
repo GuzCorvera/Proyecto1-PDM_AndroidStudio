@@ -21,6 +21,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_insertar_activty.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_eliminar.xml" value="0.33061594202898553" />
@@ -94,6 +95,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_usuario_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_usuario_insertar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/cliente_actualizar.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/clientemenuactivity.xml" value="0.33061594202898553" />
       </map>
     </option>
   </component>

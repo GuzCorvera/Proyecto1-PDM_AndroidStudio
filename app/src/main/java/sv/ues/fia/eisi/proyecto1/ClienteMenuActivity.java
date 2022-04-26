@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ClienteMenuActivity extends ListActivity {
-    String[] menu = {"Insertar Registro", "Eliminar Registro", "Consultar Registro", "Actualizar Registro"};
-    String[] activities = {"ClienteInsertarActivity", "ClienteEliminarActivity", "ClienteConsultarActivity", "ClienteActualizarActivity"};
+
+    String[] menu = {"Insertar Cliente", "Eliminar Cliente", "Consultar Cliente", "Actualizar Cliente"};
+    String[] activities = {"ClienteInsertarActivty", "ClienteEliminarActivity", "ClienteConsultarActivity", "ClienteActualizarActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
