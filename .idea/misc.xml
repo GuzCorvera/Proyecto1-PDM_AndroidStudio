@@ -22,6 +22,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_insertar_activty.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_cliente_menu.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentario_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_comentarios_eliminar.xml" value="0.33061594202898553" />
@@ -38,11 +39,13 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_empresa_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_empresa_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_empresa_insertar.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_empresa_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion_insertar.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_evaluacion_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_local.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_local_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_local_consultar.xml" value="0.33061594202898553" />
@@ -53,6 +56,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_municipio_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_municipio_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_municipio_insertar.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_municipio_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_opcion_crud_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_rango_edad_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_rango_edad_consultar.xml" value="0.33061594202898553" />
@@ -67,6 +71,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sexo_consultar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sexo_eliminar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sexo_insertar.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sugerencia_menu.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sugerencias_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sugerencias_app.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/activity_sugerencias_app_actualizar.xml" value="0.33061594202898553" />

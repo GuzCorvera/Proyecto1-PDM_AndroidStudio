@@ -10,6 +10,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto1">
         <activity
+            android:name=".UsuarioMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_UsuarioMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_SatisfaccionMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tipo_EmpresaMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerenciasMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SexoMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SectorMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Rango_EdadMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MunicipioMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocalMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EvaluacionMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmpresaMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DepartamentoMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DenunciasMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComentarioMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".ClienteMenuActivity"
             android:exported="false" />
         <activity
