@@ -10,6 +10,10 @@ public class Rango_Edad {
     public Rango_Edad() {
     }
 
+    public Rango_Edad(String idRangoEdad) {
+        this.idRangoEdad = idRangoEdad;
+    }
+
     public Rango_Edad(String idRangoEdad, String nomRangoEdad, float edadMenor, float edadMayor) {
         this.idRangoEdad = idRangoEdad;
         this.nomRangoEdad = nomRangoEdad;

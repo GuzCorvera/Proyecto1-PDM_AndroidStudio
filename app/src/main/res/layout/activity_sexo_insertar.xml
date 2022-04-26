@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
         <Button
-            android:onClick="insertarSector"
+            android:onClick="insertarSexo"
             android:text="Insertar" />
     </TableRow>
 

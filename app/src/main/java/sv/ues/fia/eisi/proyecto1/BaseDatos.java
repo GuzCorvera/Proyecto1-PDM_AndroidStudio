@@ -3,14 +3,15 @@ package sv.ues.fia.eisi.proyecto1;
 public class BaseDatos {
     public static final String TABLE_CLIENTE = "CLIENTE";
     public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
+    public static final String TABLE_SEXO = "SEXO";
+    public static final String TABLE_TIPO_SATISFACION = "TIPO_SATISFACION";
     public static final String TABLE_COMENTARIOS = "COMENTARIOS";
     public static final String TABLE_DENUNCIAS = "DENUNCIAS";
-    // --> AQUI VA DEPARTAMENTO <--
+    public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
     public static final String TABLE_EMPRESA = "EMPRESA";
     public static final String TABLE_EVALUACION = "EVALUACION";
     public static final String TABLE_LOCAL = "LOCAL";
     public static final String TABLE_MUNICIPIO = "MUNICIPIO";
-
 
     public static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
     public static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};

@@ -1,15 +1,18 @@
 package sv.ues.fia.eisi.proyecto1.CRUDDepartamento;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
 
 public class DepartamentoActualizarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdDepartamento;
     EditText editNomDepartamento;
 
@@ -23,10 +26,20 @@ public class DepartamentoActualizarActivity extends Activity {
     }
 
     public void actualizarDepartamento(View v){
-
+        if(!editIdDepartamento.getText().toString().equals("") & !editNomDepartamento.getText().toString().equals("")){
+            Departamento departamento = new Departamento(
+                    editIdDepartamento.getText().toString(),
+                    editNomDepartamento.getText().toString()
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(departamento);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdDepartamento.setText("");
+        editNomDepartamento.setText("");
     }
 }
