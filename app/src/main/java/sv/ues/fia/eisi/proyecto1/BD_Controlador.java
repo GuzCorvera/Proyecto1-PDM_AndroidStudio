@@ -1,11 +1,11 @@
 package sv.ues.fia.eisi.proyecto1;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import sv.ues.fia.eisi.proyecto1.CRUDCliente.Cliente;
 
 public class BD_Controlador {
     //private static final String[] camposAccesoUsuario = new String[]{""};

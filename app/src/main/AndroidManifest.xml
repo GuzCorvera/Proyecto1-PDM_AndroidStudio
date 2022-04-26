@@ -10,313 +10,256 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto1">
         <activity
-            android:name=".UsuarioMenuActivity"
+            android:name=".CRUDUsuario.UsuarioMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_UsuarioMenuActivity"
+            android:name=".CRUDTipoUsuario.Tipo_UsuarioMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_SatisfaccionMenuActivity"
+            android:name=".CRUDTipoSatisfaccion.Tipo_SatisfaccionMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_EmpresaMenuActivity"
+            android:name=".CRUDTipoEmpresa.Tipo_EmpresaMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".SugerenciasMenuActivity"
+            android:name=".CRUDSugerencias.SugerenciasMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".SexoMenuActivity"
+            android:name=".CRUDSexo.SexoMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".SectorMenuActivity"
+            android:name=".CRUDSector.SectorMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".Rango_EdadMenuActivity"
+            android:name=".CRUDRangoEdad.Rango_EdadMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".MunicipioMenuActivity"
+            android:name=".CRUDMunicipio.MunicipioMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".LocalMenuActivity"
+            android:name=".CRUDLocal.LocalMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".EvaluacionMenuActivity"
+            android:name=".CRUDEvaluacion.EvaluacionMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".EmpresaMenuActivity"
+            android:name=".CRUDEmpresa.EmpresaMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".DepartamentoMenuActivity"
+            android:name=".CRUDDepartamento.DepartamentoMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".DenunciasMenuActivity"
+            android:name=".CRUDDenuncias.DenunciasMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentarioMenuActivity"
+            android:name=".CRUDComentarios.ComentarioMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteMenuActivity"
+            android:name=".CRUDCliente.ClienteMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".UsuarioInsertarActivity"
+            android:name=".CRUDUsuario.UsuarioInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".UsuarioConsultarActivity"
+            android:name=".CRUDUsuario.UsuarioConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".UsuarioEliminarActivity"
+            android:name=".CRUDUsuario.UsuarioEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".UsuarioActualizarActivity"
+            android:name=".CRUDUsuario.UsuarioActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_UsuarioInsertarActivity"
+            android:name=".CRUDTipoUsuario.Tipo_UsuarioInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_UsuarioEliminarActivity"
+            android:name=".CRUDTipoUsuario.Tipo_UsuarioEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_UsuarioConsultarActivity"
+            android:name=".CRUDTipoUsuario.Tipo_UsuarioConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_UsuarioActualizarActivity"
+            android:name=".CRUDTipoUsuario.Tipo_UsuarioActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_SatisfaccionInsertarActivity"
+            android:name=".CRUDTipoSatisfaccion.Tipo_SatisfaccionInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_SatisfaccionConsultarActivity"
+            android:name=".CRUDTipoSatisfaccion.Tipo_SatisfaccionConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_SatisfaccionEliminarActivity"
+            android:name=".CRUDTipoSatisfaccion.Tipo_SatisfaccionEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_SatisfaccionActualizarActivity"
+            android:name=".CRUDTipoSatisfaccion.Tipo_SatisfaccionActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_EmpresaInsertarActivity"
+            android:name=".CRUDTipoEmpresa.Tipo_EmpresaInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_EmpresaConsultarActivity"
+            android:name=".CRUDTipoEmpresa.Tipo_EmpresaConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_EmpresaEliminarActivity"
+            android:name=".CRUDTipoEmpresa.Tipo_EmpresaEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".Tipo_EmpresaActualizarActivity"
+            android:name=".CRUDTipoEmpresa.Tipo_EmpresaActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Sugerencias_AppInsertarActivity"
+            android:name=".CRUDSugerenciasApp.Sugerencias_AppInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".Sugerencias_AppConsultarActivity"
+            android:name=".CRUDSugerenciasApp.Sugerencias_AppConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".Sugerencias_AppEliminarActitvity"
+            android:name=".CRUDSugerenciasApp.Sugerencias_AppEliminarActitvity"
             android:exported="false" />
         <activity
-            android:name=".Sugerencias_AppActualizarActivity"
+            android:name=".CRUDSugerenciasApp.Sugerencias_AppActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".SugerenciasInsertarActivity"
+            android:name=".CRUDSugerencias.SugerenciasInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".SugerenciasConsultarActivity"
+            android:name=".CRUDSugerencias.SugerenciasConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".SugerenciasEliminarActivity"
+            android:name=".CRUDSugerencias.SugerenciasEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".SugerenciasActualizarActivity"
+            android:name=".CRUDSugerencias.SugerenciasActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".SexoInsertarActivity"
+            android:name=".CRUDSexo.SexoInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".SexoConsultarActivity"
+            android:name=".CRUDSexo.SexoConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".SexoEliminarActivity"
+            android:name=".CRUDSexo.SexoEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".SexoActualizarActivity"
+            android:name=".CRUDSexo.SexoActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".SectorInsertarActivity"
+            android:name=".CRUDSector.SectorInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".SectorEliminarActivity"
+            android:name=".CRUDSector.SectorEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".SectorConsultarActivity"
+            android:name=".CRUDSector.SectorConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".SectorActualizarActivity"
+            android:name=".CRUDSector.SectorActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Rango_EdadInsertarActivity"
+            android:name=".CRUDRangoEdad.Rango_EdadInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".Rango_EdadActualizarActivity"
+            android:name=".CRUDRangoEdad.Rango_EdadActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".Rango_EdadEliminarActivity"
+            android:name=".CRUDRangoEdad.Rango_EdadEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".Rango_EdadConsultarActivity"
+            android:name=".CRUDRangoEdad.Rango_EdadConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".MunicipioInsertarActivity"
+            android:name=".CRUDMunicipio.MunicipioInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".MunicipioConsultarActivity"
+            android:name=".CRUDMunicipio.MunicipioConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".MunicipioEliminarActivity"
+            android:name=".CRUDMunicipio.MunicipioEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".MunicipioActualizarActivity"
+            android:name=".CRUDMunicipio.MunicipioActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".LocalInsertarActivity"
+            android:name=".CRUDLocal.LocalInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".LocalConsultarActivity"
+            android:name=".CRUDLocal.LocalConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".LocalEliminarActivity"
+            android:name=".CRUDLocal.LocalEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".LocalActualizarActivity"
+            android:name=".CRUDLocal.LocalActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".EvaluacionInsertarActivity"
+            android:name=".CRUDEvaluacion.EvaluacionInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".EvaluacionEliminarActivity"
+            android:name=".CRUDEvaluacion.EvaluacionEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".EvaluacionConsultarActivity"
+            android:name=".CRUDEvaluacion.EvaluacionConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".EvaluacionActualizarActivity"
+            android:name=".CRUDEvaluacion.EvaluacionActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".EmpresaInsertarActivity"
+            android:name=".CRUDEmpresa.EmpresaInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".EmpresaEliminarActivity"
+            android:name=".CRUDEmpresa.EmpresaEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".EmpresaConsultarActivity"
+            android:name=".CRUDEmpresa.EmpresaConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".EmpresaActualizarActivity"
+            android:name=".CRUDEmpresa.EmpresaActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".DepartamentoInsertarActivity"
+            android:name=".CRUDDepartamento.DepartamentoInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".DepartamentoEliminarActivity"
+            android:name=".CRUDDepartamento.DepartamentoEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".DepartamentoConsultarActivity"
+            android:name=".CRUDDepartamento.DepartamentoConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".DepartamentoActualizarActivity"
+            android:name=".CRUDDepartamento.DepartamentoActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".DenunciasInsertarActivity"
+            android:name=".CRUDDenuncias.DenunciasInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".DenunciasEliminarActivity"
+            android:name=".CRUDDenuncias.DenunciasEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".DenunciasConsultarActivity"
+            android:name=".CRUDDenuncias.DenunciasConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".DenunciasActualizarActivity"
+            android:name=".CRUDDenuncias.DenunciasActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentariosInsertarActivity"
+            android:name=".CRUDComentarios.ComentariosInsertarActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentariosEliminarActivity"
+            android:name=".CRUDComentarios.ComentariosEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentariosConsultarActivity"
+            android:name=".CRUDComentarios.ComentariosConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".ComentariosActualizarActivity"
+            android:name=".CRUDComentarios.ComentariosActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteConsultarActivity"
+            android:name=".CRUDCliente.ClienteConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteActualizarActivity"
+            android:name=".CRUDCliente.ClienteActualizarActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteEliminarActivity"
+            android:name=".CRUDCliente.ClienteEliminarActivity"
             android:exported="false" />
         <activity
-            android:name=".ClienteInsertarActivty"
-            android:exported="false" />
-        <activity
-            android:name=".Denuncias"
-            android:exported="false" />
-        <activity
-            android:name=".Sugerencias"
-            android:exported="false" />
-        <activity
-            android:name=".Comentarios"
-            android:exported="false" />
-        <activity
-            android:name=".Evaluacion"
-            android:exported="false" />
-        <activity
-            android:name=".Cliente"
-            android:exported="false" />
-        <activity
-            android:name=".Acceso_Usuario"
-            android:exported="false" />
-        <activity
-            android:name=".Sugerencias_App"
-            android:exported="false" />
-        <activity
-            android:name=".Usuario"
-            android:exported="false" />
-        <activity
-            android:name=".Tipo_Usuario"
-            android:exported="false" />
-        <activity
-            android:name=".OpcionCrud"
-            android:exported="false" />
-        <activity
-            android:name=".Tipo_Satisfaccion"
-            android:exported="false" />
-        <activity
-            android:name=".Rango_Edad"
-            android:exported="false" />
-        <activity
-            android:name=".Sexo"
-            android:exported="false" />
-        <activity
-            android:name=".Local"
-            android:exported="false" />
-        <activity
-            android:name=".Empresa"
-            android:exported="false" />
-        <activity
-            android:name=".Tipo_Empresa"
-            android:exported="false" />
-        <activity
-            android:name=".Municipio"
-            android:exported="false" />
-        <activity
-            android:name=".Departamento"
-            android:exported="false" />
-        <activity
-            android:name=".Sector"
+            android:name=".CRUDCliente.ClienteInsertarActivty"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
