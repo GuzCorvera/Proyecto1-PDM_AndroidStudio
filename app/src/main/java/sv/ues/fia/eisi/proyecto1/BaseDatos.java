@@ -2,6 +2,9 @@ package sv.ues.fia.eisi.proyecto1;
 
 public class BaseDatos {
     public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
+    public static final String TABLE_SEXO = "SEXO";
+    public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
+    public static final String TABLE_TIPO_SATISFACION = "TIPO_SATISFACION";
 
     public static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
     public static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};

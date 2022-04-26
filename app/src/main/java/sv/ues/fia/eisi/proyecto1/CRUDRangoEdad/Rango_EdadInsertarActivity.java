@@ -46,6 +46,10 @@ public class Rango_EdadInsertarActivity extends Activity {
     }
 
     public void limpiarTexto(View v){
+        editIdRangoEdad.setText("");
+        editNombreRangoEdad.setText("");
+        editEdadMenor.setText("");
+        editEdadMayor.setText("");
 
     }
 }

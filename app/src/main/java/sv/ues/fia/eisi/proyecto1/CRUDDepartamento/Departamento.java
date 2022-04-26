@@ -8,6 +8,10 @@ public class Departamento{
     public Departamento() {
     }
 
+    public Departamento(String idDepartamento) {
+        this.idDepartamento = idDepartamento;
+    }
+
     public Departamento(String idDepartamento, String nomDepartamento) {
         this.idDepartamento = idDepartamento;
         this.nomDepartamento = nomDepartamento;

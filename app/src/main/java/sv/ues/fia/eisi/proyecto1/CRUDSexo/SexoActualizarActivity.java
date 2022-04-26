@@ -1,15 +1,18 @@
 package sv.ues.fia.eisi.proyecto1.CRUDSexo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
 
 public class SexoActualizarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdSexo;
     EditText editNomSexo;
     EditText editAbreviaturaSexo;
@@ -25,10 +28,23 @@ public class SexoActualizarActivity extends Activity {
     }
 
     public void actualizarSexo(View v){
-
+        if(!editIdSexo.getText().toString().equals("") &
+                !editNomSexo.getText().toString().equals("") & !editAbreviaturaSexo.getText().toString().equals("")){
+            Sexo sexo = new Sexo(
+                    editIdSexo.getText().toString(),
+                    editNomSexo.getText().toString(),
+                    editAbreviaturaSexo.getText().toString()
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(sexo);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdSexo.setText("");
+        editNomSexo.setText("");
+        editAbreviaturaSexo.setText("");
     }
 }

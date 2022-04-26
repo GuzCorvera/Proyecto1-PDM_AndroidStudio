@@ -9,6 +9,10 @@ public class Sexo {
     public Sexo() {
     }
 
+    public Sexo(String idSexo) {
+        this.idSexo = idSexo;
+    }
+
     public Sexo(String idSexo, String nomSexo, String abreviaturaSexo) {
         this.idSexo = idSexo;
         this.nomSexo = nomSexo;
