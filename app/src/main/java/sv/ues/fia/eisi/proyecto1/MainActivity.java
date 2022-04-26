@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends ListActivity {
     //String[] menu = {"Tabla Cliente","Tabla Comentario","Denuncia","LLenar Base de Datos"};
     String[] menu = {"" +
-            "Tabla Cliente",
+            "Tabla Prueba","Tabla Cliente",
             "Tabla Comentarios",
             "Tabla Denuncias",
             "Tabla Departamento",
@@ -28,7 +28,7 @@ public class MainActivity extends ListActivity {
             "Tabla Tipo de Usuario",
             "Tabla Usuario"};
     String[] activities = {
-            "ClienteMenuActivity",
+            "prueba","ClienteMenuActivity",
             "ComentarioMenuActivity",
             "DenunciasMenuActivity",
             "DepartamentoMenuActivity",
