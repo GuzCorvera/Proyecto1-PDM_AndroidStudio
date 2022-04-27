@@ -31,7 +31,7 @@ public class Tipo_EmpresaMenuActivity extends ListActivity {
         l.getChildAt(position).setBackgroundColor(Color.rgb(128, 128, 255));
 
         try {
-            Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1." + nombreValue);
+            Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1.CRUDTipoEmpresa." + nombreValue);
             Intent inte = new Intent(this, clase);
             this.startActivity(inte);
         } catch (ClassNotFoundException e) {

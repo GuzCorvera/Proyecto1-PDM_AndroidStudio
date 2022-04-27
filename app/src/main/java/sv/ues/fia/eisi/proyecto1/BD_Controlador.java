@@ -46,6 +46,7 @@ import sv.ues.fia.eisi.proyecto1.CRUDDepartamento.Departamento;
 import sv.ues.fia.eisi.proyecto1.CRUDRangoEdad.Rango_Edad;
 import sv.ues.fia.eisi.proyecto1.CRUDSector.Sector;
 import sv.ues.fia.eisi.proyecto1.CRUDSexo.Sexo;
+import sv.ues.fia.eisi.proyecto1.CRUDTipoEmpresa.Tipo_Empresa;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion.Tipo_Satisfaccion;
 
 public class BD_Controlador {
@@ -150,6 +151,14 @@ public class BD_Controlador {
                 Cursor c5 = db.query(TABLE_SECTOR, null, camposSector[0]+"=?",
                         id5, null, null, null);
                 if(c5.moveToFirst())
+                    return true;
+            case 6: //Verificar si existe TIPO_EMPRESA
+                Tipo_Empresa tipoEmpresa = (Tipo_Empresa) dato;
+                String[] id6 = {tipoEmpresa.getIdTipoEmpresa()};
+                abrir();
+                Cursor c6 = db.query(TABLE_TIPO_EMPRESA, null, camposSTipoEmpresa[0]+"=?",
+                        id6, null, null, null);
+                if(c6.moveToFirst())
                     return true;
         }
         return false;
@@ -400,6 +409,53 @@ public class BD_Controlador {
             sector.setIdSector(cursor.getString(0));
             sector.setTipoSector(cursor.getString(1));
             return sector;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_EMPRESA*/
+    public String insertar(Tipo_Empresa tipoEmpresa) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposSTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
+        cv.put(camposSTipoEmpresa[1],tipoEmpresa.getNomTipoEmpresa());
+
+        cont = db.insert(TABLE_TIPO_EMPRESA, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Tipo_Empresa tipoEmpresa) {
+        if(verificarIntegridad(tipoEmpresa, 6)){
+            String[] id = {tipoEmpresa.getIdTipoEmpresa()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposSTipoEmpresa[0], tipoEmpresa.getIdTipoEmpresa());
+            cv.put(camposSTipoEmpresa[1], tipoEmpresa.getNomTipoEmpresa());
+            db.update(TABLE_TIPO_EMPRESA, cv, camposSTipoEmpresa[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+tipoEmpresa.getIdTipoEmpresa()+" no existe";
+    }
+
+    public String eliminar(Tipo_Empresa tipoEmpresa) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_TIPO_EMPRESA,
+                camposSTipoEmpresa[0]+"='"+tipoEmpresa.getIdTipoEmpresa()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Tipo_Empresa consultarTipoEmpresa(String idTipoEmpresa) {
+        String[] id = {idTipoEmpresa};
+        Cursor cursor = db.query(TABLE_TIPO_EMPRESA, camposSTipoEmpresa,
+                camposSTipoEmpresa[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Tipo_Empresa tipoEmpresa = new Tipo_Empresa();
+            tipoEmpresa.setIdTipoEmpresa(cursor.getString(0));
+            tipoEmpresa.setNomTipoEmpresa(cursor.getString(1));
+            return tipoEmpresa;
         }else return null;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

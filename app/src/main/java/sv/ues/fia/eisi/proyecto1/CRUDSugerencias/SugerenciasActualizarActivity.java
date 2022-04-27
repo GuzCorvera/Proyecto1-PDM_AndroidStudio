@@ -24,7 +24,7 @@ public class SugerenciasActualizarActivity extends Activity {
         setContentView(R.layout.activity_sugerencias_actualizar);
         helper = new BD_Controlador(this);
         editIdSugerencia = (EditText) findViewById(R.id.editIdSugerencia);
-        editIdUsuarioSugerencia = (EditText) findViewById(R.id.editIdUsuarioSugerencia);
+        editIdUsuarioSugerencia = (EditText) findViewById(R.id.editNomTipoEmpresa);
         editIdLocalSugerencia = (EditText) findViewById(R.id.editIdLocalSugerencia);
         editTextSugerencia = (EditText) findViewById(R.id.editTextSugerencia);
         editFechaSugerencia = (EditText) findViewById(R.id.editFechaSugerencia);
