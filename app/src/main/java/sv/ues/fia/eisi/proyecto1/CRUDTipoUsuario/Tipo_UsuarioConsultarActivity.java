@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -25,10 +26,18 @@ public class Tipo_UsuarioConsultarActivity extends Activity {
     }
 
     public void consultarTipoUsuario(View v){
-
+        if (!editIdTipoUsuario.getText().toString().equals("")){
+            helper.abrir();
+            Tipo_Usuario tipoUsuario = helper.consultarTipoUsuario(editIdTipoUsuario.getText().toString());
+            helper.cerrar();
+            if(tipoUsuario != null)
+                editDesTipoUsuario.setText(tipoUsuario.getDesTipoUsuario());
+            else Toast.makeText(context, "No existe: "+editIdTipoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdTipoUsuario.setText("");
+        editDesTipoUsuario.setText("");
     }
 }

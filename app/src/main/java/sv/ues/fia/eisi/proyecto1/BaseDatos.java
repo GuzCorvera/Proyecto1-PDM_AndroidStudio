@@ -32,7 +32,7 @@ public class BaseDatos {
     public static final String[] camposSexo = new String[]{"idSexo","nomSexo","abreviaturaSexo"};
     public static final String[] camposSugerencias = new String[]{"idSugerencia","idUsuario","idLocal","textSugerencia","fechaSugerencia"};
     public static final String[] camposSugerencias_App = new String[]{"idSugerenciasApp","idUsuario","txtSugerenciasApp"};
-    public static final String[] camposSTipoEmpresa= new String[]{"idTipoEmpresa","nomTipoEmpresa"};
+    public static final String[] camposTipoEmpresa = new String[]{"idTipoEmpresa","nomTipoEmpresa"};
     public static final String[] camposTipoSatisfaccion = new String[]{"idTipoSatisfaccion","nomTipoSatisfaccion","notaMenor","notaMayor"};
     public static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
     public static final String[] camposUsuario = new String[]{"idUsuario","idTipoUsuario","idEmpresa","nomUsuario","contraUsuario","correoUsuario"};

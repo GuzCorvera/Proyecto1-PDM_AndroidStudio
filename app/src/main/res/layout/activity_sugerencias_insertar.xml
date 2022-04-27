@@ -32,7 +32,7 @@
 
         <EditText
             android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdUsuarioSugerencia"
+            android:id="@+id/editNomTipoEmpresa"
             android:inputType="textPersonName"
             android:maxLength="5" />
     </TableRow>

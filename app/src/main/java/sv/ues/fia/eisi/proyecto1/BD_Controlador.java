@@ -6,7 +6,7 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SEXO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SUGERENCIAS;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SUGERENCIAS_APP;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_EMPRESA;
-import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACION;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACCION;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_USUARIO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_USUARIO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposDepartamento;
@@ -26,7 +26,7 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposEvaluacion;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposLocal;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposMunicipio;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposRangoEdad;
-import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSTipoEmpresa;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoEmpresa;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSector;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSexo;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSugerencias;
@@ -44,8 +44,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import sv.ues.fia.eisi.proyecto1.CRUDDepartamento.Departamento;
 import sv.ues.fia.eisi.proyecto1.CRUDRangoEdad.Rango_Edad;
+import sv.ues.fia.eisi.proyecto1.CRUDSector.Sector;
 import sv.ues.fia.eisi.proyecto1.CRUDSexo.Sexo;
+import sv.ues.fia.eisi.proyecto1.CRUDTipoEmpresa.Tipo_Empresa;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion.Tipo_Satisfaccion;
+import sv.ues.fia.eisi.proyecto1.CRUDTipoUsuario.Tipo_Usuario;
 
 public class BD_Controlador {
 
@@ -83,9 +86,9 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE "+TABLE_SECTOR+" ("+camposSector[0]+" VARCHAR2(8) not null, "+camposSector[1]+" VARCHAR2(30) not null, constraint PK_SECTOR primary key ("+camposSector[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS+" ("+camposSugerencias[0]+" VARCHAR2(8) not null, "+camposSugerencias[1]+" VARCHAR2(8), "+camposSugerencias[2]+" VARCHAR2(8), "+camposSugerencias[3]+" VARCHAR2(300) not null, "+camposSugerencias[4]+" VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key ("+camposSugerencias[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS_APP+" ("+camposSugerencias_App[0]+" VARCHAR2(8) not null, "+camposSugerencias_App[1]+" VARCHAR2(8), "+camposSugerencias_App[2]+" VARCHAR2(500) not null, constraint PK_SUGERENCIAS_APP primary key ("+camposSugerencias_App[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+camposSTipoEmpresa[0]+" VARCHAR2(8) not null, "+camposSTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+camposSTipoEmpresa[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_TIPO_SATISFACION+" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[2]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+ camposTipoEmpresa[0]+" VARCHAR2(8) not null, "+ camposTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+ camposTipoEmpresa[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_SATISFACCION+" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_USUARIO+" ("+camposUsuario[0]+" VARCHAR2(8) not null, "+camposUsuario[1]+" VARCHAR2(8), "+camposUsuario[2]+" VARCHAR2(8), "+camposUsuario[3]+" VARCHAR2(30) not null, "+camposUsuario[4]+" VARCHAR2(50) not null, "+camposUsuario[5]+" VARCHAR2(50) not null, constraint PK_USUARIO primary key ("+camposUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[2]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
              
@@ -141,6 +144,30 @@ public class BD_Controlador {
                 Cursor c4 = db.query(TABLE_TIPO_SATISFACCION, null, camposTipoSatisfaccion[0]+"=?",
                         id4, null, null, null);
                 if(c4.moveToFirst())
+                    return true;
+            case 5: //Verificar si existe SECTOR
+                Sector sector = (Sector) dato;
+                String[] id5 = {sector.getIdSector()};
+                abrir();
+                Cursor c5 = db.query(TABLE_SECTOR, null, camposSector[0]+"=?",
+                        id5, null, null, null);
+                if(c5.moveToFirst())
+                    return true;
+            case 6: //Verificar si existe TIPO_EMPRESA
+                Tipo_Empresa tipoEmpresa = (Tipo_Empresa) dato;
+                String[] id6 = {tipoEmpresa.getIdTipoEmpresa()};
+                abrir();
+                Cursor c6 = db.query(TABLE_TIPO_EMPRESA, null, camposTipoEmpresa[0]+"=?",
+                        id6, null, null, null);
+                if(c6.moveToFirst())
+                    return true;
+            case 7: //Verificar si existe TIPO_USUARIO
+                Tipo_Usuario tipoUsuario = (Tipo_Usuario) dato;
+                String[] id7 = {tipoUsuario.getIdTipoUsuario()};
+                abrir();
+                Cursor c7 = db.query(TABLE_TIPO_USUARIO, null, camposTipoUsuario[0]+"=?",
+                        id7, null, null, null);
+                if(c7.moveToFirst())
                     return true;
         }
         return false;
@@ -344,6 +371,147 @@ public class BD_Controlador {
             satisfaccion.setNotaMenor(cursor.getFloat(2));
             satisfaccion.setNotaMayor(cursor.getFloat(3));
             return satisfaccion;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - SECTOR*/
+    public String insertar(Sector sector) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposSector[0],sector.getIdSector());
+        cv.put(camposSector[1],sector.getTipoSector());
+
+        cont = db.insert(TABLE_SECTOR, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Sector sector) {
+        if(verificarIntegridad(sector, 5)){
+            String[] id = {sector.getIdSector()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposSector[0], sector.getIdSector());
+            cv.put(camposSector[1], sector.getTipoSector());
+            db.update(TABLE_SECTOR, cv, camposSector[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+sector.getIdSector()+" no existe";
+    }
+
+    public String eliminar(Sector sector) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_SECTOR,
+                camposSector[0]+"='"+sector.getIdSector()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Sector consultarSector(String idSector) {
+        String[] id = {idSector};
+        Cursor cursor = db.query(TABLE_SECTOR, camposSector,
+                camposSector[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Sector sector = new Sector();
+            sector.setIdSector(cursor.getString(0));
+            sector.setTipoSector(cursor.getString(1));
+            return sector;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_EMPRESA*/
+    public String insertar(Tipo_Empresa tipoEmpresa) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
+        cv.put(camposTipoEmpresa[1],tipoEmpresa.getNomTipoEmpresa());
+
+        cont = db.insert(TABLE_TIPO_EMPRESA, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Tipo_Empresa tipoEmpresa) {
+        if(verificarIntegridad(tipoEmpresa, 6)){
+            String[] id = {tipoEmpresa.getIdTipoEmpresa()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposTipoEmpresa[0], tipoEmpresa.getIdTipoEmpresa());
+            cv.put(camposTipoEmpresa[1], tipoEmpresa.getNomTipoEmpresa());
+            db.update(TABLE_TIPO_EMPRESA, cv, camposTipoEmpresa[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+tipoEmpresa.getIdTipoEmpresa()+" no existe";
+    }
+
+    public String eliminar(Tipo_Empresa tipoEmpresa) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_TIPO_EMPRESA,
+                camposTipoEmpresa[0]+"='"+tipoEmpresa.getIdTipoEmpresa()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Tipo_Empresa consultarTipoEmpresa(String idTipoEmpresa) {
+        String[] id = {idTipoEmpresa};
+        Cursor cursor = db.query(TABLE_TIPO_EMPRESA, camposTipoEmpresa,
+                camposTipoEmpresa[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Tipo_Empresa tipoEmpresa = new Tipo_Empresa();
+            tipoEmpresa.setIdTipoEmpresa(cursor.getString(0));
+            tipoEmpresa.setNomTipoEmpresa(cursor.getString(1));
+            return tipoEmpresa;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_USUARIO*/
+    public String insertar(Tipo_Usuario tipoUsuario) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposTipoUsuario[0],tipoUsuario.getIdTipoUsuario());
+        cv.put(camposTipoUsuario[1],tipoUsuario.getDesTipoUsuario());
+
+        cont = db.insert(TABLE_TIPO_USUARIO, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Tipo_Usuario tipoUsuario) {
+        if(verificarIntegridad(tipoUsuario, 7)){
+            String[] id = {tipoUsuario.getIdTipoUsuario()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposTipoUsuario[0], tipoUsuario.getIdTipoUsuario());
+            cv.put(camposTipoUsuario[1], tipoUsuario.getDesTipoUsuario());
+            db.update(TABLE_TIPO_USUARIO, cv, camposTipoUsuario[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+tipoUsuario.getIdTipoUsuario()+" no existe";
+    }
+
+    public String eliminar(Tipo_Usuario tipoUsuario) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_TIPO_USUARIO,
+                camposTipoUsuario[0]+"='"+tipoUsuario.getIdTipoUsuario()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Tipo_Usuario consultarTipoUsuario(String idTipoUsuario) {
+        String[] id = {idTipoUsuario};
+        Cursor cursor = db.query(TABLE_TIPO_USUARIO, camposTipoUsuario,
+                camposTipoUsuario[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Tipo_Usuario tipoUsuario = new Tipo_Usuario();
+            tipoUsuario.setIdTipoUsuario(cursor.getString(0));
+            tipoUsuario.setDesTipoUsuario(cursor.getString(1));
+            return tipoUsuario;
         }else return null;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
