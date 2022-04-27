@@ -1,8 +1,14 @@
 package sv.ues.fia.eisi.proyecto1;
 
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_DEPARTAMENTO;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SECTOR;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SEXO;
-import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACCION;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SUGERENCIAS;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_SUGERENCIAS_APP;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_EMPRESA;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACION;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_USUARIO;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_USUARIO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposDepartamento;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_CLIENTE;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_COMENTARIOS;
@@ -20,8 +26,14 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposEvaluacion;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposLocal;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposMunicipio;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposRangoEdad;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSTipoEmpresa;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSector;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSexo;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSugerencias;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSugerencias_App;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoSatisfaccion;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoUsuario;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposUsuario;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -68,14 +80,15 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE "+TABLE_MUNICIPIO+" ("+camposMunicipio[0]+" VARCHAR2(8) not null, "+camposMunicipio[1]+" VARCHAR2(8), "+camposMunicipio[2]+" VARCHAR2(30) not null, constraint PK_MUNICIPIO primary key ("+camposMunicipio[0]+"));");
                 db.execSQL("CREATE TABLE OPCIONCRUD (IDOPCION VARCHAR2(8) not null, DESCOPCION VARCHAR2(30) not null, NUMCRUD INTEGER not null, constraint PK_OPCIONCRUD primary key (IDOPCION));");
                 db.execSQL("CREATE TABLE "+TABLE_RANGO_EDAD+" ("+camposRangoEdad[0]+" VARCHAR2(8) not null, "+camposRangoEdad[1]+" VARCHAR2(100) not null, "+camposRangoEdad[2]+" FLOAT not null, "+camposRangoEdad[3]+" FLOAT not null, constraint PK_RANGO_EDAD primary key ("+camposRangoEdad[0]+"));");
-                db.execSQL("CREATE TABLE SECTOR (IDSECTOR VARCHAR2(8) not null, TIPOSECTOR VARCHAR2(30) not null, constraint PK_SECTOR primary key (IDSECTOR));");
+                db.execSQL("CREATE TABLE "+TABLE_SECTOR+" ("+camposSector[0]+" VARCHAR2(8) not null, "+camposSector[1]+" VARCHAR2(30) not null, constraint PK_SECTOR primary key ("+camposSector[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS+" ("+camposSugerencias[0]+" VARCHAR2(8) not null, "+camposSugerencias[1]+" VARCHAR2(8), "+camposSugerencias[2]+" VARCHAR2(8), "+camposSugerencias[3]+" VARCHAR2(300) not null, "+camposSugerencias[4]+" VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key ("+camposSugerencias[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS_APP+" ("+camposSugerencias_App[0]+" VARCHAR2(8) not null, "+camposSugerencias_App[1]+" VARCHAR2(8), "+camposSugerencias_App[2]+" VARCHAR2(500) not null, constraint PK_SUGERENCIAS_APP primary key ("+camposSugerencias_App[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+camposSTipoEmpresa[0]+" VARCHAR2(8) not null, "+camposSTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+camposSTipoEmpresa[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_SATISFACION+" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[2]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_USUARIO+" ("+camposUsuario[0]+" VARCHAR2(8) not null, "+camposUsuario[1]+" VARCHAR2(8), "+camposUsuario[2]+" VARCHAR2(8), "+camposUsuario[3]+" VARCHAR2(30) not null, "+camposUsuario[4]+" VARCHAR2(50) not null, "+camposUsuario[5]+" VARCHAR2(50) not null, constraint PK_USUARIO primary key ("+camposUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[2]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
-                db.execSQL("CREATE TABLE SUGERECIAS (IDSUGERENCIAS VARCHAR2(8) not null, IDLOCAL VARCHAR2(8), IDUSUARIO VARCHAR2(8), TEXTSUGERENCIA VARCHAR2(300) not null, FECHASUGERENCIA VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key (IDSUGERENCIAS));");
-                db.execSQL("CREATE TABLE SUGERENCIAS_APP (IDSUGERENCIASAPP VARCHAR2(8) not null, IDUSUARIO VARCHAR2(8), TXTSUGERENCIASAPP VARCHAR2(500) not null, constraint PK_SUGERENCIAS_APP primary key (IDSUGERENCIASAPP));");
-                db.execSQL("CREATE TABLE TIPO_EMPRESA (IDTIPOEMPRESA VARCHAR2(8) not null, NOMTIPOEMPRESA VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key (IDTIPOEMPRESA));");
-                db.execSQL("CREATE TABLE "+ TABLE_TIPO_SATISFACCION +" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
-                db.execSQL("CREATE TABLE TIPO_USUARIO (IDTIPOUSUARIO VARCHAR2(8) not null, DESTIPOUSUARIO VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key (IDTIPOUSUARIO));");
-                db.execSQL("CREATE TABLE USUARIO (IDUSUARIO VARCHAR2(8) not null, IDTIPOUSUARIO VARCHAR2(8), IDEMPRESA VARCHAR2(8), NOMUSUARIO VARCHAR2(30) not null, CONTRAUSUARIO VARCHAR2(50) not null, CORREOUSUARIO VARCHAR2(50) not null, constraint PK_USUARIO primary key (IDUSUARIO));");
+             
             } catch (SQLException e) {
                 e.printStackTrace();
             }
