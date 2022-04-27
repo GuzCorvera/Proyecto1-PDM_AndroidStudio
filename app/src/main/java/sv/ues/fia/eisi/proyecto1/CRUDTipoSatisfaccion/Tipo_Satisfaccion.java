@@ -10,6 +10,10 @@ public class Tipo_Satisfaccion {
     public Tipo_Satisfaccion() {
     }
 
+    public Tipo_Satisfaccion(String idTipoSatisfaccion) {
+        this.idTipoSatisfaccion = idTipoSatisfaccion;
+    }
+
     public Tipo_Satisfaccion(String idTipoSatisfaccion, String nomTipoSatisfaccion, float notaMenor, float notaMayor) {
         this.idTipoSatisfaccion = idTipoSatisfaccion;
         this.nomTipoSatisfaccion = nomTipoSatisfaccion;

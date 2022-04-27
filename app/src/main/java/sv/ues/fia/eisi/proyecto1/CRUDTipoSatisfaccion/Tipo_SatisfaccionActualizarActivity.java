@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -29,7 +30,19 @@ public class Tipo_SatisfaccionActualizarActivity extends Activity {
     }
 
     public void actualizarTipoSatisfaccion(View v){
-
+        if(!editIdTipoSatisfaccion.getText().equals("") & !editNomTipoSatisfaccion.getText().equals("") &
+                !editNotaMenor.getText().equals("") & !editNotaMayor.getText().equals("")){
+            Tipo_Satisfaccion satisfaccion = new Tipo_Satisfaccion(
+                    editIdTipoSatisfaccion.getText().toString(),
+                    editNomTipoSatisfaccion.getText().toString(),
+                    Float.parseFloat(editNotaMenor.getText().toString()),
+                    Float.parseFloat(editNotaMayor.getText().toString())
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(satisfaccion);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
