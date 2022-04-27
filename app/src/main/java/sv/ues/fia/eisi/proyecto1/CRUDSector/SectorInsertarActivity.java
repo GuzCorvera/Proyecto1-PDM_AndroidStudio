@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -25,10 +26,20 @@ public class SectorInsertarActivity extends Activity {
     }
 
     public void insertarSector(View v){
-
+        if(!editIdSector.getText().toString().equals("") & !editTipoSector.getText().toString().equals("")){
+            Sector sector = new Sector(
+                    editIdSector.getText().toString(),
+                    editTipoSector.getText().toString()
+            );
+            helper.abrir();
+            String insert = helper.insertar(sector);
+            helper.cerrar();
+            Toast.makeText(context, insert, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdSector.setText("");
+        editTipoSector.setText("");
     }
 }

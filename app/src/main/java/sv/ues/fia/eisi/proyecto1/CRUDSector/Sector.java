@@ -9,6 +9,10 @@ public class Sector {
 
     }
 
+    public Sector(String idSector) {
+        this.idSector = idSector;
+    }
+
     public Sector(String idSector, String tipoSector){
         this.idSector=idSector;
         this.tipoSector=tipoSector;
