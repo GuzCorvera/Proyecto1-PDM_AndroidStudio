@@ -42,20 +42,20 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import sv.ues.fia.eisi.proyecto1.CRUDCliente.Cliente;
 import sv.ues.fia.eisi.proyecto1.CRUDDepartamento.Departamento;
 import sv.ues.fia.eisi.proyecto1.CRUDRangoEdad.Rango_Edad;
 import sv.ues.fia.eisi.proyecto1.CRUDSexo.Sexo;
+import sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion.Tipo_Satisfaccion;
 
 public class BD_Controlador {
 
     private final Context context;
-    private DatabaseHelper DBHelper;
+    private final DatabaseHelper dbHelper;
     private SQLiteDatabase db;
 
     public BD_Controlador(Context ctx) {
         this.context = ctx;
-        DBHelper = new DatabaseHelper(context);
+        dbHelper = new DatabaseHelper(context);
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -69,25 +69,26 @@ public class BD_Controlador {
         @Override
         public void onCreate(SQLiteDatabase db) {
             try {
-                db.execSQL("CREATE TABLE ACCESOUSUARIO (IDUSUARIO VARCHAR2(8), IDOPCION VARCHAR2(8));");
+                //db.execSQL("CREATE TABLE ACCESOUSUARIO (IDUSUARIO VARCHAR2(8), IDOPCION VARCHAR2(8));");
                 db.execSQL("CREATE TABLE "+TABLE_CLIENTE+" ("+camposCliente[0]+" VARCHAR2(8) not null, "+camposCliente[1]+" VARCHAR2(8), "+camposCliente[2]+" VARCHAR2(8), "+camposCliente[3]+" VARCHAR2(8), "+camposCliente[4]+" VARCHAR2(300) not null, "+camposCliente[5]+" VARCHAR2(20) not null, constraint PK_CLIENTE primary key ("+camposCliente[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_COMENTARIOS+" ("+camposComentarios[0]+" VARCHAR2(8) not null, "+camposComentarios[1]+" VARCHAR2(8), "+camposComentarios[2]+" VARCHAR2(8),"+camposComentarios[3]+" VARCHAR2(300) not null, "+camposComentarios[4]+" VARCHAR2(10) not null, constraint PK_COMENTARIOS primary key ("+camposComentarios[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_DENUNCIAS+" ("+camposDenuncias[0]+" VARCHAR2(8) not null, "+camposDenuncias[1]+" VARCHAR2(8), "+camposDenuncias[2]+" VARCHAR2(8), "+camposDenuncias[3]+" VARCHAR2(300) not null, "+camposDenuncias[4]+" VARCHAR2(10) not null, constraint PK_DENUNCIAS primary key ("+camposDenuncias[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_DEPARTAMENTO+" ("+camposDepartamento[0]+" VARCHAR2(8) not null, "+camposDepartamento[1]+" VARCHAR2(30) not null, constraint PK_DEPARTAMENTO primary key ("+camposDepartamento[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_EMPRESA+" ("+camposEmpresa[0]+" VARCHAR2(8) not null, "+camposEmpresa[1]+" VARCHAR2(8), "+camposEmpresa[2]+" VARCHAR2(100) not null, "+camposEmpresa[3]+" VARCHAR2(20) not null, "+camposEmpresa[4]+" VARCHAR2(100) not null, "+camposEmpresa[5]+" VARCHAR2(30) not null, constraint PK_EMPRESA primary key ("+camposEmpresa[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_EVALUACION+" ("+camposEvaluacion[0]+" VARCHAR2(8) not null, "+camposEvaluacion[1]+" VARCHAR2(8), "+camposEvaluacion[2]+" VARCHAR2(8), "+camposEvaluacion[3]+" VARCHAR2(8), "+camposEvaluacion[4]+" FLOAT not null, constraint PK_EVALUACION primary key ("+camposEvaluacion[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_EVALUACION+" ("+camposEvaluacion[0]+" VARCHAR2(8) not null, "+camposEvaluacion[1]+" VARCHAR2(8), "+camposEvaluacion[2]+" VARCHAR2(8), "+camposEvaluacion[3]+" VARCHAR2(8), "+camposEvaluacion[4]+" FLOAT not null, "+camposEvaluacion[5]+" VARCHAR2(300),constraint PK_EVALUACION primary key ("+camposEvaluacion[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_LOCAL+" ("+camposLocal[0]+" VARCHAR2(8) not null, "+camposLocal[1]+" VARCHAR2(8), "+camposLocal[2]+" VARCHAR2(8), "+camposLocal[3]+" VARCHAR2(8), "+camposLocal[4]+" VARCHAR2(100) not null, "+camposLocal[5]+" VARCHAR2(100) not null, constraint PK_LOCAL primary key ("+camposLocal[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_MUNICIPIO+" ("+camposMunicipio[0]+" VARCHAR2(8) not null, "+camposMunicipio[1]+" VARCHAR2(8), "+camposMunicipio[2]+" VARCHAR2(30) not null, constraint PK_MUNICIPIO primary key ("+camposMunicipio[0]+"));");
                 db.execSQL("CREATE TABLE OPCIONCRUD (IDOPCION VARCHAR2(8) not null, DESCOPCION VARCHAR2(30) not null, NUMCRUD INTEGER not null, constraint PK_OPCIONCRUD primary key (IDOPCION));");
                 db.execSQL("CREATE TABLE "+TABLE_RANGO_EDAD+" ("+camposRangoEdad[0]+" VARCHAR2(8) not null, "+camposRangoEdad[1]+" VARCHAR2(100) not null, "+camposRangoEdad[2]+" FLOAT not null, "+camposRangoEdad[3]+" FLOAT not null, constraint PK_RANGO_EDAD primary key ("+camposRangoEdad[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SECTOR+" ("+camposSector[0]+" VARCHAR2(8) not null, "+camposSector[1]+" VARCHAR2(30) not null, constraint PK_SECTOR primary key ("+camposSector[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[3]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS+" ("+camposSugerencias[0]+" VARCHAR2(8) not null, "+camposSugerencias[1]+" VARCHAR2(8), "+camposSugerencias[2]+" VARCHAR2(8), "+camposSugerencias[3]+" VARCHAR2(300) not null, "+camposSugerencias[4]+" VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key ("+camposSugerencias[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS_APP+" ("+camposSugerencias_App[0]+" VARCHAR2(8) not null, "+camposSugerencias_App[1]+" VARCHAR2(8), "+camposSugerencias_App[2]+" VARCHAR2(500) not null, constraint PK_SUGERENCIAS_APP primary key ("+camposSugerencias_App[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+camposSTipoEmpresa[0]+" VARCHAR2(8) not null, "+camposSTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+camposSTipoEmpresa[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_SATISFACION+" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[2]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_USUARIO+" ("+camposUsuario[0]+" VARCHAR2(8) not null, "+camposUsuario[1]+" VARCHAR2(8), "+camposUsuario[2]+" VARCHAR2(8), "+camposUsuario[3]+" VARCHAR2(30) not null, "+camposUsuario[4]+" VARCHAR2(50) not null, "+camposUsuario[5]+" VARCHAR2(50) not null, constraint PK_USUARIO primary key ("+camposUsuario[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[2]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
+             
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -99,11 +100,11 @@ public class BD_Controlador {
         }
     }
     public void abrir() throws SQLException {
-        db = DBHelper.getWritableDatabase();
+        db = dbHelper.getWritableDatabase();
         return;
     }
     public void cerrar() {
-        DBHelper.close();
+        dbHelper.close();
     }
 
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
@@ -117,7 +118,6 @@ public class BD_Controlador {
                         camposRangoEdad[0]+"=?", id, null, null, null);
                 if(c1.moveToFirst())
                     return true;
-                return false;
             case 2: //Verificar si existe Sexo
                 Sexo sexo = (Sexo) dato;
                 String[] id2 = {sexo.getIdSexo()};
@@ -126,7 +126,6 @@ public class BD_Controlador {
                         id2, null, null,null);
                 if(c2.moveToFirst())
                     return true;
-                return false;
             case 3: //Verificar si existe Departamento
                 Departamento departamento = (Departamento) dato;
                 String[] id3 = {departamento.getIdDepartamento()};
@@ -135,9 +134,16 @@ public class BD_Controlador {
                         id3, null, null, null);
                 if(c3.moveToFirst())
                     return true;
-                return false;
-            default: return false;
+            case 4: //Verificar si existe TIPO_SATISFACCION
+                Tipo_Satisfaccion satisfaccion = (Tipo_Satisfaccion) dato;
+                String[] id4 = {satisfaccion.getIdTipoSatisfaccion()};
+                abrir();
+                Cursor c4 = db.query(TABLE_TIPO_SATISFACCION, null, camposTipoSatisfaccion[0]+"=?",
+                        id4, null, null, null);
+                if(c4.moveToFirst())
+                    return true;
         }
+        return false;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - RANGO EDAD*/
@@ -285,6 +291,59 @@ public class BD_Controlador {
             departamento.setIdDepartamento(cursor.getString(0));
             departamento.setNomDepartamento(cursor.getString(1));
             return departamento;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_SATISFACCION*/
+    public String insertar(Tipo_Satisfaccion satisfaccion) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposTipoSatisfaccion[0],satisfaccion.getIdTipoSatisfaccion());
+        cv.put(camposTipoSatisfaccion[1],satisfaccion.getNomTipoSatisfaccion());
+        cv.put(camposTipoSatisfaccion[2], satisfaccion.getNotaMenor());
+        cv.put(camposTipoSatisfaccion[3], satisfaccion.getNotaMayor());
+
+        cont = db.insert(TABLE_TIPO_SATISFACCION, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Tipo_Satisfaccion satisfaccion) {
+        if(verificarIntegridad(satisfaccion, 4)){
+            String[] id = {satisfaccion.getIdTipoSatisfaccion()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposTipoSatisfaccion[0], satisfaccion.getIdTipoSatisfaccion());
+            cv.put(camposTipoSatisfaccion[1], satisfaccion.getNomTipoSatisfaccion());
+            cv.put(camposTipoSatisfaccion[2], satisfaccion.getNotaMenor());
+            cv.put(camposTipoSatisfaccion[3], satisfaccion.getNotaMayor());
+            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+satisfaccion.getIdTipoSatisfaccion()+" no existe";
+    }
+
+    public String eliminar(Tipo_Satisfaccion satisfaccion) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_TIPO_SATISFACCION,
+                camposTipoSatisfaccion[0]+"='"+satisfaccion.getIdTipoSatisfaccion()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Tipo_Satisfaccion consultarTipoSatisfaccion(String idTipoSatisfaccion) {
+        String[] id = {idTipoSatisfaccion};
+        Cursor cursor = db.query(TABLE_TIPO_SATISFACCION, camposTipoSatisfaccion,
+                camposTipoSatisfaccion[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Tipo_Satisfaccion satisfaccion = new Tipo_Satisfaccion();
+            satisfaccion.setIdTipoSatisfaccion(cursor.getString(0));
+            satisfaccion.setNomTipoSatisfaccion(cursor.getString(1));
+            satisfaccion.setNotaMenor(cursor.getFloat(2));
+            satisfaccion.setNotaMayor(cursor.getFloat(3));
+            return satisfaccion;
         }else return null;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

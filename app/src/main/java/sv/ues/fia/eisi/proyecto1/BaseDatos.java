@@ -3,6 +3,7 @@ package sv.ues.fia.eisi.proyecto1;
 public class BaseDatos {
     public static final String TABLE_CLIENTE = "CLIENTE";
     public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
+    public static final String TABLE_TIPO_SATISFACCION = "TIPO_SATISFACCION";
     public static final String TABLE_COMENTARIOS = "COMENTARIOS";
     public static final String TABLE_DENUNCIAS = "DENUNCIAS";
     public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
@@ -15,7 +16,6 @@ public class BaseDatos {
     public static final String TABLE_SUGERENCIAS = "SUGERENCIAS";
     public static final String TABLE_SUGERENCIAS_APP = "SUGERENCIAS_APP";
     public static final String TABLE_TIPO_EMPRESA = "TIPO_EMPRESA";
-    public static final String TABLE_TIPO_SATISFACION = "TIPO_SATISFACION";
     public static final String TABLE_TIPO_USUARIO = "TIPO_USUARIO";
     public static final String TABLE_USUARIO = "USUARIO";
 
@@ -24,7 +24,7 @@ public class BaseDatos {
     public static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
     public static final String[] camposDepartamento = new String[]{"idDepartamento","nomDepartamento"};
     public static final String[] camposEmpresa = new String[]{"idEmpresa","idTipoEmpresa","nomLegalEmpresa","nitEmpresa","giroEmpresa","nrcEmpresa"};
-    public static final String[] camposEvaluacion = new String[]{"idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente"};
+    public static final String[] camposEvaluacion = new String[]{"idEvaluacion","idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente", "justificacionEvaCliente"};
     public static final String[] camposLocal = new String[]{"idLocal","idEmpresa","idSector","idMunicipio","nombreLocal","descripLocal"};
     public static final String[] camposMunicipio = new String[]{"idMunicipio","idDepartamento","nomMunicipio"};
     public static final String[] camposRangoEdad = new String[]{"idRangoEdad","nomRangoEdad","edadMenor","edadMayor"};

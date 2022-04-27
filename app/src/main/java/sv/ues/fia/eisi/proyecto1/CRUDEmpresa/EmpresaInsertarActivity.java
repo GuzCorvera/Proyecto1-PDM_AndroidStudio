@@ -1,6 +1,7 @@
 package sv.ues.fia.eisi.proyecto1.CRUDEmpresa;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import sv.ues.fia.eisi.proyecto1.R;
 
 public class EmpresaInsertarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdEmpresa;
     EditText editIdTipoEmpresa;
     EditText editNomLegalEmpresa;

@@ -1,5 +1,6 @@
 package sv.ues.fia.eisi.proyecto1.CRUDComentarios;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -11,6 +12,7 @@ import sv.ues.fia.eisi.proyecto1.R;
 
 public class ComentariosActualizarActivity extends Activity {
     BD_Controlador helper;
+    Context context = this;
     EditText editIdComentario;
     EditText editIdUsuarioComentario;
     EditText editIdLocalComentario;
