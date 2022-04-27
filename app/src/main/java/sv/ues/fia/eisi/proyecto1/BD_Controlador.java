@@ -26,7 +26,7 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposEvaluacion;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposLocal;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposMunicipio;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposRangoEdad;
-import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSTipoEmpresa;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoEmpresa;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSector;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSexo;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSugerencias;
@@ -48,6 +48,7 @@ import sv.ues.fia.eisi.proyecto1.CRUDSector.Sector;
 import sv.ues.fia.eisi.proyecto1.CRUDSexo.Sexo;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoEmpresa.Tipo_Empresa;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion.Tipo_Satisfaccion;
+import sv.ues.fia.eisi.proyecto1.CRUDTipoUsuario.Tipo_Usuario;
 
 public class BD_Controlador {
 
@@ -85,7 +86,7 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE "+TABLE_SECTOR+" ("+camposSector[0]+" VARCHAR2(8) not null, "+camposSector[1]+" VARCHAR2(30) not null, constraint PK_SECTOR primary key ("+camposSector[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS+" ("+camposSugerencias[0]+" VARCHAR2(8) not null, "+camposSugerencias[1]+" VARCHAR2(8), "+camposSugerencias[2]+" VARCHAR2(8), "+camposSugerencias[3]+" VARCHAR2(300) not null, "+camposSugerencias[4]+" VARCHAR2(10) not null, constraint PK_SUGERECIAS primary key ("+camposSugerencias[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SUGERENCIAS_APP+" ("+camposSugerencias_App[0]+" VARCHAR2(8) not null, "+camposSugerencias_App[1]+" VARCHAR2(8), "+camposSugerencias_App[2]+" VARCHAR2(500) not null, constraint PK_SUGERENCIAS_APP primary key ("+camposSugerencias_App[0]+"));");
-                db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+camposSTipoEmpresa[0]+" VARCHAR2(8) not null, "+camposSTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+camposSTipoEmpresa[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_TIPO_EMPRESA+" ("+ camposTipoEmpresa[0]+" VARCHAR2(8) not null, "+ camposTipoEmpresa[1]+" VARCHAR2(100) not null, constraint PK_TIPO_EMPRESA primary key ("+ camposTipoEmpresa[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_SATISFACCION+" ("+camposTipoSatisfaccion[0]+" VARCHAR2(8) not null, "+camposTipoSatisfaccion[1]+"  VARCHAR2(300) not null,"+camposTipoSatisfaccion[2]+" FLOAT not null, "+camposTipoSatisfaccion[3]+" FLOAT not null, constraint PK_TIPO_SATISFACION primary key ("+camposTipoSatisfaccion[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_USUARIO+" ("+camposUsuario[0]+" VARCHAR2(8) not null, "+camposUsuario[1]+" VARCHAR2(8), "+camposUsuario[2]+" VARCHAR2(8), "+camposUsuario[3]+" VARCHAR2(30) not null, "+camposUsuario[4]+" VARCHAR2(50) not null, "+camposUsuario[5]+" VARCHAR2(50) not null, constraint PK_USUARIO primary key ("+camposUsuario[0]+"));");
@@ -156,9 +157,17 @@ public class BD_Controlador {
                 Tipo_Empresa tipoEmpresa = (Tipo_Empresa) dato;
                 String[] id6 = {tipoEmpresa.getIdTipoEmpresa()};
                 abrir();
-                Cursor c6 = db.query(TABLE_TIPO_EMPRESA, null, camposSTipoEmpresa[0]+"=?",
+                Cursor c6 = db.query(TABLE_TIPO_EMPRESA, null, camposTipoEmpresa[0]+"=?",
                         id6, null, null, null);
                 if(c6.moveToFirst())
+                    return true;
+            case 7: //Verificar si existe TIPO_USUARIO
+                Tipo_Usuario tipoUsuario = (Tipo_Usuario) dato;
+                String[] id7 = {tipoUsuario.getIdTipoUsuario()};
+                abrir();
+                Cursor c7 = db.query(TABLE_TIPO_USUARIO, null, camposTipoUsuario[0]+"=?",
+                        id7, null, null, null);
+                if(c7.moveToFirst())
                     return true;
         }
         return false;
@@ -417,8 +426,8 @@ public class BD_Controlador {
         String regInsertados = "Registro insertado N°= ";
         long cont = 0;
         ContentValues cv = new ContentValues();
-        cv.put(camposSTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
-        cv.put(camposSTipoEmpresa[1],tipoEmpresa.getNomTipoEmpresa());
+        cv.put(camposTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
+        cv.put(camposTipoEmpresa[1],tipoEmpresa.getNomTipoEmpresa());
 
         cont = db.insert(TABLE_TIPO_EMPRESA, null, cv);
         if(cont == -1 || cont == 0)
@@ -430,9 +439,9 @@ public class BD_Controlador {
         if(verificarIntegridad(tipoEmpresa, 6)){
             String[] id = {tipoEmpresa.getIdTipoEmpresa()};
             ContentValues cv = new ContentValues();
-            cv.put(camposSTipoEmpresa[0], tipoEmpresa.getIdTipoEmpresa());
-            cv.put(camposSTipoEmpresa[1], tipoEmpresa.getNomTipoEmpresa());
-            db.update(TABLE_TIPO_EMPRESA, cv, camposSTipoEmpresa[0]+"=?",
+            cv.put(camposTipoEmpresa[0], tipoEmpresa.getIdTipoEmpresa());
+            cv.put(camposTipoEmpresa[1], tipoEmpresa.getNomTipoEmpresa());
+            db.update(TABLE_TIPO_EMPRESA, cv, camposTipoEmpresa[0]+"=?",
                     id);
             return "Registro actualizado correctamente";
         }else return "Registro con id = "+tipoEmpresa.getIdTipoEmpresa()+" no existe";
@@ -442,20 +451,67 @@ public class BD_Controlador {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
         cont+= db.delete(TABLE_TIPO_EMPRESA,
-                camposSTipoEmpresa[0]+"='"+tipoEmpresa.getIdTipoEmpresa()+"'", null);
+                camposTipoEmpresa[0]+"='"+tipoEmpresa.getIdTipoEmpresa()+"'", null);
         registrosAfectados+= cont;
         return registrosAfectados;
     }
 
     public Tipo_Empresa consultarTipoEmpresa(String idTipoEmpresa) {
         String[] id = {idTipoEmpresa};
-        Cursor cursor = db.query(TABLE_TIPO_EMPRESA, camposSTipoEmpresa,
-                camposSTipoEmpresa[0]+" =?",id, null,null,null);
+        Cursor cursor = db.query(TABLE_TIPO_EMPRESA, camposTipoEmpresa,
+                camposTipoEmpresa[0]+" =?",id, null,null,null);
         if(cursor.moveToFirst()){
             Tipo_Empresa tipoEmpresa = new Tipo_Empresa();
             tipoEmpresa.setIdTipoEmpresa(cursor.getString(0));
             tipoEmpresa.setNomTipoEmpresa(cursor.getString(1));
             return tipoEmpresa;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_USUARIO*/
+    public String insertar(Tipo_Usuario tipoUsuario) {
+        String regInsertados = "Registro insertado N°= ";
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposTipoUsuario[0],tipoUsuario.getIdTipoUsuario());
+        cv.put(camposTipoUsuario[1],tipoUsuario.getDesTipoUsuario());
+
+        cont = db.insert(TABLE_TIPO_USUARIO, null, cv);
+        if(cont == -1 || cont == 0)
+            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+        else regInsertados += cont;
+        return regInsertados;
+    }
+    public String actualizar(Tipo_Usuario tipoUsuario) {
+        if(verificarIntegridad(tipoUsuario, 7)){
+            String[] id = {tipoUsuario.getIdTipoUsuario()};
+            ContentValues cv = new ContentValues();
+            cv.put(camposTipoUsuario[0], tipoUsuario.getIdTipoUsuario());
+            cv.put(camposTipoUsuario[1], tipoUsuario.getDesTipoUsuario());
+            db.update(TABLE_TIPO_USUARIO, cv, camposTipoUsuario[0]+"=?",
+                    id);
+            return "Registro actualizado correctamente";
+        }else return "Registro con id = "+tipoUsuario.getIdTipoUsuario()+" no existe";
+    }
+
+    public String eliminar(Tipo_Usuario tipoUsuario) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_TIPO_USUARIO,
+                camposTipoUsuario[0]+"='"+tipoUsuario.getIdTipoUsuario()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Tipo_Usuario consultarTipoUsuario(String idTipoUsuario) {
+        String[] id = {idTipoUsuario};
+        Cursor cursor = db.query(TABLE_TIPO_USUARIO, camposTipoUsuario,
+                camposTipoUsuario[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Tipo_Usuario tipoUsuario = new Tipo_Usuario();
+            tipoUsuario.setIdTipoUsuario(cursor.getString(0));
+            tipoUsuario.setDesTipoUsuario(cursor.getString(1));
+            return tipoUsuario;
         }else return null;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
