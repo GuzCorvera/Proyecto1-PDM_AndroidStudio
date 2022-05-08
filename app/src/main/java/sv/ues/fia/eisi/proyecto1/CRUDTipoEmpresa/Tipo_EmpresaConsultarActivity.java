@@ -26,7 +26,7 @@ public class Tipo_EmpresaConsultarActivity extends Activity {
     }
 
     public void consultarTipoEmpresa(View v){
-        if(!editIdTipoEmpresa.getText().toString().equals("") & !editNomTipoEmpresa.getText().toString().equals("")){
+        if(!editIdTipoEmpresa.getText().toString().equals("")){
             helper.abrir();
             Tipo_Empresa tipoEmpresa = helper.consultarTipoEmpresa(editIdTipoEmpresa.getText().toString());
             helper.cerrar();

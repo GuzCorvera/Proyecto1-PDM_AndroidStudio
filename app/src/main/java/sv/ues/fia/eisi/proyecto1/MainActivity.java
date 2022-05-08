@@ -1,14 +1,17 @@
 package sv.ues.fia.eisi.proyecto1;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
+    Context context = this;
     String[] menu = {
             "Tabla Cliente",
             "Tabla Comentarios",
@@ -25,7 +28,9 @@ public class MainActivity extends ListActivity {
             "Tabla Tipo de Empresa",
             "Tabla Tipo de Satisfacción",
             "Tabla Tipo de Usuario",
-            "Tabla Usuario"};
+            "Tabla Usuario",
+            "Llenar base de datos"
+    };
     String[] activities = {
             "CRUDCliente.ClienteMenuActivity",
             "CRUDComentarios.ComentarioMenuActivity",
@@ -45,19 +50,19 @@ public class MainActivity extends ListActivity {
             "CRUDUsuario.UsuarioMenuActivity"
     };
 
-    BD_Controlador BDhelper;
+    BD_Controlador helper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
-        BDhelper=new BD_Controlador(this);
+        helper=new BD_Controlador(context);
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if (position != 17) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
+        if (position != 16) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
             String nombreValue = activities[position];
             try {
                 Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1." + nombreValue);
@@ -68,12 +73,15 @@ public class MainActivity extends ListActivity {
             }
         } else {
             //CODIGO PARA LLENAR BASE DE DATOS
-            /*
-            BDhelper.abrir();
-            String tost=BDhelper.llenarBDCarnet();
-            BDhelper.cerrar();
-            Toast.makeText(this, tost, Toast.LENGTH_SHORT).show();
-             */
+            try {
+                helper.abrir();
+                helper.llenarBD();
+                helper.cerrar();
+                Toast.makeText(this, "Llenado correcto", Toast.LENGTH_SHORT).show();
+            }catch (Exception e){
+                Log.d("Log", e.getMessage());
+                Toast.makeText(context, "Error llenado", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

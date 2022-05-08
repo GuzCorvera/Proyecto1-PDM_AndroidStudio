@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -31,10 +32,28 @@ public class SugerenciasActualizarActivity extends Activity {
     }
 
     public void actualizarSugerencias(View v){
-
+        if(!editIdSugerencia.getText().toString().equals("") & !editIdLocalSugerencia.getText().toString().equals("") &
+                !editIdUsuarioSugerencia.getText().toString().equals("") & !editTextSugerencia.getText().toString().equals("") &
+                !editFechaSugerencia.getText().toString().equals("")){
+            Sugerencias sugerencias = new Sugerencias(
+                    editIdSugerencia.getText().toString(),
+                    editIdUsuarioSugerencia.getText().toString(),
+                    editIdLocalSugerencia.getText().toString(),
+                    editTextSugerencia.getText().toString(),
+                    editFechaSugerencia.getText().toString()
+            );
+            helper.abrir();
+            String actualizar =  helper.actualizar(sugerencias);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdSugerencia.setText("");
+        editIdLocalSugerencia.setText("");
+        editIdUsuarioSugerencia.setText("");
+        editTextSugerencia.setText("");
+        editFechaSugerencia.setText("");
     }
 }

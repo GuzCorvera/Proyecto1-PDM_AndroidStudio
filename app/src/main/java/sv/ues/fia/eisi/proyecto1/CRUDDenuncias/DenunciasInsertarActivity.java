@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -31,10 +32,28 @@ public class DenunciasInsertarActivity extends Activity {
     }
 
     public void insertarDenuncias(View v){
-
+        if(!editIdDenuncia.getText().toString().equals("") & !editIdLocalDenuncia.getText().toString().equals("") &
+        !editIdUsuarioDenuncia.getText().toString().equals("") & editTextDenuncia.getText().toString().equals("") &
+        !editFechaDenuncia.getText().toString().equals("")){
+            Denuncia denuncia = new Denuncia(
+                    editIdDenuncia.getText().toString(),
+                    editIdUsuarioDenuncia.getText().toString(),
+                    editIdLocalDenuncia.getText().toString(),
+                    editTextDenuncia.getText().toString(),
+                    editFechaDenuncia.getText().toString()
+            );
+            helper.abrir();
+            String insertar = helper.insertar(denuncia);
+            helper.cerrar();
+            Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdDenuncia.setText("");
+        editIdLocalDenuncia.setText("");
+        editIdUsuarioDenuncia.setText("");
+        editTextDenuncia.setText("");
+        editFechaDenuncia.setText("");
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -23,6 +24,15 @@ public class SugerenciasEliminarActivity extends Activity {
     }
 
     public void eliminarSugerencias(View v){
-
+        if(!editIdSugerencia.getText().toString().equals("")){
+            Sugerencias sugerencias = new Sugerencias(editIdSugerencia.getText().toString());
+            helper.abrir();
+            String eliminar =  helper.eliminar(sugerencias);
+            helper.cerrar();
+            Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+    }
+    public void limpiarTexto(View v){
+        editIdSugerencia.setText("");
     }
 }

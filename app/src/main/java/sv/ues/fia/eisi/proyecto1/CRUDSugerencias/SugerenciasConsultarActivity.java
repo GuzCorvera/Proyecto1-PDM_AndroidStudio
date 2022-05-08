@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -31,10 +32,24 @@ public class SugerenciasConsultarActivity extends Activity {
     }
 
     public void consultarSugerencias(View v){
-
+        if(!editIdSugerencia.getText().toString().equals("")){
+            helper.abrir();
+            Sugerencias sugerencia =  helper.consultarSugerencia(editIdSugerencia.getText().toString());
+            helper.cerrar();
+            if(sugerencia!=null){
+                editIdLocalSugerencia.setText(sugerencia.getIdLocal());
+                editIdUsuarioSugerencia.setText(sugerencia.getIdUsuario());
+                editTextSugerencia.setText(sugerencia.getTextSugerencia());
+                editFechaSugerencia.setText(sugerencia.getFechaSugerencia());
+            }else Toast.makeText(context, "No existe N°="+editIdSugerencia.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdSugerencia.setText("");
+        editIdLocalSugerencia.setText("");
+        editIdUsuarioSugerencia.setText("");
+        editTextSugerencia.setText("");
+        editFechaSugerencia.setText("");
     }
 }

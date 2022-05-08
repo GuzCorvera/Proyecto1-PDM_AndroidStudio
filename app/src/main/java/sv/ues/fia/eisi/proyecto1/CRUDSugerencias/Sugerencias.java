@@ -11,6 +11,10 @@ public class Sugerencias  {
     public Sugerencias() {
     }
 
+    public Sugerencias(String idSugerencia) {
+        this.idSugerencia = idSugerencia;
+    }
+
     public Sugerencias(String idSugerencia, String idUsuario, String idLocal, String textSugerencia, String fechaSugerencia) {
         this.idSugerencia = idSugerencia;
         this.idUsuario = idUsuario;

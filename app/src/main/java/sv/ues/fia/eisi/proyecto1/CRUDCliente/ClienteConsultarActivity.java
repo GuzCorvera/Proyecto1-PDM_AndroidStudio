@@ -17,7 +17,7 @@ public class ClienteConsultarActivity extends Activity {
     EditText editIdRangoEdad;
     EditText editIdUsuario;
     EditText editIdSexo;
-    EditText editNomcliente;
+    EditText editNomCliente;
     EditText editTelefonoCliente;
 
     @Override
@@ -29,15 +29,32 @@ public class ClienteConsultarActivity extends Activity {
         editIdRangoEdad = (EditText) findViewById(R.id.editIdRangoEdad);
         editIdUsuario = (EditText) findViewById(R.id.editIdUsuario);
         editIdSexo = (EditText) findViewById(R.id.editIdSexo);
-        editNomcliente = (EditText) findViewById(R.id.editNomCliente);
+        editNomCliente = (EditText) findViewById(R.id.editNomCliente);
         editTelefonoCliente = (EditText) findViewById(R.id.editTelefonoCliente);
     }
 
     public void consultarCliente (View v){
-
+        if(!editIdCliente.getText().toString().equals("")){
+            helper.abrir();
+            Cliente cliente = helper.consultarCliente(editIdCliente.getText().toString());
+            helper.cerrar();
+            if(cliente!=null){
+                editIdRangoEdad.setText(cliente.getIdRangoEdad());
+                editIdUsuario.setText(cliente.getIdUsuario());
+                editIdSexo.setText(cliente.getIdSexo());
+                editNomCliente.setText(cliente.getNomcliente());
+                editTelefonoCliente.setText(cliente.getTelefonoCliente());
+            }else Toast.makeText(context, "No existe N°="+editIdCliente.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdCliente.setText("");
+        editIdRangoEdad.setText("");
+        editIdUsuario.setText("");
+        editIdUsuario.setText("");
+        editIdSexo.setText("");
+        editNomCliente.setText("");
+        editTelefonoCliente.setText("");
     }
 }

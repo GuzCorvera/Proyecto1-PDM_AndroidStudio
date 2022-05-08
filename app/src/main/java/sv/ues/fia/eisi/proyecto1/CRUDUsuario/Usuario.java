@@ -12,6 +12,10 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
     public Usuario(String idUsuario, String idTipoUsuario, String idEmpresa, String nomUsuario, String contraUsuario, String correoUsuario) {
         this.idUsuario = idUsuario;
         this.idTipoUsuario = idTipoUsuario;

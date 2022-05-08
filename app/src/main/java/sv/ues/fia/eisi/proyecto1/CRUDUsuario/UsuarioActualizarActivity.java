@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -33,10 +34,30 @@ public class UsuarioActualizarActivity extends Activity {
     }
 
     public void actualizarUsuario(View v){
-
+        if(!editIdUsuario.getText().toString().equals("") & !editIdTipoUsuario.getText().toString().equals("") &
+                !editIdEmpresa.getText().toString().equals("") & !editNomUsuario.getText().toString().equals("") &
+                !editContraUsuario.getText().toString().equals("") & !editCorreoUsuario.getText().toString().equals("")){
+            Usuario usuario = new Usuario(
+                    editIdUsuario.getText().toString(),
+                    editIdTipoUsuario.getText().toString(),
+                    editIdEmpresa.getText().toString(),
+                    editNomUsuario.getText().toString(),
+                    editContraUsuario.getText().toString(),
+                    editCorreoUsuario.getText().toString()
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(usuario);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdUsuario.setText("");
+        editIdTipoUsuario.setText("");
+        editIdEmpresa.setText("");
+        editNomUsuario.setText("");
+        editContraUsuario.setText("");
+        editCorreoUsuario.setText("");
     }
 }

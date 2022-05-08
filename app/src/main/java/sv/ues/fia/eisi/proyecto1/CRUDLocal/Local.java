@@ -12,6 +12,10 @@ public class Local {
     public Local() {
     }
 
+    public Local(String idLocal) {
+        this.idLocal = idLocal;
+    }
+
     public Local(String idLocal, String idEmpresa, String idSector, String idMunicipio, String nombreLocal, String descripLocal) {
         this.idLocal = idLocal;
         this.idEmpresa = idEmpresa;

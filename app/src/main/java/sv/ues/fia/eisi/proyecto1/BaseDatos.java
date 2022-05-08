@@ -5,7 +5,7 @@ public class BaseDatos {
     public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
     public static final String TABLE_TIPO_SATISFACCION = "TIPO_SATISFACCION";
     public static final String TABLE_COMENTARIOS = "COMENTARIOS";
-    public static final String TABLE_DENUNCIAS = "DENUNCIAS";
+    public static final String TABLE_DENUNCIA = "DENUNCIAS";
     public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
     public static final String TABLE_EMPRESA = "EMPRESA";
     public static final String TABLE_EVALUACION = "EVALUACION";
@@ -21,7 +21,7 @@ public class BaseDatos {
 
     public static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
     public static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
-    public static final String[] camposDenuncias = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
+    public static final String[] camposDenuncia = new String[]{"idDenuncias","idUsuario","idLocal","textDenuncia","fechaDenuncia"};
     public static final String[] camposDepartamento = new String[]{"idDepartamento","nomDepartamento"};
     public static final String[] camposEmpresa = new String[]{"idEmpresa","idTipoEmpresa","nomLegalEmpresa","nitEmpresa","giroEmpresa","nrcEmpresa"};
     public static final String[] camposEvaluacion = new String[]{"idEvaluacion","idLocal","idCliente","idTipoSatisfaccion","notaEvaCliente", "justificacionEvaCliente"};

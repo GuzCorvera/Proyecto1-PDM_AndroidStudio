@@ -27,7 +27,7 @@
 
         <Button
             android:onClick="eliminarEmpresa"
-            android:text="actualizar" />
+            android:text="Eliminar" />
     </TableRow>
 
 </LinearLayout>

@@ -1,6 +1,6 @@
 package sv.ues.fia.eisi.proyecto1.CRUDDenuncias;
 
-public class Denuncias  {
+public class Denuncia {
 
     private String idDenuncia;
     private String idUsuario;
@@ -8,10 +8,14 @@ public class Denuncias  {
     private String textDenuncia;
     private String fechaDenuncia;
 
-    public Denuncias() {
+    public Denuncia() {
     }
 
-    public Denuncias(String idDenuncia, String idUsuario, String idLocal, String textDenuncia, String fechaDenuncia) {
+    public Denuncia(String idDenuncia) {
+        this.idDenuncia = idDenuncia;
+    }
+
+    public Denuncia(String idDenuncia, String idUsuario, String idLocal, String textDenuncia, String fechaDenuncia) {
         this.idDenuncia = idDenuncia;
         this.idUsuario = idUsuario;
         this.idLocal = idLocal;

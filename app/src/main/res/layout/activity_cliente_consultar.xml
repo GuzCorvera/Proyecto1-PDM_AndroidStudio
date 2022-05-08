@@ -23,6 +23,24 @@
 
     <TableRow
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="consultarCliente"
+            android:text="Consultar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="limpiarTexto"
+            android:text="limpiar" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
@@ -67,24 +85,6 @@
             android:layout_marginHorizontal="5dp"
             android:inputType="textPersonName"
             android:maxLength="3" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:onClick="consultarCliente"
-            android:text="Consultar" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:onClick="limpiarTexto"
-            android:text="limpiar" />
     </TableRow>
 
     <TableRow
