@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -33,10 +34,26 @@ public class UsuarioConsultarActivity extends Activity {
     }
 
     public void consultarUsuario(View v){
-
+        if(!editIdUsuario.getText().toString().equals("")){
+            helper.abrir();
+            Usuario usuario = helper.consultarUsuario(editIdUsuario.getText().toString());
+            helper.cerrar();
+            if(usuario!= null){
+                editIdTipoUsuario.setText(usuario.getIdTipoUsuario());
+                editIdEmpresa.setText(usuario.getIdEmpresa());
+                editNomUsuario.setText(usuario.getIdEmpresa());
+                editContraUsuario.setText(usuario.getContraUsuario());
+                editCorreoUsuario.setText(usuario.getCorreoUsuario());
+            }else Toast.makeText(context, "No existe N°="+editIdUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdUsuario.setText("");
+        editIdTipoUsuario.setText("");
+        editIdEmpresa.setText("");
+        editNomUsuario.setText("");
+        editContraUsuario.setText("");
+        editCorreoUsuario.setText("");
     }
 }

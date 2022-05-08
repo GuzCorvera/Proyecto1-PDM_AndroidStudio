@@ -14,9 +14,6 @@ public class ClienteEliminarActivity extends Activity {
     BD_Controlador helper;
     Context context = this;
     EditText editIdCliente;
-    EditText editIdRangoEdad;
-    EditText editIdUsuario;
-    EditText editIdSexo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +21,18 @@ public class ClienteEliminarActivity extends Activity {
         setContentView(R.layout.activity_cliente_eliminar);
         helper = new BD_Controlador(this);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
-        editIdRangoEdad = (EditText) findViewById(R.id.editIdRangoEdad);
-        editIdUsuario = (EditText) findViewById(R.id.editIdUsuario);
-        editIdSexo = (EditText) findViewById(R.id.editIdSexo);
     }
 
     public void eliminarCliente(View v){
-
+        if(!editIdCliente.getText().toString().equals("")){
+            Cliente cliente = new Cliente(editIdCliente.getText().toString());
+            helper.abrir();
+            String eliminar = helper.eliminar(cliente);
+            helper.cerrar();
+            Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+    }
+    public void limpiarTexto(View v){
+        editIdCliente.setText("");
     }
 }

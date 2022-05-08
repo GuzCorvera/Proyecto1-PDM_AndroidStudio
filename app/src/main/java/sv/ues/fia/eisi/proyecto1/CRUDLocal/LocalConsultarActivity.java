@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -33,10 +34,26 @@ public class LocalConsultarActivity extends Activity {
     }
 
     public void consultarLocal(View v){
-
+        if(!editIdLocal.getText().toString().equals("")){
+            helper.abrir();
+            Local local = helper.consultarLocal(editIdLocal.getText().toString());
+            helper.cerrar();
+            if(local != null){
+                editIdEmpresa.setText(local.getIdEmpresa());
+                editIdSector.setText(local.getIdSector());
+                editIdMunicipio.setText(local.getIdMunicipio());
+                editNombreLocal.setText(local.getNombreLocal());
+                editDescripLocal.setText(local.getDescripLocal());
+            }else Toast.makeText(context,"No existe N°="+editIdLocal.getText().toString(),Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdLocal.setText("");
+        editIdEmpresa.setText("");
+        editIdSector.setText("");
+        editIdMunicipio.setText("");
+        editNombreLocal.setText("");
+        editDescripLocal.setText("");
     }
 }

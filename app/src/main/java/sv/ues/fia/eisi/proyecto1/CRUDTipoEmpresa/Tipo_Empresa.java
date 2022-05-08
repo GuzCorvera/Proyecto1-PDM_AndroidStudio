@@ -8,6 +8,10 @@ public class Tipo_Empresa {
     public Tipo_Empresa() {
     }
 
+    public Tipo_Empresa(String idTipoEmpresa) {
+        this.idTipoEmpresa = idTipoEmpresa;
+    }
+
     public Tipo_Empresa(String idTipoEmpresa, String nomTipoEmpresa) {
         this.idTipoEmpresa = idTipoEmpresa;
         this.nomTipoEmpresa = nomTipoEmpresa;

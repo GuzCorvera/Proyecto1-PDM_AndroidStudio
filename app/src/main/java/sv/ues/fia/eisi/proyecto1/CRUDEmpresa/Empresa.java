@@ -12,6 +12,10 @@ public class Empresa {
     public Empresa() {
     }
 
+    public Empresa(String idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
     public Empresa(String idEmpresa, String idTipoEmpresa, String nomLegalEmpresa, String nitEmpresa, String giroEmpresa, String nrcEmpresa) {
         this.idEmpresa = idEmpresa;
         this.idTipoEmpresa = idTipoEmpresa;

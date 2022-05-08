@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -33,10 +34,30 @@ public class LocalActualizarActivity extends Activity {
     }
 
     public void actualizarLocal(View v){
-
+        if(!editIdLocal.getText().toString().equals("") & !editIdEmpresa.getText().toString().equals("")
+                & !editIdSector.getText().toString().equals("") & !editIdMunicipio.getText().toString().equals("")
+                & !editNombreLocal.getText().toString().equals("") & !editDescripLocal.getText().toString().equals("")){
+            Local local = new Local(
+                    editIdLocal.getText().toString(),
+                    editIdEmpresa.getText().toString(),
+                    editIdSector.getText().toString(),
+                    editIdMunicipio.getText().toString(),
+                    editNombreLocal.getText().toString(),
+                    editDescripLocal.getText().toString()
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(local);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdLocal.setText("");
+        editIdEmpresa.setText("");
+        editIdSector.setText("");
+        editIdMunicipio.setText("");
+        editNombreLocal.setText("");
+        editDescripLocal.setText("");
     }
 }

@@ -103,12 +103,21 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/cliente_actualizar.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/clientemenuactivity.xml" value="0.33061594202898553" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Proyecto1/app/src/main/res/layout/prueba.xml" value="0.33061594202898553" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_cliente_actualizar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_cliente_consultar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_cliente_eliminar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_comentarios_insertar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_empresa_consultar.xml" value="0.4" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_empresa_eliminar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_evaluacion_insertar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_sexo_insertar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_sugerencias_insertar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_empresa_actualizar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_empresa_consultar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_empresa_eliminar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_empresa_insertar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_satisfaccion_insertar.xml" value="0.25" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_usuario_insertar.xml" value="0.25" />
       </map>
     </option>
   </component>

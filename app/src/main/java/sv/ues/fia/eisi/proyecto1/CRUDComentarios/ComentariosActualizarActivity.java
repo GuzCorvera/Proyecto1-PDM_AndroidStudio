@@ -32,10 +32,28 @@ public class ComentariosActualizarActivity extends Activity {
     }
 
     public void actualizarComentarios(View v){
-
+        if(!editIdComentario.getText().toString().equals("") & !editIdUsuarioComentario.getText().toString().equals("") &
+                !editIdLocalComentario.getText().toString().equals("") & editTextComentario.getText().toString().equals("") &
+                editFechaComentario.getText().toString().equals("")){
+            Comentarios comentarios = new Comentarios(
+                    editIdComentario.getText().toString(),
+                    editIdUsuarioComentario.getText().toString(),
+                    editIdLocalComentario.getText().toString(),
+                    editTextComentario.getText().toString(),
+                    editFechaComentario.getText().toString()
+            );
+            helper.abrir();
+            String actualizar = helper.actualizar(comentarios);
+            helper.cerrar();
+            Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdComentario.setText("");
+        editIdUsuarioComentario.setText("");
+        editIdLocalComentario.setText("");
+        editTextComentario.setText("");
+        editFechaComentario.setText("");
     }
 }

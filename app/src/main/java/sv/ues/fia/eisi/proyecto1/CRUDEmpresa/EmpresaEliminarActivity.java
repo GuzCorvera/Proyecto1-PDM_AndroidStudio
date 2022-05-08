@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -23,10 +24,16 @@ public class EmpresaEliminarActivity extends Activity {
     }
 
     public void eliminarEmpresa(View v){
-
+        if(!editIdEmpresa.getText().toString().equals("")){
+            Empresa empresa = new Empresa(editIdEmpresa.getText().toString());
+            helper.abrir();
+            String eliminar = helper.eliminar(empresa);
+            helper.cerrar();
+            Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context,"Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdEmpresa.setText("");
     }
 }

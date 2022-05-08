@@ -11,6 +11,10 @@ public class Comentarios  {
     public Comentarios() {
     }
 
+    public Comentarios(String idComentario) {
+        this.idComentario = idComentario;
+    }
+
     public Comentarios(String idComentario, String idUsuario, String idLocal, String textComentario, String fechaComentario) {
         this.idComentario = idComentario;
         this.idUsuario = idUsuario;

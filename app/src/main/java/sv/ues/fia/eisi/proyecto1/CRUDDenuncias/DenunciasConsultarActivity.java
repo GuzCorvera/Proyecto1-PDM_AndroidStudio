@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -31,10 +32,24 @@ public class DenunciasConsultarActivity extends Activity {
     }
 
     public void consultarDenuncias(View v){
-
+        if(!editIdDenuncia.getText().toString().equals("")){
+            helper.abrir();
+            Denuncia denuncia = helper.consultarDenuncia(editIdDenuncia.getText().toString());
+            helper.cerrar();
+            if(denuncia != null){
+                editIdLocalDenuncia.setText(denuncia.getIdLocal());
+                editIdUsuarioDenuncia.setText(denuncia.getIdUsuario());
+                editTextDenuncia.setText(denuncia.getTextDenuncia());
+                editFechaDenuncia.setText(denuncia.getFechaDenuncia());
+            }else Toast.makeText(context, "No existe N°="+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdDenuncia.setText("");
+        editIdLocalDenuncia.setText("");
+        editIdUsuarioDenuncia.setText("");
+        editTextDenuncia.setText("");
+        editFechaDenuncia.setText("");
     }
 }
