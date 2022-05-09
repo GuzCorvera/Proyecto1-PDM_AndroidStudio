@@ -1296,6 +1296,32 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_SECTOR);
         db.execSQL("delete from "+TABLE_DEPARTAMENTO);
 
+        /*
+        public static final String TABLE_CLIENTE = "CLIENTE";
+        public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
+        public static final String TABLE_TIPO_SATISFACCION = "TIPO_SATISFACCION";
+        public static final String TABLE_COMENTARIOS = "COMENTARIOS";
+        public static final String TABLE_DENUNCIA = "DENUNCIAS";
+        public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
+        public static final String TABLE_EMPRESA = "EMPRESA";
+        public static final String TABLE_EVALUACION = "EVALUACION";
+        public static final String TABLE_LOCAL = "LOCAL";
+        public static final String TABLE_MUNICIPIO = "MUNICIPIO";
+        public static final String TABLE_SECTOR = "SECTOR";
+        public static final String TABLE_SEXO = "SEXO";
+        public static final String TABLE_SUGERENCIAS = "SUGERENCIAS";
+        public static final String TABLE_SUGERENCIAS_APP = "SUGERENCIAS_APP";
+        public static final String TABLE_TIPO_EMPRESA = "TIPO_EMPRESA";
+        public static final String TABLE_TIPO_USUARIO = "TIPO_USUARIO";
+        public static final String TABLE_USUARIO = "USUARIO";
+        */
+        //TABLA CLIENTE
+        insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
+        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
+        insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
+        insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
+
+
         //TABLA TIPO_EMPRESA
         insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
         insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
