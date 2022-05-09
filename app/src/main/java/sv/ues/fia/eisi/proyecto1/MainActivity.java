@@ -25,6 +25,7 @@ public class MainActivity extends ListActivity {
             "Tabla Sector",
             "Tabla Sexo",
             "Tabla Sugerencias",
+            "Tabla Sugerencias App",
             "Tabla Tipo de Empresa",
             "Tabla Tipo de Satisfacción",
             "Tabla Tipo de Usuario",
@@ -44,6 +45,7 @@ public class MainActivity extends ListActivity {
             "CRUDSector.SectorMenuActivity",
             "CRUDSexo.SexoMenuActivity",
             "CRUDSugerencias.SugerenciasMenuActivity",
+            "CRUDSugerenciasApp.SugerenciasAppMenuActivity",
             "CRUDTipoEmpresa.Tipo_EmpresaMenuActivity",
             "CRUDTipoSatisfaccion.Tipo_SatisfaccionMenuActivity",
             "CRUDTipoUsuario.Tipo_UsuarioMenuActivity",
@@ -62,7 +64,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        if (position != 16) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
+        if (position != 17) {// LA POSICION 16 SERIA LA OPCION LLENAR BASE DE DATOS
             String nombreValue = activities[position];
             try {
                 Class<?> clase = Class.forName("sv.ues.fia.eisi.proyecto1." + nombreValue);

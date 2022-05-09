@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import sv.ues.fia.eisi.proyecto1.BD_Controlador;
 import sv.ues.fia.eisi.proyecto1.R;
@@ -27,10 +28,23 @@ public class Sugerencias_AppInsertarActivity extends Activity {
     }
 
     public void insertarSugerenciasApp(View v){
-
+        if(!editIdSugerenciasApp.getText().toString().equals("") & !editIdUsuario.getText().toString().equals("") &
+        !editTxtSugerenciasApp.getText().toString().equals("")){
+            Sugerencias_App sugerencias_app = new Sugerencias_App(
+                    editIdSugerenciasApp.getText().toString(),
+                    editIdUsuario.getText().toString(),
+                    editTxtSugerenciasApp.getText().toString()
+            );
+            helper.abrir();
+            String insertar = helper.insertar(sugerencias_app);
+            helper.cerrar();
+            Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
-
+        editIdSugerenciasApp.setText("");
+        editIdUsuario.setText("");
+        editTxtSugerenciasApp.setText("");
     }
 }

@@ -9,6 +9,10 @@ public class Sugerencias_App {
     public Sugerencias_App() {
     }
 
+    public Sugerencias_App(String idSugerenciasApp) {
+        this.idSugerenciasApp = idSugerenciasApp;
+    }
+
     public Sugerencias_App(String idSugerenciasApp, String idUsuario, String txtSugerenciasApp) {
         this.idSugerenciasApp = idSugerenciasApp;
         this.idUsuario = idUsuario;

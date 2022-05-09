@@ -25,6 +25,9 @@
             android:name=".CRUDSugerencias.SugerenciasMenuActivity"
             android:exported="false" />
         <activity
+            android:name=".CRUDSugerenciasApp.SugerenciasAppMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".CRUDSexo.SexoMenuActivity"
             android:exported="false" />
         <activity
@@ -112,7 +115,7 @@
             android:name=".CRUDSugerenciasApp.Sugerencias_AppConsultarActivity"
             android:exported="false" />
         <activity
-            android:name=".CRUDSugerenciasApp.Sugerencias_AppEliminarActitvity"
+            android:name=".CRUDSugerenciasApp.Sugerencias_AppEliminarActivity"
             android:exported="false" />
         <activity
             android:name=".CRUDSugerenciasApp.Sugerencias_AppActualizarActivity"
