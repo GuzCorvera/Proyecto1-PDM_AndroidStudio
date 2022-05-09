@@ -1296,6 +1296,7 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_SEXO);
         db.execSQL("delete from "+TABLE_SECTOR);
         db.execSQL("delete from "+TABLE_DEPARTAMENTO);
+        //db.execSQL("delete from "+TABLE_SUGERENCIAS_APP);
 
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
