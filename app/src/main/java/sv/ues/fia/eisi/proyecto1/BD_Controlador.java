@@ -1279,6 +1279,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     public void llenarBD(){
+
         db.execSQL("delete from "+TABLE_COMENTARIOS);
         db.execSQL("delete from "+TABLE_SUGERENCIAS);
         db.execSQL("delete from "+TABLE_DENUNCIA);
@@ -1296,35 +1297,11 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_SECTOR);
         db.execSQL("delete from "+TABLE_DEPARTAMENTO);
 
-        /*
-        public static final String TABLE_CLIENTE = "CLIENTE";
-        public static final String TABLE_RANGO_EDAD = "RANGO_EDAD";
-        public static final String TABLE_TIPO_SATISFACCION = "TIPO_SATISFACCION";
-        public static final String TABLE_COMENTARIOS = "COMENTARIOS";
-        public static final String TABLE_DENUNCIA = "DENUNCIAS";
-        public static final String TABLE_DEPARTAMENTO = "DEPARTAMENTO";
-        public static final String TABLE_EMPRESA = "EMPRESA";
-        public static final String TABLE_EVALUACION = "EVALUACION";
-        public static final String TABLE_LOCAL = "LOCAL";
-        public static final String TABLE_MUNICIPIO = "MUNICIPIO";
-        public static final String TABLE_SECTOR = "SECTOR";
-        public static final String TABLE_SEXO = "SEXO";
-        public static final String TABLE_SUGERENCIAS = "SUGERENCIAS";
-        public static final String TABLE_SUGERENCIAS_APP = "SUGERENCIAS_APP";
-        public static final String TABLE_TIPO_EMPRESA = "TIPO_EMPRESA";
-        public static final String TABLE_TIPO_USUARIO = "TIPO_USUARIO";
-        public static final String TABLE_USUARIO = "USUARIO";
-        */
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
         insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
         insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
         insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
-
-
-        //TABLA TIPO_EMPRESA
-        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
-        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
 
         //TABLA RANGO_EDAD
         insertar(new Rango_Edad("RE001", "Adolescente", 16,20));
@@ -1332,15 +1309,51 @@ public class BD_Controlador {
         insertar(new Rango_Edad("RE003", "Adulto", 26,30));
         insertar(new Rango_Edad("RE004", "Mediana Edad", 31,35));
 
-        //TABLA_SEXO
-        insertar(new Sexo("S01", "Masculino", "M"));
-        insertar(new Sexo("S02", "Femenino", "F"));
-
         //TABLA TIPO_SATISFACCION
         insertar(new Tipo_Satisfaccion("TS001", "Malo", 0,3));
         insertar(new Tipo_Satisfaccion("TS002", "Bueno", 4,6));
         insertar(new Tipo_Satisfaccion("TS003", "Muy bueno", 7,8));
         insertar(new Tipo_Satisfaccion("TS004", "Excelente", 9,10));
+
+        //TABLA COMENTARIOS
+        insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
+        insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
+        insertar(new Comentarios("C0003", "U0003", "L0003", "Las remoledaciones estan muy bien, pero espero terminen pronto","15/04/2022"));
+        insertar(new Comentarios("C0004", "U0004", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
+
+        //TABLA DENUNCIAS
+        insertar(new Denuncia("D0001", "U0002", "L0003","Me robaron frente a un Guardia","17/04/2021"));
+        insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
+        insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
+        insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
+
+        //TABLA DEPARTAMENTO
+        insertar(new Departamento("D01", "La Paz"));
+        insertar(new Departamento("D02", "Santa Ana"));
+        insertar(new Departamento("D04", "San Salvador"));
+        insertar(new Departamento("D05", "San Miguel"));
+
+        //TABLA TIPO_EMPRESA
+        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
+        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
+
+        //TABLA EVALUACION
+        insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
+        insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
+        insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
+        insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
+
+        //TABLA LOCAL
+        insertar(new Local("L0001", "E0001", "SE04", "M001", "Super Selectos Apopa", "Supermercado, sucursal de Apopa, San Salvador"));
+        insertar(new Local("L0002", "E0002", "SE02", "M002", "Farmacia Lupita 3", "Servicio de farmacia, sucursal de  Cuyultitan"));
+        insertar(new Local("L0003", "E0003", "SE01", "M003", "Metrocentro Santa Ana", "Centro Comercial, sucursal de Santa Ana"));
+        insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
+
+        //TABLA MUNICIPIO
+        insertar(new Municipio("M001", "D03", "Apopa"));
+        insertar(new Municipio("M002", "D01", "Cuyultitan"));
+        insertar(new Municipio("M003", "D04", "Ciudad Barios"));
+        insertar(new Municipio("M004", "D02", "El Congo"));
 
         //TABLA SECTOR
         insertar(new Sector("SE01","Centro Comercial"));
@@ -1349,14 +1362,30 @@ public class BD_Controlador {
         insertar(new Sector("SE04","Supermercados"));
         insertar(new Sector("SE05","Banca"));
 
-        //TABLA DEPARTAMENTO
-        insertar(new Departamento("D01", "La Paz"));
-        insertar(new Departamento("D02", "Santa Ana"));
-        insertar(new Departamento("D04", "San Salvador"));
-        insertar(new Departamento("D05", "San Miguel"));
+        //TABLA_SEXO
+        insertar(new Sexo("S01", "Masculino", "M"));
+        insertar(new Sexo("S02", "Femenino", "F"));
+
+        //TABLA SUGERENCIAS
+        insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
+        insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
+        insertar(new Sugerencias("S0003", "U0003", "L0003", "Que pongan mas personal de seguridad", "15/03/2022"));
+        insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));
+
+        //TABLA SUGERENCIAS_APP
+
+        //TABLA TIPO_EMPRESA
+        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
+        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
 
         //TABLA_TIPO_USUARIO
         insertar(new Tipo_Usuario("TP01","Administrador"));
         insertar(new Tipo_Usuario("TP02","Usuario normal"));
+
+        //TABLA USUARIO
+        insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
+        insertar(new Usuario("U0002", "TP02", "E0004", "arturoMtz", "manzanas123", "arturomartinez@gmail.com"));
+        insertar(new Usuario("U0003", "TP02", "E0002", "rivera78", "rivera78lol", "rivera78@gmail.com"));
+        insertar(new Usuario("U0004", "TP02", "E0003", "Castillo22", "cas1234", "castillolopez@gmail.com"));
     }
 }
