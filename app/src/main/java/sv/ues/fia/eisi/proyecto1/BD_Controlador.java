@@ -1474,6 +1474,10 @@ public class BD_Controlador {
 
 
         //TABLA SUGERENCIAS_APP
+        insertar(new Sugerencias_App("SU0001", "U0001", "Mejorar la administracion de los comentarios"));
+        insertar(new Sugerencias_App("SU0002", "U0002", "Podrían hacer el diseño mas llamativo"));
+        insertar(new Sugerencias_App("SU0003", "U0003", "Incorporar mas sectores para poder evaluar"));
+        insertar(new Sugerencias_App("SU0004", "U0004", "Sería interesante compartir fotos de los establecimientos"));
 
 
     }
