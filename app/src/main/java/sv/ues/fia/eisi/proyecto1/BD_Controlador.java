@@ -54,6 +54,7 @@ import sv.ues.fia.eisi.proyecto1.CRUDRangoEdad.Rango_Edad;
 import sv.ues.fia.eisi.proyecto1.CRUDSector.Sector;
 import sv.ues.fia.eisi.proyecto1.CRUDSexo.Sexo;
 import sv.ues.fia.eisi.proyecto1.CRUDSugerencias.Sugerencias;
+import sv.ues.fia.eisi.proyecto1.CRUDSugerenciasApp.Sugerencias_App;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoEmpresa.Tipo_Empresa;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoSatisfaccion.Tipo_Satisfaccion;
 import sv.ues.fia.eisi.proyecto1.CRUDTipoUsuario.Tipo_Usuario;
@@ -283,6 +284,16 @@ public class BD_Controlador {
                         "(select "+camposUsuario[0]+" from "+TABLE_SUGERENCIAS+" where "+camposUsuario[0]+"=old."+camposUsuario[0]+") is not null or "+
                         "(select "+ camposUsuario[0]+" from "+ TABLE_DENUNCIA +" where "+ camposUsuario[0]+"=old."+ camposUsuario[0]+") is not null "+
                         "then raise(abort, 'Error de integridad') end; end;");
+
+                //TABLA SUGERENCIAS_APP
+                db.execSQL("CREATE TRIGGER fk_INSERT_"+TABLE_SUGERENCIAS_APP+
+                        " before insert on "+TABLE_SUGERENCIAS_APP+" begin "+
+                        "select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+"=new."+camposUsuario[0]+") is null\n" +
+                        "then raise (abort, 'Error de integridad referencial') end; end;");
+                db.execSQL("CREATE TRIGGER fk_UPDATE_"+TABLE_SUGERENCIAS_APP+
+                        " before update on "+TABLE_SUGERENCIAS_APP+" begin "+
+                        "select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+"=new."+camposUsuario[0]+") is null\n" +
+                        "then raise (abort, 'Error de integridad referencial') end; end;");
 
                 /*--------------------------------------------------------FIN TRIGGERS-------------------------------------------------------------*/
 
@@ -1277,9 +1288,70 @@ public class BD_Controlador {
         }else return null;
     }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - USUARIO*/
+    public String insertar(Sugerencias_App sugerencias_app) {
+        String regInsertados = "Registro insertado N°= ";
+
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposSugerencias_App[0], sugerencias_app.getIdSugerenciasApp());
+        cv.put(camposSugerencias_App[1], sugerencias_app.getIdUsuario());
+        cv.put(camposSugerencias_App[2], sugerencias_app.getTxtSugerenciasApp());
+
+        try {
+            cont = db.insert(TABLE_SUGERENCIAS_APP, null, cv);
+            if(cont == -1 || cont == 0)
+                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+            else regInsertados += cont;
+        }catch (SQLException e){
+            regInsertados = "Error al insertar el registro. Error de integridad referencial";
+        }
+        return regInsertados;
+    }
+
+    public String actualizar(Sugerencias_App sugerencias_app) {
+        String[] id = {sugerencias_app.getIdSugerenciasApp()};
+        ContentValues cv = new ContentValues();
+        cv.put(camposSugerencias_App[0], sugerencias_app.getIdSugerenciasApp());
+        cv.put(camposSugerencias_App[1], sugerencias_app.getIdUsuario());
+        cv.put(camposSugerencias_App[2], sugerencias_app.getTxtSugerenciasApp());
+        try {
+            long cont = db.update(TABLE_SUGERENCIAS_APP, cv, camposSugerencias_App[0] + "=?",
+                    id);
+            if(cont==-1 || cont==0)
+                return "Registro con id = "+sugerencias_app.getIdSugerenciasApp()+" no existe";
+            else return "Registro actualizado correctamente";
+        }catch (SQLException e){
+            return "Error de integridad referencial";
+        }
+    }
+
+    public String eliminar(Sugerencias_App sugerencias_app) {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_SUGERENCIAS_APP,
+                camposSugerencias_App[0]+"='"+sugerencias_app.getIdSugerenciasApp()+"'", null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+
+    public Sugerencias_App consultarSugerenciasApp(String idSugerenciasApp) {
+        String[] id = {idSugerenciasApp};
+        Cursor cursor = db.query(TABLE_SUGERENCIAS_APP, camposSugerencias_App,
+                camposSugerencias_App[0]+" =?",id, null,null,null);
+        if(cursor.moveToFirst()){
+            Sugerencias_App sugerencias_app = new Sugerencias_App(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+            return sugerencias_app;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     public void llenarBD(){
-
+        db.execSQL("delete from "+TABLE_SUGERENCIAS_APP);
         db.execSQL("delete from "+TABLE_COMENTARIOS);
         db.execSQL("delete from "+TABLE_SUGERENCIAS);
         db.execSQL("delete from "+TABLE_DENUNCIA);
@@ -1296,7 +1368,6 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_SEXO);
         db.execSQL("delete from "+TABLE_SECTOR);
         db.execSQL("delete from "+TABLE_DEPARTAMENTO);
-        //db.execSQL("delete from "+TABLE_SUGERENCIAS_APP);
 
         /*Ordenado de BD - DEPENDENCIA*/
 
@@ -1334,10 +1405,6 @@ public class BD_Controlador {
         insertar(new Sexo("S01", "Masculino", "M"));
         insertar(new Sexo("S02", "Femenino", "F"));
 
-        //TABLA TIPO_EMPRESA
-        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
-        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
-
         //TABLA_TIPO_USUARIO
         insertar(new Tipo_Usuario("TP01","Administrador"));
         insertar(new Tipo_Usuario("TP02","Usuario normal"));
@@ -1345,35 +1412,6 @@ public class BD_Controlador {
 
 
         /* - - - NO PRIMARIAS XD - - - */
-        //TABLA CLIENTE
-        insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
-        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
-        insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
-        insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
-
-        //TABLA COMENTARIOS
-        insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
-        insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
-        insertar(new Comentarios("C0003", "U0003", "L0003", "Las remoledaciones estan muy bien, pero espero terminen pronto","15/04/2022"));
-        insertar(new Comentarios("C0004", "U0004", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
-
-        //TABLA DENUNCIAS
-        insertar(new Denuncia("D0001", "U0002", "L0003","Me robaron frente a un Guardia","17/04/2021"));
-        insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
-        insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
-        insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
-
-        //TABLA EVALUACION
-        insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
-        insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
-        insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
-        insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
-
-        //TABLA LOCAL
-        insertar(new Local("L0001", "E0001", "SE04", "M001", "Super Selectos Apopa", "Supermercado, sucursal de Apopa, San Salvador"));
-        insertar(new Local("L0002", "E0002", "SE02", "M002", "Farmacia Lupita 3", "Servicio de farmacia, sucursal de  Cuyultitan"));
-        insertar(new Local("L0003", "E0003", "SE01", "M003", "Metrocentro Santa Ana", "Centro Comercial, sucursal de Santa Ana"));
-        insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
 
         //TABLA MUNICIPIO
         insertar(new Municipio("M001", "D03", "Apopa"));
@@ -1381,18 +1419,62 @@ public class BD_Controlador {
         insertar(new Municipio("M003", "D04", "Ciudad Barios"));
         insertar(new Municipio("M004", "D02", "El Congo"));
 
-        //TABLA SUGERENCIAS
-        insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
-        insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
-        insertar(new Sugerencias("S0003", "U0003", "L0003", "Que pongan mas personal de seguridad", "15/03/2022"));
-        insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));
+        //TABLA EMPRESA
+        insertar(new Empresa("E0001", "TE01", "Calleja, S.A. de C.V.", "0614-234567-123-1", "Venta de productos previamiente clasificados", "2345-0"));
+        insertar(new Empresa("E0002", "TE01", "Farmacia Lupita, S.A. de C.V.", "0801-432145-104-0", "Venta y distribucion de medicamentos", "34212-1"));
+        insertar(new Empresa("E0003", "TE01", "Grupo Roble, S.A. de C.V.", "0614-291270-102-1", "Administracion de centros comerciales y renta de imobiliarios", "7654-1"));
+        insertar(new Empresa("E0004", "TE01", "Bandesal", "0342-234423-423-54", "Actividades bancarias y financieras", "3452-1"));
 
-        //TABLA SUGERENCIAS_APP
+        //TABLA LOCAL
+        insertar(new Local("L0001", "E0001", "SE04", "M001", "Super Selectos Apopa", "Supermercado, sucursal de Apopa, San Salvador"));
+        insertar(new Local("L0002", "E0002", "SE02", "M002", "Farmacia Lupita 3", "Servicio de farmacia, sucursal de  Cuyultitan"));
+        insertar(new Local("L0003", "E0003", "SE01", "M003", "Metrocentro Santa Ana", "Centro Comercial, sucursal de Santa Ana"));
+        insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
 
         //TABLA USUARIO
         insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
         insertar(new Usuario("U0002", "TP02", "E0004", "arturoMtz", "manzanas123", "arturomartinez@gmail.com"));
         insertar(new Usuario("U0003", "TP02", "E0002", "rivera78", "rivera78lol", "rivera78@gmail.com"));
         insertar(new Usuario("U0004", "TP02", "E0003", "Castillo22", "cas1234", "castillolopez@gmail.com"));
+
+        //TABLA COMENTARIOS
+        insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
+        insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
+        insertar(new Comentarios("C0003", "U0003", "L0003", "Las remoledaciones estan muy bien, pero espero terminen pronto","15/04/2022"));
+        insertar(new Comentarios("C0004", "U0004", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
+
+        //TABLA SUGERENCIAS
+        insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
+        insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
+        insertar(new Sugerencias("S0003", "U0003", "L0003", "Que pongan mas personal de seguridad", "15/03/2022"));
+        insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));
+
+        //TABLA DENUNCIAS
+        insertar(new Denuncia("D0001", "U0002", "L0003","Me robaron frente a un Guardia","17/04/2021"));
+        insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
+        insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
+        insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
+
+
+        //TABLA CLIENTE
+        insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
+        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
+        insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
+        insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
+
+        //TABLA EVALUACION
+        insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
+        insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
+        insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
+        insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
+
+
+
+
+
+
+        //TABLA SUGERENCIAS_APP
+
+
     }
 }
