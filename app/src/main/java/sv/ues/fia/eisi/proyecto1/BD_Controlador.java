@@ -1298,12 +1298,9 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_DEPARTAMENTO);
         //db.execSQL("delete from "+TABLE_SUGERENCIAS_APP);
 
-        //TABLA CLIENTE
-        insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
-        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
-        insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
-        insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
+        /*Ordenado de BD - DEPENDENCIA*/
 
+        /* - - - PRIMARIAS - - - */
         //TABLA RANGO_EDAD
         insertar(new Rango_Edad("RE001", "Adolescente", 16,20));
         insertar(new Rango_Edad("RE002", "Adulto joven", 21,25));
@@ -1316,6 +1313,44 @@ public class BD_Controlador {
         insertar(new Tipo_Satisfaccion("TS003", "Muy bueno", 7,8));
         insertar(new Tipo_Satisfaccion("TS004", "Excelente", 9,10));
 
+        //TABLA DEPARTAMENTO
+        insertar(new Departamento("D01", "La Paz"));
+        insertar(new Departamento("D02", "Santa Ana"));
+        insertar(new Departamento("D04", "San Salvador"));
+        insertar(new Departamento("D05", "San Miguel"));
+
+        //TABLA TIPO_EMPRESA
+        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
+        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
+
+        //TABLA SECTOR
+        insertar(new Sector("SE01","Centro Comercial"));
+        insertar(new Sector("SE02","Farmacias"));
+        insertar(new Sector("SE03","Gasolinera"));
+        insertar(new Sector("SE04","Supermercados"));
+        insertar(new Sector("SE05","Banca"));
+
+        //TABLA_SEXO
+        insertar(new Sexo("S01", "Masculino", "M"));
+        insertar(new Sexo("S02", "Femenino", "F"));
+
+        //TABLA TIPO_EMPRESA
+        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
+        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
+
+        //TABLA_TIPO_USUARIO
+        insertar(new Tipo_Usuario("TP01","Administrador"));
+        insertar(new Tipo_Usuario("TP02","Usuario normal"));
+
+
+
+        /* - - - NO PRIMARIAS XD - - - */
+        //TABLA CLIENTE
+        insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
+        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
+        insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
+        insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
+
         //TABLA COMENTARIOS
         insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
         insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
@@ -1327,16 +1362,6 @@ public class BD_Controlador {
         insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
         insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
         insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
-
-        //TABLA DEPARTAMENTO
-        insertar(new Departamento("D01", "La Paz"));
-        insertar(new Departamento("D02", "Santa Ana"));
-        insertar(new Departamento("D04", "San Salvador"));
-        insertar(new Departamento("D05", "San Miguel"));
-
-        //TABLA TIPO_EMPRESA
-        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
-        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
 
         //TABLA EVALUACION
         insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
@@ -1356,17 +1381,6 @@ public class BD_Controlador {
         insertar(new Municipio("M003", "D04", "Ciudad Barios"));
         insertar(new Municipio("M004", "D02", "El Congo"));
 
-        //TABLA SECTOR
-        insertar(new Sector("SE01","Centro Comercial"));
-        insertar(new Sector("SE02","Farmacias"));
-        insertar(new Sector("SE03","Gasolinera"));
-        insertar(new Sector("SE04","Supermercados"));
-        insertar(new Sector("SE05","Banca"));
-
-        //TABLA_SEXO
-        insertar(new Sexo("S01", "Masculino", "M"));
-        insertar(new Sexo("S02", "Femenino", "F"));
-
         //TABLA SUGERENCIAS
         insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
         insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
@@ -1374,14 +1388,6 @@ public class BD_Controlador {
         insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));
 
         //TABLA SUGERENCIAS_APP
-
-        //TABLA TIPO_EMPRESA
-        insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
-        insertar(new Tipo_Empresa("TE02", "Empresa Pública"));
-
-        //TABLA_TIPO_USUARIO
-        insertar(new Tipo_Usuario("TP01","Administrador"));
-        insertar(new Tipo_Usuario("TP02","Usuario normal"));
 
         //TABLA USUARIO
         insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
