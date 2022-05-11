@@ -9,6 +9,7 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_EMPRESA;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_SATISFACCION;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_TIPO_USUARIO;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_USUARIO;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_USUARIO_TEMP;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposDepartamento;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_CLIENTE;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.TABLE_COMENTARIOS;
@@ -34,6 +35,7 @@ import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposSugerencias_App;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoSatisfaccion;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposTipoUsuario;
 import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposUsuario;
+import static sv.ues.fia.eisi.proyecto1.BaseDatos.camposUsuarioTemp;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -101,7 +103,9 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE "+TABLE_TIPO_USUARIO+" ("+camposTipoUsuario[0]+" VARCHAR2(8) not null, "+camposTipoUsuario[1]+" VARCHAR2(30) not null, constraint PK_TIPO_USUARIO primary key ("+camposTipoUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_USUARIO+" ("+camposUsuario[0]+" VARCHAR2(8) not null, "+camposUsuario[1]+" VARCHAR2(8), "+camposUsuario[2]+" VARCHAR2(8), "+camposUsuario[3]+" VARCHAR2(30) not null, "+camposUsuario[4]+" VARCHAR2(50) not null, "+camposUsuario[5]+" VARCHAR2(50) not null, constraint PK_USUARIO primary key ("+camposUsuario[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[2]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
+                db.execSQL("CREATE TABLE "+TABLE_USUARIO_TEMP+" ("+camposUsuarioTemp[0]+" VARCHAR2(8) not null, "+camposUsuarioTemp[1]+" VARCHAR2(30) not null, constraint PK_USUARIO_TEMP primary key ("+camposUsuarioTemp[0]+"));");
 
+                db.execSQL("Insert into "+TABLE_USUARIO+" values('U0000', 'TP01','', 'admin','admin','admin@admin.com')");
 
                 /*--------------------------------------------------------TRIGGERS-------------------------------------------------------------*/
 
@@ -266,7 +270,7 @@ public class BD_Controlador {
                         " select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+" =old."+camposUsuario[0]+") is not null " +
                         "then raise(abort, 'Error de integridad') end; end;");
 
-                //TABLE USAURIO
+                //TABLE USUARIO
                 db.execSQL("CREATE TRIGGER fk_INSERT_"+TABLE_USUARIO+
                         " before insert on "+TABLE_USUARIO+" begin " +
                         "select case when(select "+camposTipoUsuario[0]+" from "+TABLE_TIPO_USUARIO+" where "+camposTipoUsuario[0]+"=new."+camposTipoUsuario[0]+") is null or " +
@@ -290,6 +294,7 @@ public class BD_Controlador {
                         " before insert on "+TABLE_SUGERENCIAS_APP+" begin "+
                         "select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+"=new."+camposUsuario[0]+") is null\n" +
                         "then raise (abort, 'Error de integridad referencial') end; end;");
+
                 db.execSQL("CREATE TRIGGER fk_UPDATE_"+TABLE_SUGERENCIAS_APP+
                         " before update on "+TABLE_SUGERENCIAS_APP+" begin "+
                         "select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+"=new."+camposUsuario[0]+") is null\n" +
@@ -1287,8 +1292,59 @@ public class BD_Controlador {
             return usuario;
         }else return null;
     }
+    public UsuarioTemp consultarUsuario(String username, String contraseña) {
+        String[] campos = {username, contraseña};
+        Cursor cursor = db.query(TABLE_USUARIO, camposUsuario,
+                camposUsuario[3]+" =? and "+camposUsuario[4]+"=?",campos, null,null,null);
+        if(cursor.moveToFirst()){
+            UsuarioTemp usuarioTemp = new UsuarioTemp(
+                    cursor.getString(0),
+                    cursor.getString(1)
+            );
+            return usuarioTemp;
+        }else return null;
+    }
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - USUARIO*/
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - USUARIO_TEMPORAL*/
+    public String insertar(UsuarioTemp usuarioTemp) {
+        String regInsertados = "Registro insertado N°= ";
+
+        long cont = 0;
+        ContentValues cv = new ContentValues();
+        cv.put(camposUsuarioTemp[0], usuarioTemp.getIdUsuarioTemp());
+        cv.put(camposUsuarioTemp[1], usuarioTemp.getTipoUsuarioTemp());
+
+        try {
+            cont = db.insert(TABLE_USUARIO_TEMP, null, cv);
+            if(cont == -1 || cont == 0)
+                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+            else regInsertados += cont;
+        }catch (SQLException e){
+            regInsertados = "Error al insertar el registro. Error de integridad referencial";
+        }
+        return regInsertados;
+    }
+
+    public String eliminarUsuarioTemporal() {
+        String registrosAfectados = "Filas afectadas = ";
+        int cont = 0;
+        cont+= db.delete(TABLE_USUARIO_TEMP,null, null);
+        registrosAfectados+= cont;
+        return registrosAfectados;
+    }
+    public UsuarioTemp consultarUsuarioTemporal() {
+        Cursor cursor = db.query(TABLE_USUARIO_TEMP, camposUsuarioTemp,
+                null,null, null,null,null);
+        if(cursor.moveToFirst()){
+            UsuarioTemp usuarioTemp = new UsuarioTemp(
+                    cursor.getString(0),
+                    cursor.getString(1)
+            );
+            return usuarioTemp;
+        }else return null;
+    }
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Sugerencias App*/
     public String insertar(Sugerencias_App sugerencias_app) {
         String regInsertados = "Registro insertado N°= ";
 
@@ -1432,6 +1488,7 @@ public class BD_Controlador {
         insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
 
         //TABLA USUARIO
+        insertar(new Usuario("U0000", "TP01","E0001","admin","admin","admin@admin.com"));
         insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
         insertar(new Usuario("U0002", "TP02", "E0004", "arturoMtz", "manzanas123", "arturomartinez@gmail.com"));
         insertar(new Usuario("U0003", "TP02", "E0002", "rivera78", "rivera78lol", "rivera78@gmail.com"));
@@ -1467,10 +1524,6 @@ public class BD_Controlador {
         insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
         insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
         insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
-
-
-
-
 
 
         //TABLA SUGERENCIAS_APP

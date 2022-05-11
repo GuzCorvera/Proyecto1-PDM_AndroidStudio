@@ -4,61 +4,97 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 public class MainActivity extends ListActivity {
     Context context = this;
-    String[] menu = {
-            "Tabla Cliente",
-            "Tabla Comentarios",
-            "Tabla Denuncias",
-            "Tabla Departamento",
-            "Tabla Empresa",
-            "Tabla Evaluación",
-            "Tabla Local",
-            "Tabla Municipio",
-            "Tabla Rango de Edad",
-            "Tabla Sector",
-            "Tabla Sexo",
-            "Tabla Sugerencias",
-            "Tabla Sugerencias App",
-            "Tabla Tipo de Empresa",
-            "Tabla Tipo de Satisfacción",
-            "Tabla Tipo de Usuario",
-            "Tabla Usuario",
-            "Llenar base de datos"
-    };
-    String[] activities = {
-            "CRUDCliente.ClienteMenuActivity",
-            "CRUDComentarios.ComentarioMenuActivity",
-            "CRUDDenuncias.DenunciasMenuActivity",
-            "CRUDDepartamento.DepartamentoMenuActivity",
-            "CRUDEmpresa.EmpresaMenuActivity",
-            "CRUDEvaluacion.EvaluacionMenuActivity",
-            "CRUDLocal.LocalMenuActivity",
-            "CRUDMunicipio.MunicipioMenuActivity",
-            "CRUDRangoEdad.Rango_EdadMenuActivity",
-            "CRUDSector.SectorMenuActivity",
-            "CRUDSexo.SexoMenuActivity",
-            "CRUDSugerencias.SugerenciasMenuActivity",
-            "CRUDSugerenciasApp.SugerenciasAppMenuActivity",
-            "CRUDTipoEmpresa.Tipo_EmpresaMenuActivity",
-            "CRUDTipoSatisfaccion.Tipo_SatisfaccionMenuActivity",
-            "CRUDTipoUsuario.Tipo_UsuarioMenuActivity",
-            "CRUDUsuario.UsuarioMenuActivity"
-    };
+    String[] menu, activities;
 
     BD_Controlador helper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
         helper=new BD_Controlador(context);
+        helper.abrir();
+        UsuarioTemp usuarioTemp = helper.consultarUsuarioTemporal();
+        helper.cerrar();
+        if(usuarioTemp!=null){
+            switch (usuarioTemp.getTipoUsuarioTemp()){
+                case "TP01":
+                    menu = new String[]{
+                            "Tabla Cliente",
+                            "Tabla Comentarios",
+                            "Tabla Denuncias",
+                            "Tabla Departamento",
+                            "Tabla Empresa",
+                            "Tabla Evaluación",
+                            "Tabla Local",
+                            "Tabla Municipio",
+                            "Tabla Rango de Edad",
+                            "Tabla Sector",
+                            "Tabla Sexo",
+                            "Tabla Sugerencias",
+                            "Tabla Sugerencias App",
+                            "Tabla Tipo de Empresa",
+                            "Tabla Tipo de Satisfacción",
+                            "Tabla Tipo de Usuario",
+                            "Tabla Usuario",
+                            "Llenar base de datos"
+                    };
+                    activities = new String[]{
+                            "CRUDCliente.ClienteMenuActivity",
+                            "CRUDComentarios.ComentarioMenuActivity",
+                            "CRUDDenuncias.DenunciasMenuActivity",
+                            "CRUDDepartamento.DepartamentoMenuActivity",
+                            "CRUDEmpresa.EmpresaMenuActivity",
+                            "CRUDEvaluacion.EvaluacionMenuActivity",
+                            "CRUDLocal.LocalMenuActivity",
+                            "CRUDMunicipio.MunicipioMenuActivity",
+                            "CRUDRangoEdad.Rango_EdadMenuActivity",
+                            "CRUDSector.SectorMenuActivity",
+                            "CRUDSexo.SexoMenuActivity",
+                            "CRUDSugerencias.SugerenciasMenuActivity",
+                            "CRUDSugerenciasApp.SugerenciasAppMenuActivity",
+                            "CRUDTipoEmpresa.Tipo_EmpresaMenuActivity",
+                            "CRUDTipoSatisfaccion.Tipo_SatisfaccionMenuActivity",
+                            "CRUDTipoUsuario.Tipo_UsuarioMenuActivity",
+                            "CRUDUsuario.UsuarioMenuActivity"
+                    };
+                    break;
+                case "TP02":
+                    menu = new String[]{
+                            "Tabla Comentarios",
+                            "Tabla Denuncias",
+                            "Tabla Evaluación",
+                            "Tabla Local",
+                            "Tabla Sector",
+                            "Tabla Sugerencias",
+                            "Tabla Sugerencias App"
+                    };
+                    activities = new String[]{
+                            "CRUDComentarios.ComentarioMenuActivity",
+                            "CRUDDenuncias.DenunciasMenuActivity",
+                            "CRUDEvaluacion.EvaluacionMenuActivity",
+                            "CRUDLocal.LocalMenuActivity",
+                            "CRUDSector.SectorMenuActivity",
+                            "CRUDSugerencias.SugerenciasMenuActivity",
+                            "CRUDSugerenciasApp.SugerenciasAppMenuActivity"
+                    };
+
+                    break;
+            }
+        }
+
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu));
+
     }
 
     @Override
@@ -86,4 +122,6 @@ public class MainActivity extends ListActivity {
             }
         }
     }
+
+
 }

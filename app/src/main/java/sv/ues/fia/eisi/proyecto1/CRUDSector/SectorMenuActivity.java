@@ -8,13 +8,31 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class SectorMenuActivity extends ListActivity {
-    String[] menu = {"Insertar Sector", "Eliminar Sector", "Consultar Sector", "Actualizar Sector"};
-    String[] activities = {"SectorInsertarActivity", "SectorEliminarActivity", "SectorConsultarActivity", "SectorActualizarActivity"};
+import sv.ues.fia.eisi.proyecto1.BD_Controlador;
+import sv.ues.fia.eisi.proyecto1.UsuarioTemp;
 
+public class SectorMenuActivity extends ListActivity {
+    String[] menu, activities;
+    BD_Controlador helper;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        helper = new BD_Controlador(this);
+        helper.abrir();
+        UsuarioTemp usuarioTemp = helper.consultarUsuarioTemporal();
+        helper.cerrar();
+        if(usuarioTemp!=null){
+            switch (usuarioTemp.getTipoUsuarioTemp()){
+                case "TP01":
+                    menu = new String[]{"Insertar Sector", "Eliminar Sector", "Consultar Sector", "Actualizar Sector"};
+                    activities = new String[]{"SectorInsertarActivity", "SectorEliminarActivity", "SectorConsultarActivity", "SectorActualizarActivity"};
+                    break;
+                case "TP02":
+                    menu = new String[]{"Consultar Sector"};
+                    activities = new String[]{"SectorConsultarActivity"};
+                    break;
+            }
+        }
         ListView listView = getListView();
         listView.setBackgroundColor(Color.rgb(0, 0, 255));
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
