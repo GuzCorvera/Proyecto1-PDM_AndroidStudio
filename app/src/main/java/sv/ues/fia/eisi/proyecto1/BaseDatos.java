@@ -18,6 +18,7 @@ public class BaseDatos {
     public static final String TABLE_TIPO_EMPRESA = "TIPO_EMPRESA";
     public static final String TABLE_TIPO_USUARIO = "TIPO_USUARIO";
     public static final String TABLE_USUARIO = "USUARIO";
+    public static final String TABLE_USUARIO_TEMP = "USUARIO_TEMP";
 
     public static final String[] camposCliente = new String[]{"idCliente","idRangoEdad","idUsuario","idSexo","nomcliente","telefonoCliente"};
     public static final String[] camposComentarios = new String[]{"idComentarios","idUsuario","idLocal","textComentario","fechaComentario"};
@@ -36,4 +37,5 @@ public class BaseDatos {
     public static final String[] camposTipoSatisfaccion = new String[]{"idTipoSatisfaccion","nomTipoSatisfaccion","notaMenor","notaMayor"};
     public static final String[] camposTipoUsuario = new String[]{"idTipoUsuario","desTipoUsuario"};
     public static final String[] camposUsuario = new String[]{"idUsuario","idTipoUsuario","idEmpresa","nomUsuario","contraUsuario","correoUsuario"};
+    public static final String[] camposUsuarioTemp = new String[]{"idUsuarioTemp","idTipoUsuario"};
 }
