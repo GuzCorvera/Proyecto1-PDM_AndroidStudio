@@ -884,7 +884,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CLIENTE*/
     public String insertar(Cliente cliente) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Cliente Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -898,10 +898,10 @@ public class BD_Controlador {
         try {
             cont = db.insert(TABLE_CLIENTE, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+                regInsertados = "Error al insertar el Cliente. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
-            regInsertados = "Error al insertar el registro. Error de integridad referencial";
+            regInsertados = "Error al insertar el Cliente. Error de Integridad Referencial";
         }
         return regInsertados;
     }
@@ -916,18 +916,17 @@ public class BD_Controlador {
         cv.put(camposCliente[4], cliente.getNomcliente());
         cv.put(camposCliente[5], cliente.getTelefonoCliente());
         try {
-            long cont = db.update(TABLE_CLIENTE, cv, camposCliente[0] + "=?",
-                    id);
+            long cont = db.update(TABLE_CLIENTE, cv, camposCliente[0] + "=?",id);
             if(cont==-1 || cont==0)
-                return "Registro con id = "+cliente.getIdCliente()+" no existe";
-            else return "Registro actualizado correctamente";
+                return "Cliente con id: "+cliente.getIdCliente()+" no existe";
+            else return "Cliente actualizado correctamente";
         }catch (SQLException e){
-            return "Error de integridad referencial";
+            return "Error de Integridad Referencial";
         }
     }
 
     public String eliminar(Cliente cliente) {
-        String registrosAfectados = "Filas afectadas = ";
+        String registrosAfectados = "Filas afectadas: ";
         int cont = 0;
         cont+= db.delete(TABLE_CLIENTE,
                 camposCliente[0]+"='"+cliente.getIdCliente()+"'", null);
@@ -1455,7 +1454,6 @@ public class BD_Controlador {
         insertar(new Sector("SE02","Farmacias"));
         insertar(new Sector("SE03","Gasolinera"));
         insertar(new Sector("SE04","Supermercados"));
-        insertar(new Sector("SE05","Banca"));
 
         //TABLA_SEXO
         insertar(new Sexo("S01", "Masculino", "M"));
@@ -1492,7 +1490,6 @@ public class BD_Controlador {
         insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
         insertar(new Usuario("U0002", "TP02", "E0004", "arturoMtz", "manzanas123", "arturomartinez@gmail.com"));
         insertar(new Usuario("U0003", "TP02", "E0002", "rivera78", "rivera78lol", "rivera78@gmail.com"));
-        insertar(new Usuario("U0004", "TP02", "E0003", "Castillo22", "cas1234", "castillolopez@gmail.com"));
 
         //TABLA COMENTARIOS
         insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
@@ -1512,7 +1509,6 @@ public class BD_Controlador {
         insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
         insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
 
-
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
         insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
@@ -1524,7 +1520,6 @@ public class BD_Controlador {
         insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
         insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
         insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
-
 
         //TABLA SUGERENCIAS_APP
         insertar(new Sugerencias_App("SU0001", "U0001", "Mejorar la administracion de los comentarios"));

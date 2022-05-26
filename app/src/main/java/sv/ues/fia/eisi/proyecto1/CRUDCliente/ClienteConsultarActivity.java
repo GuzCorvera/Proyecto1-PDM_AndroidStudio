@@ -44,7 +44,7 @@ public class ClienteConsultarActivity extends Activity {
                 editIdSexo.setText(cliente.getIdSexo());
                 editNomCliente.setText(cliente.getNomcliente());
                 editTelefonoCliente.setText(cliente.getTelefonoCliente());
-            }else Toast.makeText(context, "No existe N°="+editIdCliente.getText().toString(), Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el IdCliente: "+editIdCliente.getText().toString(), Toast.LENGTH_SHORT).show();
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
