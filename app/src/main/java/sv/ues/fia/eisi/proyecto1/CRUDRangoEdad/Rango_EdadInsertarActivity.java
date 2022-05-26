@@ -41,7 +41,7 @@ public class Rango_EdadInsertarActivity extends Activity {
             String reg = helper.insertar(rango_edad);
             helper.cerrar();
             Toast.makeText(context, reg, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Verifique datos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacios", Toast.LENGTH_SHORT).show();
 
     }
 

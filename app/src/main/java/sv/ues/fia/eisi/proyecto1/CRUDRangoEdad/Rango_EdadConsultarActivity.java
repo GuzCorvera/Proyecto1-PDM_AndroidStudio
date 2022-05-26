@@ -39,8 +39,8 @@ public class Rango_EdadConsultarActivity extends Activity {
                 editEdadMenor.setText(String.valueOf(rango_edad.getEdadMenor()));
                 editEdadMayor.setText(String.valueOf(rango_edad.getEdadMayor()));
             }else
-                Toast.makeText(context, "No existe el rango de edad: "+editIdRangoEdad.getText().toString(), Toast.LENGTH_SHORT).show();
-        }
+                Toast.makeText(context, "No existe el idRangoEdad: "+editIdRangoEdad.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

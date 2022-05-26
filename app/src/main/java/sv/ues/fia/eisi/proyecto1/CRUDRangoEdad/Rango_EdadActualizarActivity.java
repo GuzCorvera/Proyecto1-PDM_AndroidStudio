@@ -29,6 +29,20 @@ public class Rango_EdadActualizarActivity extends Activity {
         editEdadMayor = (EditText) findViewById(R.id.editEdadMayor);
     }
 
+    public void consultarRangoEdad(View v){
+        if(!editIdRangoEdad.getText().toString().equals("")){
+            helper.abrir();
+            Rango_Edad rango_edad = helper.consultarRangoEdad(editIdRangoEdad.getText().toString());
+            helper.cerrar();
+            if(rango_edad != null){
+                editNombreRangoEdad.setText(rango_edad.getNomRangoEdad());
+                editEdadMenor.setText(String.valueOf(rango_edad.getEdadMenor()));
+                editEdadMayor.setText(String.valueOf(rango_edad.getEdadMayor()));
+            }else
+                Toast.makeText(context, "No existe el idRangoEdad: "+editIdRangoEdad.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarRangoEdad(View v){
         if(!editIdRangoEdad.getText().toString().equals("")&!editNombreRangoEdad.getText().toString().equals("")&
                 !editEdadMenor.getText().toString().equals("")&!editEdadMayor.getText().toString().equals("")){
@@ -42,6 +56,7 @@ public class Rango_EdadActualizarActivity extends Activity {
             String actualizar = helper.actualizar(rango_edad);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
