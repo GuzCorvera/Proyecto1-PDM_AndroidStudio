@@ -582,7 +582,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_EMPRESA*/
     public String insertar(Tipo_Empresa tipoEmpresa) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Tipo de Empresa Registrada N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
