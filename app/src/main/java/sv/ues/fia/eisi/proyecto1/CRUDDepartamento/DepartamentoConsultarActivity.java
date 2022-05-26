@@ -32,8 +32,8 @@ public class DepartamentoConsultarActivity extends Activity {
             helper.cerrar();
             if(departamento != null)
                 editNomDepartamento.setText(departamento.getNomDepartamento());
-            else Toast.makeText(context, "No existe: "+editIdDepartamento.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(context, "No existe el idDepartamento: "+editIdDepartamento.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

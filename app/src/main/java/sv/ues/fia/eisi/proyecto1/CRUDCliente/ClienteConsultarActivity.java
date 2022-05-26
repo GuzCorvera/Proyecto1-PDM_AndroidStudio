@@ -45,7 +45,7 @@ public class ClienteConsultarActivity extends Activity {
                 editNomCliente.setText(cliente.getNomcliente());
                 editTelefonoCliente.setText(cliente.getTelefonoCliente());
             }else Toast.makeText(context, "No existe el IdCliente: "+editIdCliente.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

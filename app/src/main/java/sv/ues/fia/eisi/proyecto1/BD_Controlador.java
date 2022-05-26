@@ -928,10 +928,13 @@ public class BD_Controlador {
     public String eliminar(Cliente cliente) {
         String registrosAfectados = "Filas afectadas: ";
         int cont = 0;
-        cont+= db.delete(TABLE_CLIENTE,
-                camposCliente[0]+"='"+cliente.getIdCliente()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_CLIENTE,camposCliente[0]+"='"+cliente.getIdCliente()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            return "Error de Integridad Referencial";
+        }
     }
 
     public Cliente consultarCliente(String idCliente) {

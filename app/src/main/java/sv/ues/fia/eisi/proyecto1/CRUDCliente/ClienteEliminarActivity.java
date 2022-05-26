@@ -30,6 +30,7 @@ public class ClienteEliminarActivity extends Activity {
             String eliminar = helper.eliminar(cliente);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Campo idCliente vacio", Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v){
