@@ -27,6 +27,18 @@ public class Sugerencias_AppActualizarActivity extends Activity {
         editTxtSugerenciasApp = (EditText) findViewById(R.id.editTxtSugerenciasApp);
     }
 
+    public void consultarSugerenciasApp(View v){
+        if(!editIdSugerenciasApp.getText().toString().equals("")){
+            helper.abrir();
+            Sugerencias_App sugerencias_app = helper.consultarSugerenciasApp(editIdSugerenciasApp.getText().toString());
+            helper.cerrar();
+            if(sugerencias_app!=null){
+                editIdUsuario.setText(sugerencias_app.getIdUsuario());
+                editTxtSugerenciasApp.setText(sugerencias_app.getTxtSugerenciasApp());
+            }else Toast.makeText(context, "No existe el idSugerenciasApp: "+editIdSugerenciasApp.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarSugerenciasApp(View v){
         if(!editIdSugerenciasApp.getText().toString().equals("") & !editIdUsuario.getText().toString().equals("") &
                 !editTxtSugerenciasApp.getText().toString().equals("")){
@@ -39,6 +51,7 @@ public class Sugerencias_AppActualizarActivity extends Activity {
             String actualizar = helper.actualizar(sugerencias_app);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

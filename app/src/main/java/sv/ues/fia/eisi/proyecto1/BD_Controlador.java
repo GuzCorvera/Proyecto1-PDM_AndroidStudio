@@ -322,7 +322,7 @@ public class BD_Controlador {
 
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - RANGO EDAD*/
     public String insertar(Rango_Edad rango_edad) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Rango de edad Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposRangoEdad[0],rango_edad.getIdRangoEdad());
@@ -374,7 +374,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - SEXO*/
     public String insertar(Sexo sexo) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Sexo Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposSexo[0],sexo.getIdSexo());
@@ -533,7 +533,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - SECTOR*/
     public String insertar(Sector sector) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Sector Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposSector[0],sector.getIdSector());
@@ -755,7 +755,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MUNICIPIO*/
 
     public String insertar(Municipio municipio) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Municipio Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -956,7 +956,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - EVALUACION*/
     public String insertar(Evaluacion evaluacion) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Evaluación Registrada N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -1348,7 +1348,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Sugerencias App*/
     public String insertar(Sugerencias_App sugerencias_app) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Mensaje Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -1497,7 +1497,7 @@ public class BD_Controlador {
         insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
         insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
         insertar(new Comentarios("C0003", "U0003", "L0003", "Las remoledaciones estan muy bien, pero espero terminen pronto","15/04/2022"));
-        insertar(new Comentarios("C0004", "U0004", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
+        insertar(new Comentarios("C0004", "U0003", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
 
         //TABLA SUGERENCIAS
         insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
@@ -1509,11 +1509,11 @@ public class BD_Controlador {
         insertar(new Denuncia("D0001", "U0002", "L0003","Me robaron frente a un Guardia","17/04/2021"));
         insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
         insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
-        insertar(new Denuncia("D0004", "U0004", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
+        insertar(new Denuncia("D0004", "U0003", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
 
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
-        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
+        insertar(new Cliente("CL0002", "RE004","U0003","S02","Marina Castillo Lopez", "23451234"));
         insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
         insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
 
@@ -1527,7 +1527,7 @@ public class BD_Controlador {
         insertar(new Sugerencias_App("SU0001", "U0001", "Mejorar la administracion de los comentarios"));
         insertar(new Sugerencias_App("SU0002", "U0002", "Podrían hacer el diseño mas llamativo"));
         insertar(new Sugerencias_App("SU0003", "U0003", "Incorporar mas sectores para poder evaluar"));
-        insertar(new Sugerencias_App("SU0004", "U0004", "Sería interesante compartir fotos de los establecimientos"));
+        insertar(new Sugerencias_App("SU0004", "U0003", "Sería interesante compartir fotos de los establecimientos"));
 
 
     }
