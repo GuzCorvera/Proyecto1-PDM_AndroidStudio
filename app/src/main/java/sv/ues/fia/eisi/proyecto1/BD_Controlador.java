@@ -1467,7 +1467,6 @@ public class BD_Controlador {
         insertar(new Tipo_Usuario("TP02","Usuario normal"));
 
 
-
         /* - - - NO PRIMARIAS XD - - - */
 
         //TABLA MUNICIPIO

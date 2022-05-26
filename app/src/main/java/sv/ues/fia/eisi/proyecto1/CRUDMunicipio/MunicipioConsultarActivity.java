@@ -35,9 +35,9 @@ public class MunicipioConsultarActivity extends Activity {
             if(municipio!= null){
                 editIdDepartamento.setText(municipio.getIdDepartamento());
                 editNomMunicipio.setText(municipio.getNomMunicipio());
-            }else Toast.makeText(context, "No existe N°="+editIdMunicipio.getText().toString(), Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe idMunicipio"+editIdMunicipio.getText().toString(), Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
         }
     }
 

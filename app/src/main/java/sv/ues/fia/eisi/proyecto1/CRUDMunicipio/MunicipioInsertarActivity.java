@@ -39,7 +39,7 @@ public class MunicipioInsertarActivity extends Activity {
             helper.cerrar();
             Toast.makeText(context, insert, Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
         }
     }
 

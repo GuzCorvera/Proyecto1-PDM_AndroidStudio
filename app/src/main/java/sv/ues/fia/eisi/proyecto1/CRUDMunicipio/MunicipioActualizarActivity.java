@@ -27,6 +27,20 @@ public class MunicipioActualizarActivity extends Activity {
         editNomMunicipio = (EditText) findViewById(R.id.editNomMunicipio);
     }
 
+    public void consultarMunicipio(View v){
+        if(!editIdMunicipio.getText().toString().equals("")){
+            helper.abrir();
+            Municipio municipio = helper.consultarMunicipio(editIdMunicipio.getText().toString());
+            helper.cerrar();
+            if(municipio!= null){
+                editIdDepartamento.setText(municipio.getIdDepartamento());
+                editNomMunicipio.setText(municipio.getNomMunicipio());
+            }else Toast.makeText(context, "No existe idMunicipio:4"+editIdMunicipio.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void actualizarMunicipio(View v){
         if(!editIdMunicipio.getText().toString().equals("")&!editIdDepartamento.getText().toString().equals("")&
                 !editNomMunicipio.getText().toString().equals("")){
@@ -38,6 +52,7 @@ public class MunicipioActualizarActivity extends Activity {
             String actualizar = helper.actualizar(municipio);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else{
             Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
         }
