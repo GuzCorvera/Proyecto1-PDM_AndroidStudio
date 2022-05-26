@@ -44,8 +44,8 @@ public class EmpresaConsultarActivity extends Activity {
                 editNitEmpresa.setText(empresa.getNitEmpresa());
                 editGiroEmpresa.setText(empresa.getGiroEmpresa());
                 editNrcEmpresa.setText(empresa.getNrcEmpresa());
-            }else Toast.makeText(context, "No existe: "+editIdEmpresa.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacios", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idEmpresa: "+editIdEmpresa.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacios", Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v){
         editIdEmpresa.setText("");

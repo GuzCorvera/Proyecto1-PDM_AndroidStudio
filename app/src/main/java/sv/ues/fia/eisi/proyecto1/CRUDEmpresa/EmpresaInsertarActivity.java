@@ -48,6 +48,7 @@ public class EmpresaInsertarActivity extends Activity {
             String insert = helper.insertar(empresa);
             helper.cerrar();
             Toast.makeText(context, insert, Toast.LENGTH_SHORT).show();
+
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

@@ -35,7 +35,7 @@ public class DepartamentoInsertarActivity extends Activity {
             String insert = helper.insertar(departamento);
             helper.cerrar();
             Toast.makeText(context, insert, Toast.LENGTH_SHORT).show();
-            limpiarTexto(v);
+
         }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 

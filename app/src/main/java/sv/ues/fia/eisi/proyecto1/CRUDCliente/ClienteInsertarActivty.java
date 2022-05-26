@@ -49,7 +49,7 @@ public class ClienteInsertarActivty extends Activity {
             String insertar = helper.insertar(cliente);
             helper.cerrar();
             Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
-            limpiarTexto(v);
+
         }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v){

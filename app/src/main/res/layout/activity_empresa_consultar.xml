@@ -52,7 +52,11 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdTipoEmpresa"
             android:inputType="textPersonName"
-            android:maxLength="4" />
+            android:maxLength="4"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -68,7 +72,11 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomLegalEmpresa"
             android:inputType="textPersonName"
-            android:maxLength="50" />
+            android:maxLength="50"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -84,7 +92,11 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNitEmpresa"
             android:inputType="textPersonName"
-            android:maxLength="20" />
+            android:maxLength="20"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -100,7 +112,11 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editGiroEmpresa"
             android:inputType="textPersonName"
-            android:maxLength="100" />
+            android:maxLength="100"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -116,7 +132,11 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNrcEmpresa"
             android:inputType="textPersonName"
-            android:maxLength="30" />
+            android:maxLength="30"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>
