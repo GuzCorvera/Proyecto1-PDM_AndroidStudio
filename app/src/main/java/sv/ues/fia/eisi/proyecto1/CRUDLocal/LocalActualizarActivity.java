@@ -33,6 +33,21 @@ public class LocalActualizarActivity extends Activity {
         editDescripLocal = (EditText) findViewById(R.id.editDescripLocal);
     }
 
+    public void consultarLocal(View v){
+        if(!editIdLocal.getText().toString().equals("")){
+            helper.abrir();
+            Local local = helper.consultarLocal(editIdLocal.getText().toString());
+            helper.cerrar();
+            if(local != null){
+                editIdEmpresa.setText(local.getIdEmpresa());
+                editIdSector.setText(local.getIdSector());
+                editIdMunicipio.setText(local.getIdMunicipio());
+                editNombreLocal.setText(local.getNombreLocal());
+                editDescripLocal.setText(local.getDescripLocal());
+            }else Toast.makeText(context,"No existe el idLocal: "+editIdLocal.getText().toString(),Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarLocal(View v){
         if(!editIdLocal.getText().toString().equals("") & !editIdEmpresa.getText().toString().equals("")
                 & !editIdSector.getText().toString().equals("") & !editIdMunicipio.getText().toString().equals("")
@@ -49,6 +64,7 @@ public class LocalActualizarActivity extends Activity {
             String actualizar = helper.actualizar(local);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

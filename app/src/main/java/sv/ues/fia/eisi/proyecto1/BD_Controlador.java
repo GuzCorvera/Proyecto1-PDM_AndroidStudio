@@ -426,7 +426,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DEPARTAMENTO*/
     public String insertar(Departamento departamento) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Departamento Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposDepartamento[0],departamento.getIdDepartamento());
@@ -434,7 +434,7 @@ public class BD_Controlador {
 
         cont = db.insert(TABLE_DEPARTAMENTO, null, cv);
         if(cont == -1 || cont == 0)
-            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+            regInsertados = "Error al insertar el Departamento. Error de Inserción";
         else regInsertados += cont;
         return regInsertados;
     }
@@ -685,7 +685,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - EMPRESA*/
 
     public String insertar(Empresa empresa) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Empresa Registrada N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -699,7 +699,7 @@ public class BD_Controlador {
         try {
             cont = db.insert(TABLE_EMPRESA, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro, Registro duplicado o Error de integridad referencial. Verificar insercción";
+                regInsertados = "Error al insertar la Empresa. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
             regInsertados = "Error al insertar el registro, No existe el TipoEmpresa. Verificar inserccion";
@@ -815,7 +815,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - LOCAL*/
     public String insertar(Local local) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Local Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -827,9 +827,9 @@ public class BD_Controlador {
         cv.put(camposLocal[5], local.getDescripLocal());
 
         try {
-            cont = db.insert(TABLE_MUNICIPIO, null, cv);
+            cont = db.insert(TABLE_LOCAL, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+                regInsertados = "Error al insertar el Local. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
             regInsertados = "Error al insertar el registro. Error de integridad referencial";
@@ -1486,7 +1486,7 @@ public class BD_Controlador {
         insertar(new Local("L0001", "E0001", "SE04", "M001", "Super Selectos Apopa", "Supermercado, sucursal de Apopa, San Salvador"));
         insertar(new Local("L0002", "E0002", "SE02", "M002", "Farmacia Lupita 3", "Servicio de farmacia, sucursal de  Cuyultitan"));
         insertar(new Local("L0003", "E0003", "SE01", "M003", "Metrocentro Santa Ana", "Centro Comercial, sucursal de Santa Ana"));
-        insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
+        insertar(new Local("L0004", "E0004", "SE03", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
 
         //TABLA USUARIO
         insertar(new Usuario("U0000", "TP01","E0001","admin","admin","admin@admin.com"));
