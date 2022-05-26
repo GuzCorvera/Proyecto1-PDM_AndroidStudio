@@ -25,6 +25,17 @@ public class SectorActualizarActivity extends Activity {
         editTipoSector = (EditText) findViewById(R.id.editTipoSector);
     }
 
+    public void consultarSector(View v){
+        if(!editIdSector.getText().toString().equals("") ){
+            helper.abrir();
+            Sector sector = helper.consultarSector(editIdSector.getText().toString());
+            helper.cerrar();
+            if(sector != null)
+                editTipoSector.setText(sector.getTipoSector());
+            else Toast.makeText(context, "No existe el idSector: "+editIdSector.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarSector(View v){
         if(!editIdSector.getText().toString().equals("") & !editTipoSector.getText().toString().equals("")){
             Sector sector = new Sector(
@@ -35,6 +46,7 @@ public class SectorActualizarActivity extends Activity {
             String actualizar = helper.actualizar(sector);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

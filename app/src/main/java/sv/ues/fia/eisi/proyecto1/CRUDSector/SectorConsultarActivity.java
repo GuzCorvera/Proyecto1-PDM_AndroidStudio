@@ -32,8 +32,8 @@ public class SectorConsultarActivity extends Activity {
             helper.cerrar();
             if(sector != null)
                 editTipoSector.setText(sector.getTipoSector());
-            else Toast.makeText(context, "No existe: "+editIdSector.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(context, "No existe el idSector: "+editIdSector.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

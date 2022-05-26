@@ -35,7 +35,7 @@ public class SectorInsertarActivity extends Activity {
             String insert = helper.insertar(sector);
             helper.cerrar();
             Toast.makeText(context, insert, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
