@@ -478,7 +478,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_SATISFACCION*/
     public String insertar(Tipo_Satisfaccion satisfaccion) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Tipo de Satisfacción Registrada N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposTipoSatisfaccion[0],satisfaccion.getIdTipoSatisfaccion());
@@ -500,8 +500,7 @@ public class BD_Controlador {
         cv.put(camposTipoSatisfaccion[2], satisfaccion.getNotaMenor());
         cv.put(camposTipoSatisfaccion[3], satisfaccion.getNotaMayor());
         try {
-            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?",
-                    id);
+            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?"id);
             return "Registro actualizado correctamente";
         }catch (SQLException e) {
             return "Registro con id = "+satisfaccion.getIdTipoSatisfaccion()+" no existe";

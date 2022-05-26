@@ -38,8 +38,8 @@ public class Tipo_SatisfaccionConsultarActivity extends Activity {
                 editNomTipoSatisfaccion.setText(satisfaccion.getNomTipoSatisfaccion());
                 editNotaMenor.setText(String.valueOf(satisfaccion.getNotaMenor()));
                 editNotaMayor.setText(String.valueOf(satisfaccion.getNotaMayor()));
-            }else Toast.makeText(context, "No existe: "+editIdTipoSatisfaccion.getText(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idTipoSatisfacción: "+editIdTipoSatisfaccion.getText(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

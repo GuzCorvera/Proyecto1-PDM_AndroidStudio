@@ -29,6 +29,19 @@ public class Tipo_SatisfaccionActualizarActivity extends Activity {
         editNotaMayor = (EditText) findViewById(R.id.editNotaMayor);
     }
 
+    public void consultarTipoSatisfaccion(View v){
+        if(!editIdTipoSatisfaccion.getText().equals("")){
+            helper.abrir();
+            Tipo_Satisfaccion satisfaccion = helper.consultarTipoSatisfaccion(editIdTipoSatisfaccion.getText().toString());
+            helper.cerrar();
+            if(satisfaccion != null){
+                editNomTipoSatisfaccion.setText(satisfaccion.getNomTipoSatisfaccion());
+                editNotaMenor.setText(String.valueOf(satisfaccion.getNotaMenor()));
+                editNotaMayor.setText(String.valueOf(satisfaccion.getNotaMayor()));
+            }else Toast.makeText(context, "No existe el idTipoSatisfacción: "+editIdTipoSatisfaccion.getText(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarTipoSatisfaccion(View v){
         if(!editIdTipoSatisfaccion.getText().equals("") & !editNomTipoSatisfaccion.getText().equals("") &
                 !editNotaMenor.getText().equals("") & !editNotaMayor.getText().equals("")){
@@ -42,6 +55,7 @@ public class Tipo_SatisfaccionActualizarActivity extends Activity {
             String actualizar = helper.actualizar(satisfaccion);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

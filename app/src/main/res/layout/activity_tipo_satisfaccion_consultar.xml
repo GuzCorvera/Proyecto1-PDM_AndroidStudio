@@ -50,7 +50,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomTipoSatisfaccion"
             android:inputType="textPersonName"
-            android:maxLength="100" />
+            android:maxLength="100"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -65,7 +70,12 @@
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNotaMenor"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -75,12 +85,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nota mayor" />
+            android:text="Nota mayor"
+            />
 
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNotaMayor"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>
