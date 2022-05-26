@@ -1443,8 +1443,8 @@ public class BD_Controlador {
         //TABLA DEPARTAMENTO
         insertar(new Departamento("D01", "La Paz"));
         insertar(new Departamento("D02", "Santa Ana"));
-        insertar(new Departamento("D04", "San Salvador"));
-        insertar(new Departamento("D05", "San Miguel"));
+        insertar(new Departamento("D03", "San Salvador"));
+        insertar(new Departamento("D04", "San Miguel"));
 
         //TABLA TIPO_EMPRESA
         insertar(new Tipo_Empresa("TE01", "Empresa Privada"));
