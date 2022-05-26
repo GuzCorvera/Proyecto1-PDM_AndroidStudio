@@ -74,7 +74,7 @@ public class BD_Controlador {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private static final String BASE_DATOS = "Proyecto1_PDM.s3db";
+        private static final String BASE_DATOS = "Proyecto1_PDM_Etapa1.s3db";
         private static final int VERSION = 1;
 
         public DatabaseHelper(Context context) {
@@ -500,7 +500,7 @@ public class BD_Controlador {
         cv.put(camposTipoSatisfaccion[2], satisfaccion.getNotaMenor());
         cv.put(camposTipoSatisfaccion[3], satisfaccion.getNotaMayor());
         try {
-            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?"id);
+            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?",id);
             return "Registro actualizado correctamente";
         }catch (SQLException e) {
             return "Registro con id = "+satisfaccion.getIdTipoSatisfaccion()+" no existe";
