@@ -32,8 +32,8 @@ public class Tipo_UsuarioConsultarActivity extends Activity {
             helper.cerrar();
             if(tipoUsuario != null)
                 editDesTipoUsuario.setText(tipoUsuario.getDesTipoUsuario());
-            else Toast.makeText(context, "No existe: "+editIdTipoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(context, "No existe el idTipoUsuario: "+editIdTipoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
