@@ -71,7 +71,7 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomMunicipio"
             android:inputType="textPersonName"
-            android:maxLength="4"
+            android:maxLength="30"
 
             android:clickable="false"
             android:cursorVisible="false"

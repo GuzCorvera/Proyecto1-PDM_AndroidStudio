@@ -41,7 +41,7 @@ public class DenunciasActualizarActivity extends Activity {
                 editIdLocalDenuncia.setText(denuncia.getIdLocal());
                 editTextDenuncia.setText(denuncia.getTextDenuncia());
                 editFechaDenuncia.setText(denuncia.getFechaDenuncia());
-            }else Toast.makeText(context, "No existe el idDenuncias: "+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idDenuncias: "+editIdDenuncia.getText().toString(), Toast.LENGTH_SHORT).show();
         }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
