@@ -30,7 +30,7 @@ public class DenunciasEliminarActivity extends Activity {
             String eliminar = helper.eliminar(denuncia);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campo idDenuncia vacío", Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v){
         editIdDenuncia.setText("");

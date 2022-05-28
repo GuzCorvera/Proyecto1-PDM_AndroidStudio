@@ -41,8 +41,8 @@ public class DenunciasConsultarActivity extends Activity {
                 editIdUsuarioDenuncia.setText(denuncia.getIdUsuario());
                 editTextDenuncia.setText(denuncia.getTextDenuncia());
                 editFechaDenuncia.setText(denuncia.getFechaDenuncia());
-            }else Toast.makeText(context, "No existe N°="+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idDenuncias: "+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

@@ -18,39 +18,8 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdDenuncia"
             android:inputType="textPersonName"
-            android:maxLength="5" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Usuario" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdUsuarioDenuncia"
-            android:inputType="textPersonName"
-            android:maxLength="5" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Local" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdLocalDenuncia"
-            android:inputType="textPersonName"
-            android:maxLength="5" />
+            android:maxLength="5"
+/>
     </TableRow>
 
     <TableRow
@@ -78,13 +47,60 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Id Usuario" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdUsuarioDenuncia"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Local" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdLocalDenuncia"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Denuncia" />
 
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editTextDenuncia"
             android:inputType="textPersonName"
-            android:maxLength="30" />
+            android:maxLength="30"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -99,7 +115,12 @@
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editFechaDenuncia"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>
