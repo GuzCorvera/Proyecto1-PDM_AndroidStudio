@@ -312,6 +312,7 @@ public class BD_Controlador {
             // TODO Auto-generated method stub
         }
     }
+
     public void abrir() throws SQLException {
         db = dbHelper.getWritableDatabase();
         return;
