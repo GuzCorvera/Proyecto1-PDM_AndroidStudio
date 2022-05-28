@@ -31,10 +31,24 @@ public class ComentariosActualizarActivity extends Activity {
         editFechaComentario = (EditText) findViewById(R.id.editFechaComentario);
     }
 
+    public void consultarComentario(View v){
+        if(!editIdComentario.getText().toString().equals("")){
+            helper.abrir();
+            Comentarios comentarios = helper.consultarComentario(editIdComentario.getText().toString());
+            helper.cerrar();
+            if(comentarios != null){
+                editIdUsuarioComentario.setText(comentarios.getIdUsuario());
+                editIdLocalComentario.setText(comentarios.getIdLocal());
+                editTextComentario.setText(comentarios.getTextComentario());
+                editFechaComentario.setText(comentarios.getFechaComentario());
+            }else Toast.makeText(context, "No existe el idComentario: "+editIdComentario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarComentarios(View v){
         if(!editIdComentario.getText().toString().equals("") & !editIdUsuarioComentario.getText().toString().equals("") &
-                !editIdLocalComentario.getText().toString().equals("") & editTextComentario.getText().toString().equals("") &
-                editFechaComentario.getText().toString().equals("")){
+                !editIdLocalComentario.getText().toString().equals("") & !editTextComentario.getText().toString().equals("") &
+                !editFechaComentario.getText().toString().equals("")){
             Comentarios comentarios = new Comentarios(
                     editIdComentario.getText().toString(),
                     editIdUsuarioComentario.getText().toString(),
@@ -46,6 +60,7 @@ public class ComentariosActualizarActivity extends Activity {
             String actualizar = helper.actualizar(comentarios);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

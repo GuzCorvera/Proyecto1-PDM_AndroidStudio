@@ -43,8 +43,8 @@ public class ComentariosConsultarActivity extends Activity {
                 editIdLocalComentario.setText(comentarios.getIdLocal());
                 editTextComentario.setText(comentarios.getTextComentario());
                 editFechaComentario.setText(comentarios.getFechaComentario());
-            }else Toast.makeText(context, "No existe N°="+editIdComentario.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idComentario: "+editIdComentario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
