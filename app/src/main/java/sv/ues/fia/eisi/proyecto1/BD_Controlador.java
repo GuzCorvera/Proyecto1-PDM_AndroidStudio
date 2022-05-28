@@ -1167,7 +1167,7 @@ public class BD_Controlador {
         cv.put(camposComentarios[1], comentarios.getIdUsuario());
         cv.put(camposComentarios[2], comentarios.getIdLocal());
         cv.put(camposComentarios[3], comentarios.getTextComentario());
-        cv.put(camposComentarios[4], comentarios.getTextComentario());
+        cv.put(camposComentarios[4], comentarios.getFechaComentario());
 
         try {
             cont = db.insert(TABLE_COMENTARIOS, null, cv);
@@ -1187,7 +1187,7 @@ public class BD_Controlador {
         cv.put(camposComentarios[1], comentarios.getIdUsuario());
         cv.put(camposComentarios[2], comentarios.getIdLocal());
         cv.put(camposComentarios[3], comentarios.getTextComentario());
-        cv.put(camposComentarios[4], comentarios.getTextComentario());
+        cv.put(camposComentarios[4], comentarios.getFechaComentario());
         try {
             long cont = db.update(TABLE_COMENTARIOS, cv, camposComentarios[0] + "=?",
                     id);
