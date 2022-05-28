@@ -37,8 +37,8 @@ public class DenunciasConsultarActivity extends Activity {
             Denuncia denuncia = helper.consultarDenuncia(editIdDenuncia.getText().toString());
             helper.cerrar();
             if(denuncia != null){
-                editIdLocalDenuncia.setText(denuncia.getIdLocal());
                 editIdUsuarioDenuncia.setText(denuncia.getIdUsuario());
+                editIdLocalDenuncia.setText(denuncia.getIdLocal());
                 editTextDenuncia.setText(denuncia.getTextDenuncia());
                 editFechaDenuncia.setText(denuncia.getFechaDenuncia());
             }else Toast.makeText(context, "No existe el idDenuncias: "+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();

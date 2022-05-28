@@ -32,9 +32,11 @@ public class DenunciasInsertarActivity extends Activity {
     }
 
     public void insertarDenuncias(View v){
-        if(!editIdDenuncia.getText().toString().equals("") & !editIdLocalDenuncia.getText().toString().equals("") &
-        !editIdUsuarioDenuncia.getText().toString().equals("") & !editTextDenuncia.getText().toString().equals("") &
-        !editFechaDenuncia.getText().toString().equals("")){
+        if(!editIdDenuncia.getText().toString().equals("")
+                & !editIdUsuarioDenuncia.getText().toString().equals("")
+                & !editIdLocalDenuncia.getText().toString().equals("")
+                & !editTextDenuncia.getText().toString().equals("")
+                & !editFechaDenuncia.getText().toString().equals("")){
             Denuncia denuncia = new Denuncia(
                     editIdDenuncia.getText().toString(),
                     editIdUsuarioDenuncia.getText().toString(),

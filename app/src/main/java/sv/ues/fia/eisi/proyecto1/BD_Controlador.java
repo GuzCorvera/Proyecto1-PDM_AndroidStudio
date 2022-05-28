@@ -1030,8 +1030,8 @@ public class BD_Controlador {
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposDenuncia[0], denuncia.getIdDenuncia());
-        cv.put(camposDenuncia[1], denuncia.getIdLocal());
-        cv.put(camposDenuncia[2], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[1], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[2], denuncia.getIdLocal());
         cv.put(camposDenuncia[3], denuncia.getTextDenuncia());
         cv.put(camposDenuncia[4], denuncia.getFechaDenuncia());
 
@@ -1050,8 +1050,8 @@ public class BD_Controlador {
         String[] id = {denuncia.getIdDenuncia()};
         ContentValues cv = new ContentValues();
         cv.put(camposDenuncia[0], denuncia.getIdDenuncia());
-        cv.put(camposDenuncia[1], denuncia.getIdLocal());
-        cv.put(camposDenuncia[2], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[1], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[2], denuncia.getIdLocal());
         cv.put(camposDenuncia[3], denuncia.getTextDenuncia());
         cv.put(camposDenuncia[4], denuncia.getFechaDenuncia());
         try {

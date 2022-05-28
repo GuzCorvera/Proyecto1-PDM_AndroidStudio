@@ -37,8 +37,8 @@ public class DenunciasActualizarActivity extends Activity {
             Denuncia denuncia = helper.consultarDenuncia(editIdDenuncia.getText().toString());
             helper.cerrar();
             if(denuncia != null){
-                editIdLocalDenuncia.setText(denuncia.getIdLocal());
                 editIdUsuarioDenuncia.setText(denuncia.getIdUsuario());
+                editIdLocalDenuncia.setText(denuncia.getIdLocal());
                 editTextDenuncia.setText(denuncia.getTextDenuncia());
                 editFechaDenuncia.setText(denuncia.getFechaDenuncia());
             }else Toast.makeText(context, "No existe el idDenuncias: "+denuncia.getIdDenuncia(), Toast.LENGTH_SHORT).show();
@@ -46,9 +46,11 @@ public class DenunciasActualizarActivity extends Activity {
     }
 
     public void actualizarDenuncias(View v){
-        if(!editIdDenuncia.getText().toString().equals("") & !editIdLocalDenuncia.getText().toString().equals("") &
-                !editIdUsuarioDenuncia.getText().toString().equals("") & !editTextDenuncia.getText().toString().equals("") &
-                !editFechaDenuncia.getText().toString().equals("")){
+        if(!editIdDenuncia.getText().toString().equals("")
+                & !editIdUsuarioDenuncia.getText().toString().equals("")
+                & !editIdLocalDenuncia.getText().toString().equals("")
+                & !editTextDenuncia.getText().toString().equals("")
+                & !editFechaDenuncia.getText().toString().equals("")){
             Denuncia denuncia = new Denuncia(
                     editIdDenuncia.getText().toString(),
                     editIdUsuarioDenuncia.getText().toString(),
