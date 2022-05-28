@@ -2,6 +2,7 @@ package sv.ues.fia.eisi.proyecto1.CRUDEvaluacion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.hardware.lights.LightsManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,6 +34,22 @@ public class EvaluacionActualizarActivity extends Activity {
         editJustificacionCliente = (EditText) findViewById(R.id.editJustificacionCliente);
     }
 
+    public void consultarEvaluacion(View v){
+        if(!editIdEvaluacion.getText().toString().equals("")){
+            helper.abrir();
+            Evaluacion evaluacion = helper.consultarEvaluacion(editIdEvaluacion.getText().toString());
+            helper.cerrar();
+            if(evaluacion!=null){
+                editIdLocal.setText(evaluacion.getIdLocal());
+                editIdCliente.setText(evaluacion.getIdCliente());
+                editIdTipoSatisfaccion.setText(evaluacion.getIdTipoSatisfaccion());
+                editNotaEvaCliente.setText(String.valueOf(evaluacion.getNotaEvaCliente()));
+                editJustificacionCliente.setText(evaluacion.getJustificacionCliente());
+            }else Toast.makeText(context, "No existe el idEvaluación: "+editIdEvaluacion.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+
+    }
+
     public void actualizarEvaluacion(View v){
         if(!editIdEvaluacion.getText().toString().equals("") & !editIdLocal.getText().toString().equals("") &
                 !editIdCliente.getText().toString().equals("") & !editIdTipoSatisfaccion.getText().toString().equals("") &
@@ -49,6 +66,7 @@ public class EvaluacionActualizarActivity extends Activity {
             String actualizar = helper.actualizar(evaluacion);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

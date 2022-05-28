@@ -12,43 +12,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Id Local" />
+            android:text="Id Evaluacion" />
 
         <EditText
             android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdLocal"
-            android:inputType="textPersonName"
-            android:maxLength="5" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Cliente" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdCliente"
-            android:inputType="textPersonName"
-            android:maxLength="6" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id tipo de Satisfacción" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdTipoSatisfaccion"
+            android:id="@+id/editIdEvaluacion"
             android:inputType="textPersonName"
             android:maxLength="5" />
     </TableRow>
@@ -76,12 +44,101 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Id Local" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdLocal"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Cliente" />
+
+        <EditText
+            android:id="@+id/editIdCliente"
+            android:layout_marginHorizontal="5dp"
+            android:inputType="textPersonName"
+            android:maxLength="6"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id tipo de Satisfacción" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdTipoSatisfaccion"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Nota de evaluación del Cliente" />
 
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNotaEvaCliente"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Justifiacion cliente:" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editJustificacionCliente"
+            android:inputType="textPersonName"
+            android:maxLength="300"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>

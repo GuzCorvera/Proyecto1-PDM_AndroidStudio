@@ -44,8 +44,8 @@ public class EvaluacionConsultarActivity extends Activity {
                 editIdTipoSatisfaccion.setText(evaluacion.getIdTipoSatisfaccion());
                 editNotaEvaCliente.setText(String.valueOf(evaluacion.getNotaEvaCliente()));
                 editJustificacionCliente.setText(evaluacion.getJustificacionCliente());
-            }else Toast.makeText(context, "No existe N°="+editIdEvaluacion.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idEvaluación: "+editIdEvaluacion.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
 
     }
 
