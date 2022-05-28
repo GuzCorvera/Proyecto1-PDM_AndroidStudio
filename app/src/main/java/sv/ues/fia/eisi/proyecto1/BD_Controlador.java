@@ -1097,8 +1097,8 @@ public class BD_Controlador {
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposSugerencias[0], sugerencias.getIdSugerencia());
-        cv.put(camposSugerencias[1], sugerencias.getIdLocal());
-        cv.put(camposSugerencias[2], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[1], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[2], sugerencias.getIdLocal());
         cv.put(camposSugerencias[3], sugerencias.getTextSugerencia());
         cv.put(camposSugerencias[4], sugerencias.getFechaSugerencia());
 
@@ -1117,8 +1117,8 @@ public class BD_Controlador {
         String[] id = {sugerencias.getIdSugerencia()};
         ContentValues cv = new ContentValues();
         cv.put(camposSugerencias[0], sugerencias.getIdSugerencia());
-        cv.put(camposSugerencias[1], sugerencias.getIdLocal());
-        cv.put(camposSugerencias[2], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[1], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[2], sugerencias.getIdLocal());
         cv.put(camposSugerencias[3], sugerencias.getTextSugerencia());
         cv.put(camposSugerencias[4], sugerencias.getFechaSugerencia());
         try {
@@ -1499,7 +1499,7 @@ public class BD_Controlador {
         insertar(new Comentarios("C0004", "U0003", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
 
         //TABLA SUGERENCIAS
-        insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
+        insertar(new Sugerencias("S0001", "U0002", "L0004", "Prueba", "23/03/2022"));
         insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
         insertar(new Sugerencias("S0003", "U0003", "L0003", "Que pongan mas personal de seguridad", "15/03/2022"));
         insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));

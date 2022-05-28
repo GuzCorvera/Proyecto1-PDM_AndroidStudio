@@ -31,9 +31,9 @@ public class SugerenciasInsertarActivity extends Activity {
         editFechaSugerencia = (EditText) findViewById(R.id.editFechaSugerencia);
     }
     public void insertarSugerencias(View v){
-        if(!editIdSugerencia.getText().toString().equals("") & !editIdLocalSugerencia.getText().toString().equals("") &
-        !editIdUsuarioSugerencia.getText().toString().equals("") & !editTextSugerencia.getText().toString().equals("") &
-        !editFechaSugerencia.getText().toString().equals("")){
+        if(!editIdSugerencia.getText().toString().equals("") & !editIdUsuarioSugerencia.getText().toString().equals("")
+                & !editIdLocalSugerencia.getText().toString().equals("")  & !editTextSugerencia.getText().toString().equals("")
+                & !editFechaSugerencia.getText().toString().equals("")){
             Sugerencias sugerencias = new Sugerencias(
                     editIdSugerencia.getText().toString(),
                     editIdUsuarioSugerencia.getText().toString(),
@@ -45,7 +45,7 @@ public class SugerenciasInsertarActivity extends Activity {
             String insertar =  helper.insertar(sugerencias);
             helper.cerrar();
             Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){
