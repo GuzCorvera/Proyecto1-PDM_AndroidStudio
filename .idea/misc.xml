@@ -124,6 +124,8 @@
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_usuario_actualizar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_tipo_usuario_consultar.xml" value="0.25" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/Proyecto1-PDM_AndroidStudio/app/src/main/res/layout/activity_usuario_insertar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_evaluacion_consultar.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_evaluacion_insertar.xml" value="0.353125" />
       </map>
     </option>
   </component>
