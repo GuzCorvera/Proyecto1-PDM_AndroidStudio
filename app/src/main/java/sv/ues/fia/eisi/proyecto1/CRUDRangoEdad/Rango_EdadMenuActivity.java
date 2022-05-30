@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class Rango_EdadMenuActivity extends ListActivity {
     String[] menu = {"Insertar Rango de Edad", "Eliminar Rango de Edad", "Consultar Rango de Edad", "Actualizar Rango de Edad"};
-    String[] activities = {"Rango_EdadInsertar_Activity", "Rango_EdadEliminarActivity", "Rango_EdadConsultarActivity", "Rango_EdadActualizarActivity"};
+    String[] activities = {"Rango_EdadInsertarActivity", "Rango_EdadEliminarActivity", "Rango_EdadConsultarActivity", "Rango_EdadActualizarActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
