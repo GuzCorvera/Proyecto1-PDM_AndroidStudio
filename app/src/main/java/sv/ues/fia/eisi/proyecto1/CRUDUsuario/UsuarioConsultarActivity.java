@@ -44,8 +44,8 @@ public class UsuarioConsultarActivity extends Activity {
                 editNomUsuario.setText(usuario.getIdEmpresa());
                 editContraUsuario.setText(usuario.getContraUsuario());
                 editCorreoUsuario.setText(usuario.getCorreoUsuario());
-            }else Toast.makeText(context, "No existe N°="+editIdUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idUsuario: "+editIdUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

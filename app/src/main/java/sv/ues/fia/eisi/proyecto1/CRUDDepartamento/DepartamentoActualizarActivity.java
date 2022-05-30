@@ -25,6 +25,17 @@ public class DepartamentoActualizarActivity extends Activity {
         editNomDepartamento = (EditText) findViewById(R.id.editNomDepartamento);
     }
 
+    public void consultarDepartamento(View v){
+        if(!editIdDepartamento.getText().toString().equals("")){
+            helper.abrir();
+            Departamento departamento = helper.consultarDepartamento(editIdDepartamento.getText().toString());
+            helper.cerrar();
+            if(departamento != null)
+                editNomDepartamento.setText(departamento.getNomDepartamento());
+            else Toast.makeText(context, "No existe el idDepartamento: "+editIdDepartamento.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarDepartamento(View v){
         if(!editIdDepartamento.getText().toString().equals("") & !editNomDepartamento.getText().toString().equals("")){
             Departamento departamento = new Departamento(
@@ -35,6 +46,7 @@ public class DepartamentoActualizarActivity extends Activity {
             String actualizar = helper.actualizar(departamento);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

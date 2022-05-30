@@ -32,8 +32,8 @@ public class Tipo_EmpresaConsultarActivity extends Activity {
             helper.cerrar();
             if(tipoEmpresa != null)
                 editNomTipoEmpresa.setText(tipoEmpresa.getNomTipoEmpresa());
-            else Toast.makeText(context, "No existe: "+editIdTipoEmpresa.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            else Toast.makeText(context, "No existe el idTipoEmpresa: "+editIdTipoEmpresa.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

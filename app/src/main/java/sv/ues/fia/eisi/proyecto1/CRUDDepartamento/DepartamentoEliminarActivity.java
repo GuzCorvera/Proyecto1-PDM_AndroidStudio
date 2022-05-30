@@ -30,6 +30,10 @@ public class DepartamentoEliminarActivity extends Activity {
             String eliminar = helper.eliminar(departamento);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
+        }else Toast.makeText(context, "Campo idDepartamento vacio", Toast.LENGTH_SHORT).show();
+    }
+    public void limpiarTexto(View v){
+        editIdDepartamento.setText("");
     }
 }

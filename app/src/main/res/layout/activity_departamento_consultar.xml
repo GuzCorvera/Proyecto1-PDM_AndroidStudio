@@ -42,7 +42,12 @@
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomDepartamento"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>

@@ -32,7 +32,7 @@ public class MunicipioEliminarActivity extends Activity {
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Dato idMunicipio vacío", Toast.LENGTH_SHORT).show();
         }
     }
     public void limpiarTexto(View v){

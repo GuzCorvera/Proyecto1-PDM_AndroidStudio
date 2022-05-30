@@ -75,7 +75,7 @@ public class BD_Controlador {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private static final String BASE_DATOS = "Proyecto1_PDM.s3db";
+        private static final String BASE_DATOS = "Proyecto1_PDM_Etapa1.s3db";
         private static final int VERSION = 1;
 
         public DatabaseHelper(Context context) {
@@ -314,6 +314,7 @@ public class BD_Controlador {
             // TODO Auto-generated method stub
         }
     }
+
     public void abrir() throws SQLException {
         db = dbHelper.getWritableDatabase();
         return;
@@ -324,7 +325,7 @@ public class BD_Controlador {
 
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - RANGO EDAD*/
     public String insertar(Rango_Edad rango_edad) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Rango de edad Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposRangoEdad[0],rango_edad.getIdRangoEdad());
@@ -382,7 +383,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - SEXO*/
     public String insertar(Sexo sexo) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Sexo Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposSexo[0],sexo.getIdSexo());
@@ -440,7 +441,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - DEPARTAMENTO*/
     public String insertar(Departamento departamento) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Departamento Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposDepartamento[0],departamento.getIdDepartamento());
@@ -448,7 +449,7 @@ public class BD_Controlador {
 
         cont = db.insert(TABLE_DEPARTAMENTO, null, cv);
         if(cont == -1 || cont == 0)
-            regInsertados = "Error al insertar el registro, Registro duplicado. Verificar insercción";
+            regInsertados = "Error al insertar el Departamento. Error de Inserción";
         else regInsertados += cont;
         return regInsertados;
     }
@@ -492,7 +493,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_SATISFACCION*/
     public String insertar(Tipo_Satisfaccion satisfaccion) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Tipo de Satisfacción Registrada N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposTipoSatisfaccion[0],satisfaccion.getIdTipoSatisfaccion());
@@ -514,8 +515,7 @@ public class BD_Controlador {
         cv.put(camposTipoSatisfaccion[2], satisfaccion.getNotaMenor());
         cv.put(camposTipoSatisfaccion[3], satisfaccion.getNotaMayor());
         try {
-            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?",
-                    id);
+            db.update(TABLE_TIPO_SATISFACCION, cv, camposTipoSatisfaccion[0]+"=?",id);
             return "Registro actualizado correctamente";
         }catch (SQLException e) {
             return "Registro con id = "+satisfaccion.getIdTipoSatisfaccion()+" no existe";
@@ -553,7 +553,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - SECTOR*/
     public String insertar(Sector sector) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Sector Registrado N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposSector[0],sector.getIdSector());
@@ -608,7 +608,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - TIPO_EMPRESA*/
     public String insertar(Tipo_Empresa tipoEmpresa) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Tipo de Empresa Registrada N°: ";
         long cont = 0;
         ContentValues cv = new ContentValues();
         cv.put(camposTipoEmpresa[0],tipoEmpresa.getIdTipoEmpresa());
@@ -717,7 +717,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - EMPRESA*/
 
     public String insertar(Empresa empresa) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Empresa Registrada N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -731,7 +731,7 @@ public class BD_Controlador {
         try {
             cont = db.insert(TABLE_EMPRESA, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro, Registro duplicado o Error de integridad referencial. Verificar insercción";
+                regInsertados = "Error al insertar la Empresa. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
             regInsertados = "Error al insertar el registro, No existe el TipoEmpresa. Verificar inserccion";
@@ -793,7 +793,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - MUNICIPIO*/
 
     public String insertar(Municipio municipio) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Municipio Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -859,7 +859,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - LOCAL*/
     public String insertar(Local local) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Local Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -873,7 +873,7 @@ public class BD_Controlador {
         try {
             cont = db.insert(TABLE_LOCAL, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+                regInsertados = "Error al insertar el Local. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
             regInsertados = "Error al insertar el registro. Error de integridad referencial";
@@ -934,7 +934,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - CLIENTE*/
     public String insertar(Cliente cliente) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Cliente Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -948,10 +948,10 @@ public class BD_Controlador {
         try {
             cont = db.insert(TABLE_CLIENTE, null, cv);
             if(cont == -1 || cont == 0)
-                regInsertados = "Error al insertar el registro. Registro duplicado. Verificar insercción";
+                regInsertados = "Error al insertar el Cliente. Error de Inserción";
             else regInsertados += cont;
         }catch (SQLException e){
-            regInsertados = "Error al insertar el registro. Error de integridad referencial";
+            regInsertados = "Error al insertar el Cliente. Error de Integridad Referencial";
         }
         return regInsertados;
     }
@@ -966,18 +966,17 @@ public class BD_Controlador {
         cv.put(camposCliente[4], cliente.getNomcliente());
         cv.put(camposCliente[5], cliente.getTelefonoCliente());
         try {
-            long cont = db.update(TABLE_CLIENTE, cv, camposCliente[0] + "=?",
-                    id);
+            long cont = db.update(TABLE_CLIENTE, cv, camposCliente[0] + "=?",id);
             if(cont==-1 || cont==0)
-                return "Registro con id = "+cliente.getIdCliente()+" no existe";
-            else return "Registro actualizado correctamente";
+                return "Cliente con id: "+cliente.getIdCliente()+" no existe";
+            else return "Cliente actualizado correctamente";
         }catch (SQLException e){
-            return "Error de integridad referencial";
+            return "Error de Integridad Referencial";
         }
     }
 
     public String eliminar(Cliente cliente) {
-        String registrosAfectados = "Filas afectadas = ";
+        String registrosAfectados = "Filas afectadas: ";
         int cont = 0;
         try{
             cont+= db.delete(TABLE_CLIENTE,
@@ -1010,7 +1009,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - EVALUACION*/
     public String insertar(Evaluacion evaluacion) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Evaluación Registrada N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -1112,8 +1111,8 @@ public class BD_Controlador {
         String[] id = {denuncia.getIdDenuncia()};
         ContentValues cv = new ContentValues();
         cv.put(camposDenuncia[0], denuncia.getIdDenuncia());
-        cv.put(camposDenuncia[1], denuncia.getIdLocal());
-        cv.put(camposDenuncia[2], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[1], denuncia.getIdUsuario());
+        cv.put(camposDenuncia[2], denuncia.getIdLocal());
         cv.put(camposDenuncia[3], denuncia.getTextDenuncia());
         cv.put(camposDenuncia[4], denuncia.getFechaDenuncia());
         try {
@@ -1185,8 +1184,8 @@ public class BD_Controlador {
         String[] id = {sugerencias.getIdSugerencia()};
         ContentValues cv = new ContentValues();
         cv.put(camposSugerencias[0], sugerencias.getIdSugerencia());
-        cv.put(camposSugerencias[1], sugerencias.getIdLocal());
-        cv.put(camposSugerencias[2], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[1], sugerencias.getIdUsuario());
+        cv.put(camposSugerencias[2], sugerencias.getIdLocal());
         cv.put(camposSugerencias[3], sugerencias.getTextSugerencia());
         cv.put(camposSugerencias[4], sugerencias.getFechaSugerencia());
         try {
@@ -1241,7 +1240,7 @@ public class BD_Controlador {
         cv.put(camposComentarios[1], comentarios.getIdUsuario());
         cv.put(camposComentarios[2], comentarios.getIdLocal());
         cv.put(camposComentarios[3], comentarios.getTextComentario());
-        cv.put(camposComentarios[4], comentarios.getTextComentario());
+        cv.put(camposComentarios[4], comentarios.getFechaComentario());
 
         try {
             cont = db.insert(TABLE_COMENTARIOS, null, cv);
@@ -1261,7 +1260,7 @@ public class BD_Controlador {
         cv.put(camposComentarios[1], comentarios.getIdUsuario());
         cv.put(camposComentarios[2], comentarios.getIdLocal());
         cv.put(camposComentarios[3], comentarios.getTextComentario());
-        cv.put(camposComentarios[4], comentarios.getTextComentario());
+        cv.put(camposComentarios[4], comentarios.getFechaComentario());
         try {
             long cont = db.update(TABLE_COMENTARIOS, cv, camposComentarios[0] + "=?",
                     id);
@@ -1433,7 +1432,7 @@ public class BD_Controlador {
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Sugerencias App*/
     public String insertar(Sugerencias_App sugerencias_app) {
-        String regInsertados = "Registro insertado N°= ";
+        String regInsertados = "Mensaje Registrado N°: ";
 
         long cont = 0;
         ContentValues cv = new ContentValues();
@@ -1549,7 +1548,6 @@ public class BD_Controlador {
         insertar(new Sector("SE02","Farmacias"));
         insertar(new Sector("SE03","Gasolinera"));
         insertar(new Sector("SE04","Supermercados"));
-        insertar(new Sector("SE05","Banca"));
 
         //TABLA_SEXO
         insertar(new Sexo("S01", "Masculino", "M"));
@@ -1558,7 +1556,6 @@ public class BD_Controlador {
         //TABLA_TIPO_USUARIO
         insertar(new Tipo_Usuario("TP01","Administrador"));
         insertar(new Tipo_Usuario("TP02","Usuario normal"));
-
 
 
         /* - - - NO PRIMARIAS XD - - - */
@@ -1579,23 +1576,22 @@ public class BD_Controlador {
         insertar(new Local("L0001", "E0001", "SE04", "M001", "Super Selectos Apopa", "Supermercado, sucursal de Apopa, San Salvador"));
         insertar(new Local("L0002", "E0002", "SE02", "M002", "Farmacia Lupita 3", "Servicio de farmacia, sucursal de  Cuyultitan"));
         insertar(new Local("L0003", "E0003", "SE01", "M003", "Metrocentro Santa Ana", "Centro Comercial, sucursal de Santa Ana"));
-        insertar(new Local("L0004", "E0004", "SE05", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
+        insertar(new Local("L0004", "E0004", "SE03", "M004", "Bandesal Ciudad Barrios", "Banco de Desarrollo Salvadoreño, sucursal de Ciudad Barrios, San Miguel"));
 
         //TABLA USUARIO
         insertar(new Usuario("U0000", "TP01","E0001","admin","admin","admin@admin.com"));
         insertar(new Usuario("U0001", "TP01", "E0001", "Antonio_98", "arcoiris2022", "JP17003@UES.EDU.SV"));
         insertar(new Usuario("U0002", "TP02", "E0004", "arturoMtz", "manzanas123", "arturomartinez@gmail.com"));
         insertar(new Usuario("U0003", "TP02", "E0002", "rivera78", "rivera78lol", "rivera78@gmail.com"));
-        insertar(new Usuario("U0004", "TP02", "E0003", "Castillo22", "cas1234", "castillolopez@gmail.com"));
 
         //TABLA COMENTARIOS
         insertar(new Comentarios("C0001", "U0003", "L0001", "Siempre suena buena musica en los pasillos","24/04/2022"));
         insertar(new Comentarios("C0002", "U0002", "L0002", "Muy bien organizadao, es facil encontrar los productos","10/04/2022"));
         insertar(new Comentarios("C0003", "U0003", "L0003", "Las remoledaciones estan muy bien, pero espero terminen pronto","15/04/2022"));
-        insertar(new Comentarios("C0004", "U0004", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
+        insertar(new Comentarios("C0004", "U0003", "L0004", "Muy buen servicio para los clientes","17/04/2021"));
 
         //TABLA SUGERENCIAS
-        insertar(new Sugerencias("S0001", "U0004", "L0002", "Que creen servicio a domicilio", "24/04/2022"));
+        insertar(new Sugerencias("S0001", "U0002", "L0004", "Prueba", "23/03/2022"));
         insertar(new Sugerencias("S0002", "U0002", "L0001", "Ya no ponen Alcohol gel", "23/03/2022"));
         insertar(new Sugerencias("S0003", "U0003", "L0003", "Que pongan mas personal de seguridad", "15/03/2022"));
         insertar(new Sugerencias("S0004", "U0003", "L0002", "Que exista personal nocturno", "12/04/2022"));
@@ -1609,7 +1605,7 @@ public class BD_Controlador {
 
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
-        insertar(new Cliente("CL0002", "RE004","U0004","S02","Marina Castillo Lopez", "23451234"));
+        insertar(new Cliente("CL0002", "RE004","U0003","S02","Marina Castillo Lopez", "23451234"));
         insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
         insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
 
@@ -1620,12 +1616,11 @@ public class BD_Controlador {
         insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
         insertar(new Evaluacion("E0004", "L0002", "CL0002", "TS004", 9, "Justificación Z"));
 
-
         //TABLA SUGERENCIAS_APP
         insertar(new Sugerencias_App("SU0001", "U0001", "Mejorar la administracion de los comentarios"));
         insertar(new Sugerencias_App("SU0002", "U0002", "Podrían hacer el diseño mas llamativo"));
         insertar(new Sugerencias_App("SU0003", "U0003", "Incorporar mas sectores para poder evaluar"));
-        insertar(new Sugerencias_App("SU0004", "U0004", "Sería interesante compartir fotos de los establecimientos"));
+        insertar(new Sugerencias_App("SU0004", "U0003", "Sería interesante compartir fotos de los establecimientos"));
 
 
     }

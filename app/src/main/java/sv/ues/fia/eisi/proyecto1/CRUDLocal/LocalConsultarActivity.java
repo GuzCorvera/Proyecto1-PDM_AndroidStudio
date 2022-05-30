@@ -44,8 +44,8 @@ public class LocalConsultarActivity extends Activity {
                 editIdMunicipio.setText(local.getIdMunicipio());
                 editNombreLocal.setText(local.getNombreLocal());
                 editDescripLocal.setText(local.getDescripLocal());
-            }else Toast.makeText(context,"No existe N°="+editIdLocal.getText().toString(),Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context,"No existe el idLocal: "+editIdLocal.getText().toString(),Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

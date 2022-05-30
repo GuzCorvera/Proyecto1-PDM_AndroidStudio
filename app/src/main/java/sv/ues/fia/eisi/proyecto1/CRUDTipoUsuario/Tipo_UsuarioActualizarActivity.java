@@ -25,6 +25,17 @@ public class Tipo_UsuarioActualizarActivity extends Activity {
         editDesTipoUsuario = (EditText) findViewById(R.id.editDesTipoUsuario);
     }
 
+    public void consultarTipoUsuario(View v){
+        if (!editIdTipoUsuario.getText().toString().equals("")){
+            helper.abrir();
+            Tipo_Usuario tipoUsuario = helper.consultarTipoUsuario(editIdTipoUsuario.getText().toString());
+            helper.cerrar();
+            if(tipoUsuario != null)
+                editDesTipoUsuario.setText(tipoUsuario.getDesTipoUsuario());
+            else Toast.makeText(context, "No existe el idTipoUsuario: "+editIdTipoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarTipoUsuario(View v){
         if (!editIdTipoUsuario.getText().toString().equals("") & !editDesTipoUsuario.getText().toString().equals("")){
             Tipo_Usuario tipoUsuario = new Tipo_Usuario();
@@ -34,6 +45,7 @@ public class Tipo_UsuarioActualizarActivity extends Activity {
             String actualizar = helper.actualizar(tipoUsuario);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

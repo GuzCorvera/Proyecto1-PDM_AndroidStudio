@@ -39,7 +39,7 @@ public class Sugerencias_AppInsertarActivity extends Activity {
             String insertar = helper.insertar(sugerencias_app);
             helper.cerrar();
             Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

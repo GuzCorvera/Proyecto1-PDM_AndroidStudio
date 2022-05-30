@@ -115,10 +115,10 @@ public class MainActivity extends ListActivity {
                 helper.abrir();
                 helper.llenarBD();
                 helper.cerrar();
-                Toast.makeText(this, "Llenado correcto", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Llenado de Base de Datos con EXITO", Toast.LENGTH_SHORT).show();
             }catch (Exception e){
                 Log.d("Log", e.getMessage());
-                Toast.makeText(context, "Error llenado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Error al llenado de la Base de Datos", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -30,7 +30,7 @@ public class Rango_EdadEliminarActivity extends Activity {
             String eliminar = helper.eliminar(rango_edad);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Ingrese el ID", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campo idRangoEdad vacio", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

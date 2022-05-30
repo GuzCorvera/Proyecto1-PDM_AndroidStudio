@@ -18,7 +18,7 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdCliente"
             android:inputType="textPersonName"
-            android:maxLength="6" />
+            android:maxLength="6"/>
     </TableRow>
 
     <TableRow
@@ -52,7 +52,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdRangoEdad"
             android:inputType="textPersonName"
-            android:maxLength="5" />
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -68,7 +73,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editIdUsuario"
             android:inputType="textPersonName"
-            android:maxLength="5" />
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -84,7 +94,12 @@
             android:id="@+id/editIdSexo"
             android:layout_marginHorizontal="5dp"
             android:inputType="textPersonName"
-            android:maxLength="3" />
+            android:maxLength="3"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -100,7 +115,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomCliente"
             android:inputType="textPersonName"
-            android:maxLength="300" />
+            android:maxLength="300"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -116,7 +136,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editTelefonoCliente"
             android:inputType="textPersonName"
-            android:maxLength="20" />
+            android:maxLength="20"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>

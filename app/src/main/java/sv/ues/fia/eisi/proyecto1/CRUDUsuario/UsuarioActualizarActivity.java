@@ -33,6 +33,21 @@ public class UsuarioActualizarActivity extends Activity {
         editCorreoUsuario = (EditText) findViewById(R.id.editCorreoUsuario);
     }
 
+    public void consultarUsuario(View v){
+        if(!editIdUsuario.getText().toString().equals("")){
+            helper.abrir();
+            Usuario usuario = helper.consultarUsuario(editIdUsuario.getText().toString());
+            helper.cerrar();
+            if(usuario!= null){
+                editIdTipoUsuario.setText(usuario.getIdTipoUsuario());
+                editIdEmpresa.setText(usuario.getIdEmpresa());
+                editNomUsuario.setText(usuario.getIdEmpresa());
+                editContraUsuario.setText(usuario.getContraUsuario());
+                editCorreoUsuario.setText(usuario.getCorreoUsuario());
+            }else Toast.makeText(context, "No existe el idUsuario: "+editIdUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarUsuario(View v){
         if(!editIdUsuario.getText().toString().equals("") & !editIdTipoUsuario.getText().toString().equals("") &
                 !editIdEmpresa.getText().toString().equals("") & !editNomUsuario.getText().toString().equals("") &
@@ -49,6 +64,7 @@ public class UsuarioActualizarActivity extends Activity {
             String actualizar = helper.actualizar(usuario);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 

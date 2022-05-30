@@ -24,54 +24,6 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Empresa" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdEmpresa"
-            android:inputType="textPersonName"
-            android:maxLength="5" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Sector" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdSector"
-            android:inputType="textPersonName"
-            android:maxLength="4" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Id Munincipio" />
-
-        <EditText
-            android:layout_marginHorizontal="5dp"
-            android:id="@+id/editIdMunicipio"
-            android:inputType="textPersonName"
-            android:maxLength="4" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
         <Button
             android:onClick="consultarLocal"
             android:text="Consultar" />
@@ -92,13 +44,83 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Id Empresa" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdEmpresa"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Sector" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdSector"
+            android:inputType="textPersonName"
+            android:maxLength="4"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Munincipio" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdMunicipio"
+            android:inputType="textPersonName"
+            android:maxLength="4"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Nombre del Local" />
 
         <EditText
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNombreLocal"
             android:inputType="textPersonName"
-            android:maxLength="30" />
+            android:maxLength="30"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -114,7 +136,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editDescripLocal"
             android:inputType="textPersonName"
-            android:maxLength="70" />
+            android:maxLength="70"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>

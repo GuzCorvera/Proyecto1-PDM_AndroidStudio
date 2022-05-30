@@ -30,7 +30,7 @@ public class SugerenciasEliminarActivity extends Activity {
             String eliminar =  helper.eliminar(sugerencias);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campo idSugerencias vacío", Toast.LENGTH_SHORT).show();
     }
     public void limpiarTexto(View v){
         editIdSugerencia.setText("");

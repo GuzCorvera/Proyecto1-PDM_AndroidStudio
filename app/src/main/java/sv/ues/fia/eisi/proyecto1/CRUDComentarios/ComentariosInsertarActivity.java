@@ -33,8 +33,8 @@ public class ComentariosInsertarActivity extends Activity {
 
     public void insertarComentarios(View v){
         if(!editIdComentario.getText().toString().equals("") & !editIdUsuarioComentario.getText().toString().equals("") &
-        !editIdLocalComentario.getText().toString().equals("") & editTextComentario.getText().toString().equals("") &
-        editFechaComentario.getText().toString().equals("")){
+        !editIdLocalComentario.getText().toString().equals("") & !editTextComentario.getText().toString().equals("") &
+        !editFechaComentario.getText().toString().equals("")){
             Comentarios comentarios = new Comentarios(
                     editIdComentario.getText().toString(),
                     editIdUsuarioComentario.getText().toString(),
@@ -46,7 +46,7 @@ public class ComentariosInsertarActivity extends Activity {
             String insertar = helper.insertar(comentarios);
             helper.cerrar();
             Toast.makeText(context, insertar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

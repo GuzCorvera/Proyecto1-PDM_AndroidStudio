@@ -30,7 +30,8 @@ public class UsuarioEliminarActivity extends Activity {
             String eliminar = helper.eliminar(usuario);
             helper.cerrar();
             Toast.makeText(context, eliminar, Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
+        }else Toast.makeText(context, "Campo idUsuario vacío", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

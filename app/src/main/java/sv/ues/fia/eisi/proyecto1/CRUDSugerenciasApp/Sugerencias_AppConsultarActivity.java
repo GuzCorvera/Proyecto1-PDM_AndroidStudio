@@ -35,8 +35,8 @@ public class Sugerencias_AppConsultarActivity extends Activity {
             if(sugerencias_app!=null){
                 editIdUsuario.setText(sugerencias_app.getIdUsuario());
                 editTxtSugerenciasApp.setText(sugerencias_app.getTxtSugerenciasApp());
-            }else Toast.makeText(context, "No existe N°="+editIdSugerenciasApp.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idSugerenciasApp: "+editIdSugerenciasApp.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

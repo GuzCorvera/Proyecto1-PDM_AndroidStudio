@@ -27,7 +27,6 @@ public class SexoConsultarActivity extends Activity {
         editAbreviaturaSexo = (EditText) findViewById(R.id.editAbreviaturaSexo);
     }
 
-
     public void consultarSexo(View v){
         if(!editIdSexo.getText().toString().equals("")){
             helper.abrir();
@@ -36,8 +35,8 @@ public class SexoConsultarActivity extends Activity {
             if(sexo != null){
                 editNomSexo.setText(sexo.getNomSexo());
                 editAbreviaturaSexo.setText(sexo.getAbreviaturaSexo());
-            }else Toast.makeText(context, "No existe: "+editIdSexo.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idSexo: "+editIdSexo.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

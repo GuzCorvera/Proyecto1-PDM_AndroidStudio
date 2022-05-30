@@ -37,12 +37,12 @@ public class SugerenciasConsultarActivity extends Activity {
             Sugerencias sugerencia =  helper.consultarSugerencia(editIdSugerencia.getText().toString());
             helper.cerrar();
             if(sugerencia!=null){
-                editIdLocalSugerencia.setText(sugerencia.getIdLocal());
                 editIdUsuarioSugerencia.setText(sugerencia.getIdUsuario());
+                editIdLocalSugerencia.setText(sugerencia.getIdLocal());
                 editTextSugerencia.setText(sugerencia.getTextSugerencia());
                 editFechaSugerencia.setText(sugerencia.getFechaSugerencia());
-            }else Toast.makeText(context, "No existe N°="+editIdSugerencia.getText().toString(), Toast.LENGTH_SHORT).show();
-        }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(context, "No existe el idSugerencias: "+editIdSugerencia.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
     }
 
     public void limpiarTexto(View v){

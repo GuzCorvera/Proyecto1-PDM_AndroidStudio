@@ -50,7 +50,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editNomSexo"
             android:inputType="textPersonName"
-            android:maxLength="30" />
+            android:maxLength="30"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
     <TableRow
@@ -66,7 +71,12 @@
             android:layout_marginHorizontal="5dp"
             android:id="@+id/editAbreviaturaSexo"
             android:inputType="textPersonName"
-            android:maxLength="3" />
+            android:maxLength="3"
+
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </TableRow>
 
 </LinearLayout>

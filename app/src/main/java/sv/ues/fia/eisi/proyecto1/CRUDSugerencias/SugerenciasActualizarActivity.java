@@ -31,10 +31,26 @@ public class SugerenciasActualizarActivity extends Activity {
         editFechaSugerencia = (EditText) findViewById(R.id.editFechaSugerencia);
     }
 
+    public void consultarSugerencias(View v){
+        if(!editIdSugerencia.getText().toString().equals("")){
+            helper.abrir();
+            Sugerencias sugerencia =  helper.consultarSugerencia(editIdSugerencia.getText().toString());
+            helper.cerrar();
+            if(sugerencia!=null){
+                editIdUsuarioSugerencia.setText(sugerencia.getIdUsuario());
+                editIdLocalSugerencia.setText(sugerencia.getIdLocal());
+                editTextSugerencia.setText(sugerencia.getTextSugerencia());
+                editFechaSugerencia.setText(sugerencia.getFechaSugerencia());
+            }else Toast.makeText(context, "No existe el idSugerencias: "+editIdSugerencia.getText().toString(), Toast.LENGTH_SHORT).show();
+        }else Toast.makeText(context, "Campos vacíos", Toast.LENGTH_SHORT).show();
+    }
+
     public void actualizarSugerencias(View v){
-        if(!editIdSugerencia.getText().toString().equals("") & !editIdLocalSugerencia.getText().toString().equals("") &
-                !editIdUsuarioSugerencia.getText().toString().equals("") & !editTextSugerencia.getText().toString().equals("") &
-                !editFechaSugerencia.getText().toString().equals("")){
+        if(!editIdSugerencia.getText().toString().equals("")
+                & !editIdUsuarioSugerencia.getText().toString().equals("")
+                & !editIdLocalSugerencia.getText().toString().equals("")
+                & !editTextSugerencia.getText().toString().equals("")
+                & !editFechaSugerencia.getText().toString().equals("")){
             Sugerencias sugerencias = new Sugerencias(
                     editIdSugerencia.getText().toString(),
                     editIdUsuarioSugerencia.getText().toString(),
@@ -46,6 +62,7 @@ public class SugerenciasActualizarActivity extends Activity {
             String actualizar =  helper.actualizar(sugerencias);
             helper.cerrar();
             Toast.makeText(context, actualizar, Toast.LENGTH_SHORT).show();
+            limpiarTexto(v);
         }else Toast.makeText(context, "Datos vacíos", Toast.LENGTH_SHORT).show();
     }
 
