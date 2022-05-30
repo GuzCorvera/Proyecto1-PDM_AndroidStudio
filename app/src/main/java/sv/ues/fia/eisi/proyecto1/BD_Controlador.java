@@ -75,7 +75,7 @@ public class BD_Controlador {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private static final String BASE_DATOS = "Proyecto1_PDM_Etapa1.s3db";
+        private static final String BASE_DATOS = "Proyecto1_PDM.s3db";
         private static final int VERSION = 1;
 
         public DatabaseHelper(Context context) {
@@ -1609,7 +1609,6 @@ public class BD_Controlador {
         insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
         insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
 
-        Log.d("Log", "evaluacion comprobante");
         //TABLA EVALUACION
         insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
         insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
