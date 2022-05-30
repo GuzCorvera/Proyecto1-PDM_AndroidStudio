@@ -25,7 +25,7 @@ public class EvaluacionConsultarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluacion_consultar);
         helper = new BD_Controlador(this);
-        editIdEvaluacion = (EditText) findViewById(R.id.editIdEvaluacion);
+        editIdEvaluacion = (EditText) findViewById(R.id.editTextIdEvaluacion);
         editIdLocal = (EditText) findViewById(R.id.editIdLocal);
         editIdCliente = (EditText) findViewById(R.id.editIdCliente);
         editIdTipoSatisfaccion = (EditText) findViewById(R.id.editIdTipoSatisfaccion);

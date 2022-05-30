@@ -43,6 +43,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import sv.ues.fia.eisi.proyecto1.CRUDCliente.Cliente;
 import sv.ues.fia.eisi.proyecto1.CRUDComentarios.Comentarios;
@@ -105,6 +106,7 @@ public class BD_Controlador {
                 db.execSQL("CREATE TABLE "+TABLE_SEXO+" ("+camposSexo[0]+" VARCHAR2(8) not null, "+camposSexo[1]+" VARCHAR2(30) not null, "+camposSexo[2]+" CHAR(2) not null, constraint PK_SEXO primary key ("+camposSexo[0]+"));");
                 db.execSQL("CREATE TABLE "+TABLE_USUARIO_TEMP+" ("+camposUsuarioTemp[0]+" VARCHAR2(8) not null, "+camposUsuarioTemp[1]+" VARCHAR2(30) not null, constraint PK_USUARIO_TEMP primary key ("+camposUsuarioTemp[0]+"));");
 
+                db.execSQL("Insert into "+TABLE_TIPO_USUARIO+" values('TP01','Administrador')");
                 db.execSQL("Insert into "+TABLE_USUARIO+" values('U0000', 'TP01','', 'admin','admin','admin@admin.com')");
 
                 /*--------------------------------------------------------TRIGGERS-------------------------------------------------------------*/
@@ -139,11 +141,11 @@ public class BD_Controlador {
                 //TABLE MUNICIPIO
                 db.execSQL("CREATE TRIGGER fk_INSERT_"+TABLE_MUNICIPIO+
                         " before insert on "+TABLE_MUNICIPIO+" begin " +
-                        "select case when(select "+camposDepartamento[0]+" from "+TABLE_DEPARTAMENTO+" where "+camposDepartamento[0]+" = new."+camposMunicipio[1]+") is null " +
+                        "select case when(select "+camposDepartamento[0]+" from "+TABLE_DEPARTAMENTO+" where "+camposDepartamento[0]+" = new."+camposDepartamento[0]+") is null " +
                         "then raise(abort,'Error de integridad') end; end;");
                 db.execSQL("CREATE TRIGGER fk_UPDATE_"+TABLE_MUNICIPIO+
                         " before update on "+TABLE_MUNICIPIO+" begin " +
-                        "select case when(select "+camposDepartamento[0]+" from "+TABLE_DEPARTAMENTO+" where "+camposDepartamento[0]+"=new."+camposMunicipio[1]+") is null " +
+                        "select case when(select "+camposDepartamento[0]+" from "+TABLE_DEPARTAMENTO+" where "+camposDepartamento[0]+"=new."+camposDepartamento[0]+") is null " +
                         "then raise(abort, 'Error de integridad referencial') end; end;");
                 db.execSQL("CREATE TRIGGER fk_DELETE_"+TABLE_MUNICIPIO+
                         " before delete on "+TABLE_MUNICIPIO+" for each row begin "+
@@ -267,7 +269,7 @@ public class BD_Controlador {
                 //TABLE TIPO_USUARIO
                 db.execSQL("CREATE TRIGGER fk_DELETE_"+TABLE_TIPO_USUARIO+
                         " before delete on "+TABLE_TIPO_USUARIO+" for each row begin "+
-                        " select case when(select "+camposUsuario[0]+" from "+TABLE_USUARIO+" where "+camposUsuario[0]+" =old."+camposUsuario[0]+") is not null " +
+                        " select case when(select "+camposTipoUsuario[0]+" from "+TABLE_USUARIO+" where "+camposTipoUsuario[0]+" =old."+camposTipoUsuario[0]+") is not null " +
                         "then raise(abort, 'Error de integridad') end; end;");
 
                 //TABLE USUARIO
@@ -353,10 +355,16 @@ public class BD_Controlador {
     public String eliminar(Rango_Edad rango_edad) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_RANGO_EDAD,
-                camposRangoEdad[0]+"='"+rango_edad.getIdRangoEdad()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_RANGO_EDAD,
+                    camposRangoEdad[0]+"='"+rango_edad.getIdRangoEdad()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Rango_Edad consultarRangoEdad(String idRangoEdad) {
@@ -406,10 +414,16 @@ public class BD_Controlador {
     public String eliminar(Sexo sexo) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_SEXO,
-                camposSexo[0]+"='"+sexo.getIdSexo()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_SEXO,
+                    camposSexo[0]+"='"+sexo.getIdSexo()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Sexo consultarSexo(String idSexo) {
@@ -511,10 +525,16 @@ public class BD_Controlador {
     public String eliminar(Tipo_Satisfaccion satisfaccion) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_TIPO_SATISFACCION,
-                camposTipoSatisfaccion[0]+"='"+satisfaccion.getIdTipoSatisfaccion()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_TIPO_SATISFACCION,
+                    camposTipoSatisfaccion[0]+"='"+satisfaccion.getIdTipoSatisfaccion()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Tipo_Satisfaccion consultarTipoSatisfaccion(String idTipoSatisfaccion) {
@@ -562,10 +582,16 @@ public class BD_Controlador {
     public String eliminar(Sector sector) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_SECTOR,
-                camposSector[0]+"='"+sector.getIdSector()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_SECTOR,
+                    camposSector[0]+"='"+sector.getIdSector()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Sector consultarSector(String idSector) {
@@ -664,10 +690,16 @@ public class BD_Controlador {
     public String eliminar(Tipo_Usuario tipoUsuario) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_TIPO_USUARIO,
-                camposTipoUsuario[0]+"='"+tipoUsuario.getIdTipoUsuario()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_TIPO_USUARIO,
+                    camposTipoUsuario[0]+"='"+tipoUsuario.getIdTipoUsuario()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Tipo_Usuario consultarTipoUsuario(String idTipoUsuario) {
@@ -730,10 +762,16 @@ public class BD_Controlador {
     public String eliminar(Empresa empresa) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_EMPRESA,
-                camposEmpresa[0]+"='"+empresa.getIdEmpresa()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_EMPRESA,
+                    camposEmpresa[0]+"='"+empresa.getIdEmpresa()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Empresa consultarEmpresa(String idEmpresa) {
@@ -794,10 +832,16 @@ public class BD_Controlador {
     public String eliminar(Municipio municipio) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_MUNICIPIO,
-                camposMunicipio[0]+"='"+municipio.getIdMunicipio()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_MUNICIPIO,
+                    camposMunicipio[0]+"='"+municipio.getIdMunicipio()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Municipio consultarMunicipio(String idMunicipio) {
@@ -860,10 +904,16 @@ public class BD_Controlador {
     public String eliminar(Local local) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_LOCAL,
-                camposLocal[0]+"='"+local.getIdLocal()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_LOCAL,
+                    camposLocal[0]+"='"+local.getIdLocal()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Local consultarLocal(String idLocal) {
@@ -928,13 +978,16 @@ public class BD_Controlador {
     public String eliminar(Cliente cliente) {
         String registrosAfectados = "Filas afectadas: ";
         int cont = 0;
-        try {
-            cont+= db.delete(TABLE_CLIENTE,camposCliente[0]+"='"+cliente.getIdCliente()+"'", null);
+        try{
+            cont+= db.delete(TABLE_CLIENTE,
+                    camposCliente[0]+"='"+cliente.getIdCliente()+"'", null);
             registrosAfectados+= cont;
             return registrosAfectados;
         }catch (SQLException e){
-            return "Error de Integridad Referencial";
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
         }
+
     }
 
     public Cliente consultarCliente(String idCliente) {
@@ -966,7 +1019,7 @@ public class BD_Controlador {
         cv.put(camposEvaluacion[3], evaluacion.getIdTipoSatisfaccion());
         cv.put(camposEvaluacion[4], evaluacion.getNotaEvaCliente());
         cv.put(camposEvaluacion[5], evaluacion.getJustificacionCliente());
-
+        Log.d("Log", evaluacion.getIdEvaluacion()+", "+evaluacion.getIdLocal());
         try {
             cont = db.insert(TABLE_EVALUACION, null, cv);
             if(cont == -1 || cont == 0)
@@ -975,6 +1028,7 @@ public class BD_Controlador {
         }catch (SQLException e){
             regInsertados = "Error al insertar el registro. Error de integridad referencial";
         }
+        Log.d("Log", regInsertados);
         return regInsertados;
     }
 
@@ -1001,10 +1055,16 @@ public class BD_Controlador {
     public String eliminar(Evaluacion evaluacion) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_EVALUACION,
-                camposEvaluacion[0]+"='"+evaluacion.getIdEvaluacion()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_EVALUACION,
+                    camposEvaluacion[0]+"='"+evaluacion.getIdEvaluacion()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Evaluacion consultarEvaluacion(String idEvaluacion) {
@@ -1069,10 +1129,16 @@ public class BD_Controlador {
     public String eliminar(Denuncia denuncia) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_DENUNCIA,
-                camposDenuncia[0]+"='"+denuncia.getIdDenuncia()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_DENUNCIA,
+                    camposDenuncia[0]+"='"+denuncia.getIdDenuncia()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Denuncia consultarDenuncia(String idDenuncia) {
@@ -1136,10 +1202,16 @@ public class BD_Controlador {
     public String eliminar(Sugerencias sugerencias) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_SUGERENCIAS,
-                camposSugerencias[0]+"='"+sugerencias.getIdSugerencia()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_SUGERENCIAS,
+                    camposSugerencias[0]+"='"+sugerencias.getIdSugerencia()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Sugerencias consultarSugerencia(String idSugerencia) {
@@ -1203,10 +1275,16 @@ public class BD_Controlador {
     public String eliminar(Comentarios comentarios) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_COMENTARIOS,
-                camposComentarios[0]+"='"+comentarios.getIdComentario()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_COMENTARIOS,
+                    camposComentarios[0]+"='"+comentarios.getIdComentario()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Comentarios consultarComentario(String idComentario) {
@@ -1272,10 +1350,16 @@ public class BD_Controlador {
     public String eliminar(Usuario usuario) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_USUARIO,
-                camposUsuario[0]+"='"+usuario.getIdUsuario()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_USUARIO,
+                    camposUsuario[0]+"='"+usuario.getIdUsuario()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Usuario consultarUsuario(String idUsuario) {
@@ -1387,10 +1471,16 @@ public class BD_Controlador {
     public String eliminar(Sugerencias_App sugerencias_app) {
         String registrosAfectados = "Filas afectadas = ";
         int cont = 0;
-        cont+= db.delete(TABLE_SUGERENCIAS_APP,
-                camposSugerencias_App[0]+"='"+sugerencias_app.getIdSugerenciasApp()+"'", null);
-        registrosAfectados+= cont;
-        return registrosAfectados;
+        try {
+            cont+= db.delete(TABLE_SUGERENCIAS_APP,
+                    camposSugerencias_App[0]+"='"+sugerencias_app.getIdSugerenciasApp()+"'", null);
+            registrosAfectados+= cont;
+            return registrosAfectados;
+        }catch (SQLException e){
+            Log.d("Log", e.getMessage());
+            return "Error de integridad referencial";
+        }
+
     }
 
     public Sugerencias_App consultarSugerenciasApp(String idSugerenciasApp) {
@@ -1417,6 +1507,7 @@ public class BD_Controlador {
         db.execSQL("delete from "+TABLE_DENUNCIA);
         db.execSQL("delete from "+TABLE_CLIENTE);
         db.execSQL("delete from "+TABLE_USUARIO);
+        db.execSQL("delete from "+TABLE_TIPO_USUARIO);
         db.execSQL("delete from "+TABLE_LOCAL);
         db.execSQL("delete from "+TABLE_EMPRESA);
         db.execSQL("delete from "+TABLE_MUNICIPIO);
@@ -1509,7 +1600,8 @@ public class BD_Controlador {
         insertar(new Denuncia("D0001", "U0002", "L0003","Me robaron frente a un Guardia","17/04/2021"));
         insertar(new Denuncia("D0002", "U0002", "L0001","Falta personal en las cajas","15/04/2022"));
         insertar(new Denuncia("D0003", "U0002", "L0002","Una empleada era muy pésima","24/04/2022"));
-        insertar(new Denuncia("D0004", "U0003", "L0001","Muchas de las cajas están cerradas","10/04/2022"));
+        insertar(new Denuncia("D0004", "U0004", "L0004","Muchas de las cajas están cerradas","10/04/2022"));
+
 
         //TABLA CLIENTE
         insertar(new Cliente("CL0001", "RE002","U0001","S01","Antonio Valladar", "76243870"));
@@ -1517,11 +1609,12 @@ public class BD_Controlador {
         insertar(new Cliente("CL0003", "RE001","U0002","S01","Arturo Martinez", "78534112"));
         insertar(new Cliente("CL0004", "RE003","U0003","S02","Margarita Rivera", "72345678"));
 
+        Log.d("Log", "evaluacion comprobante");
         //TABLA EVALUACION
         insertar(new Evaluacion("E0001", "L0002", "CL0001", "TS003", 7, "Justificación W"));
         insertar(new Evaluacion("E0002", "L0003", "CL0004", "TS002", 5, "Justificación X"));
         insertar(new Evaluacion("E0003", "L0001", "CL0003", "TS001", 3, "Justificación Y"));
-        insertar(new Evaluacion("E0004", "L0004", "CL0002", "TS004", 9, "Justificación Z"));
+        insertar(new Evaluacion("E0004", "L0002", "CL0002", "TS004", 9, "Justificación Z"));
 
         //TABLA SUGERENCIAS_APP
         insertar(new Sugerencias_App("SU0001", "U0001", "Mejorar la administracion de los comentarios"));
