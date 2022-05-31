@@ -9,15 +9,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import sv.ues.fia.eisi.proyecto1.BD_Controlador;
+import sv.ues.fia.eisi.proyecto1.ControladorServicio;
 import sv.ues.fia.eisi.proyecto1.R;
 
 
 import org.json.JSONObject;
 @SuppressLint("NewApi")
 public class Rango_EdadInsertar_wsActivity extends Activity {
-    BD_Controlador helper;
-    Context context = this;
     EditText editIdRangoEdad_ws;
     EditText editNombreRangoEdad_ws;
     EditText editEdadMenor_ws;
@@ -53,7 +51,7 @@ public class Rango_EdadInsertar_wsActivity extends Activity {
             case R.id.btn_insertarRangoEdad_ws:
                 url = urlHostingGratuito+ "?idRangoEdad=" + idRangoEdad + "&nombreRangoEdad="
                         + nombreRangoEdad + "&edadMenor=" + Float.parseFloat(edadMenor) + "&edadMayor=" + Float.parseFloat(edadMayor);
-                ControladorServicio.insertarEmpleadoExterno(url, this);
+                ControladorServicio.insertarRangoEdadExterno(url, this);
                 break;
         }
     }
