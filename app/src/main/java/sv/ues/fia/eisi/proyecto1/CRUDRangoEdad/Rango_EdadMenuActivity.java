@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class Rango_EdadMenuActivity extends ListActivity {
-    String[] menu = {"Insertar Rango de Edad", "Eliminar Rango de Edad", "Consultar Rango de Edad", "Actualizar Rango de Edad"};
-    String[] activities = {"Rango_EdadInsertarActivity", "Rango_EdadEliminarActivity", "Rango_EdadConsultarActivity", "Rango_EdadActualizarActivity"};
+    String[] menu = {"Insertar Rango de Edad", "Eliminar Rango de Edad", "Consultar Rango de Edad", "Actualizar Rango de Edad","Insertar Rango Edad WS"};
+    String[] activities = {"Rango_EdadInsertarActivity", "Rango_EdadEliminarActivity", "Rango_EdadConsultarActivity", "Rango_EdadActualizarActivity", "Rango_EdadInsertar_wsActivity"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,6 @@ public class Rango_EdadMenuActivity extends ListActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
     }
-
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {

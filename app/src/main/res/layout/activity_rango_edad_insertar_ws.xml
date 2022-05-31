@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Id Rango Edad" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editIdRangoEdad_ws"
+            android:inputType="textPersonName"
+            android:maxLength="5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del rango de edad" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editNombreRangoEdad_ws"
+            android:inputType="textPersonName"
+            android:maxLength="100" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edad menor" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editEdadMenor_ws"
+            android:inputType="textPersonName"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edad mayor" />
+
+        <EditText
+            android:layout_marginHorizontal="5dp"
+            android:id="@+id/editEdadMayor_ws"
+            android:inputType="textPersonName"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_insertarRangoEdad_ws"
+            android:onClick="insertarRangoEdad_ws"
+            android:text="Insertar Service (000WebHost)" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <Button
+            android:onClick="limpiarTexto_ws"
+            android:text="limpiar" />
+    </TableRow>
+
+</LinearLayout>
